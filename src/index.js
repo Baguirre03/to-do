@@ -1,8 +1,11 @@
-import './style.css'
+import "./style.css";
 
-const newElement = document.createElement('div')
-newElement.textContent = 'hello world'
-newElement.classList.add('element')
-const body = document.querySelector('body')
-body.appendChild(newElement)
+const name = "James";
 
+const person = { first: name };
+
+console.log(person);
+
+const sayHelloLinting = (fName) => {
+  console.log(`Hello linting, ${fName}`);
+};
