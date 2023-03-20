@@ -1,4 +1,4 @@
-class Project {
+class ToDo {
   constructor(
     title,
     description,
@@ -6,7 +6,8 @@ class Project {
     priority,
     timeAllocate,
     notes,
-    checkStat
+    checkStat,
+    project
   ) {
     this.title = title;
     this.description = description;
@@ -15,5 +16,6 @@ class Project {
     this.timeAllocate = timeAllocate;
     this.notes = notes;
     this.checkStat = checkStat;
+    this.project = project;
   }
 }
