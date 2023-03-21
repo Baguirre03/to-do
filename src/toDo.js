@@ -20,6 +20,12 @@ export class ToDo {
   }
 }
 
+const toDoholder = [];
+
+const pushToDo = (toDo) => {
+  toDoholder.push(toDo);
+};
+
 const createNewToDo = (
   title,
   description,
@@ -40,13 +46,7 @@ const createNewToDo = (
     checkStat,
     project
   );
+  pushToDo(holder);
 };
 
-const toDoholder = [];
-
-const pushToDo = (toDo) => {
-  toDoholder.push(toDo);
-  console.table(toDoholder);
-};
-
-export { pushToDo };
+export { createNewToDo, toDoholder };

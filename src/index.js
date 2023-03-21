@@ -1,10 +1,10 @@
 import pageLoad from "./pageLoad";
-import Project from "./project";
+import { allProjects, createProject, Project } from "./project";
 import "./style.css";
-import { pushToDo, ToDo } from "./toDo";
+import { createNewToDo, toDoholder } from "./toDo";
 
 pageLoad();
-const getThis = new ToDo(
+createNewToDo(
   "need this done",
   "get this  done by friday",
   "11/11",
@@ -15,13 +15,14 @@ const getThis = new ToDo(
   "this project"
 );
 
-const thisIsAProject = new Project("name", "hold");
-console.log(thisIsAProject);
+createProject("hello");
+createProject("three");
 
-thisIsAProject.holder.push(getThis);
-console.log(thisIsAProject);
+createNewToDo("1", "2", "3", "4", "5");
 
-const another = new ToDo("1", "2", "3", "4", "5");
+console.log(allProjects);
+console.log(toDoholder);
 
-pushToDo(getThis);
-pushToDo(another);
+allProjects[0].projectHolder.push(toDoholder[0]);
+
+console.log(allProjects);

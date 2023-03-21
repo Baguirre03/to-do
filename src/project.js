@@ -1,7 +1,21 @@
 class Project {
-  constructor(name, holder) {
+  constructor(name) {
     this.name = name;
-    this.holder = [];
+    this.projectHolder = [];
   }
 }
-export default Project;
+
+const allProjects = [];
+
+const pushProject = (project) => {
+  allProjects.push(project);
+};
+
+const createProject = (name) => {
+  const proj = new Project(name);
+  pushProject(proj);
+};
+
+createProject("default");
+
+export { Project, createProject, allProjects };
