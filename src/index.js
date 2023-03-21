@@ -1,6 +1,6 @@
 import pageLoad from "./pageLoad";
 import "./style.css";
-import { createToDoHolder, pushToDo, ToDo, toDoHolder } from "./toDo";
+import { pushToDo, ToDo } from "./toDo";
 
 pageLoad();
 const getThis = new ToDo(

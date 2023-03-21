@@ -20,10 +20,35 @@ export class ToDo {
   }
 }
 
+const createNewToDo = (
+  title,
+  description,
+  dueDate,
+  priority,
+  timeAllocate,
+  notes,
+  checkStat,
+  project
+) => {
+  const holder = new ToDo(
+    title,
+    description,
+    dueDate,
+    priority,
+    timeAllocate,
+    notes,
+    checkStat,
+    project
+  );
+};
+
+console.log(createNewToDo);
+
 const toDoholder = [];
 
 const pushToDo = (toDo) => {
   toDoholder.push(toDo);
+  console.table(toDoholder);
 };
 
 export { pushToDo };
