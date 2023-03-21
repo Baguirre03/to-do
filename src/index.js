@@ -23,6 +23,6 @@ createNewToDo("1", "2", "3", "4", "5");
 console.log(allProjects);
 console.log(toDoholder);
 
-allProjects[0].projectHolder.push(toDoholder[0]);
+allProjects[0].projectToDo.push(toDoholder[0]);
 
 console.log(allProjects);
