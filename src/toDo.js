@@ -1,4 +1,4 @@
-class ToDo {
+export class ToDo {
   constructor(
     title,
     description,
@@ -19,3 +19,11 @@ class ToDo {
     this.project = project;
   }
 }
+
+const toDoholder = [];
+
+const pushToDo = (toDo) => {
+  toDoholder.push(toDo);
+};
+
+export { pushToDo };
