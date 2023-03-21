@@ -1,4 +1,5 @@
 import pageLoad from "./pageLoad";
+import Project from "./project";
 import "./style.css";
 import { pushToDo, ToDo } from "./toDo";
 
@@ -13,6 +14,12 @@ const getThis = new ToDo(
   "done",
   "this project"
 );
+
+const thisIsAProject = new Project("name", "hold");
+console.log(thisIsAProject);
+
+thisIsAProject.holder.push(getThis);
+console.log(thisIsAProject);
 
 const another = new ToDo("1", "2", "3", "4", "5");
 

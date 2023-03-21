@@ -42,8 +42,6 @@ const createNewToDo = (
   );
 };
 
-console.log(createNewToDo);
-
 const toDoholder = [];
 
 const pushToDo = (toDo) => {
