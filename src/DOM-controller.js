@@ -14,10 +14,9 @@ const updateDelete = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
-      deleteTask(event.target.id);
-      event.preventDefault();
-      event.stopPropagation();
-      console.log(allToDo);
+      deleteTask(event.target.parentNode.id);
+      // SORRY
+      // eslint-disable-next-line no-use-before-define
       displayTasks();
     });
   });
@@ -74,12 +73,6 @@ const createProjectForm = () => {
   });
 };
 
-const removeChildren = (removeFrom) => {
-  const parent = document.querySelector(removeFrom);
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
-};
 const createToDoForm = () => {
   const parent = document.querySelector("main");
   const form = document.createElement("form");
@@ -183,6 +176,7 @@ const createToDoForm = () => {
     );
     projectSort();
     displayTasks();
+    form.remove();
   });
 };
 
