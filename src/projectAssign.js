@@ -7,6 +7,7 @@ createProject("default");
 const assignToDo = () => {
   for (let i = 0; i < allProjects.length; i++) {
     const projects = allProjects[i];
+    projects.projectToDo = [];
     if (projects === undefined) {
       return;
     }
@@ -17,5 +18,4 @@ const assignToDo = () => {
     }
   }
 };
-
 export default assignToDo;

@@ -16,4 +16,4 @@ const createProject = (name) => {
   pushProject(proj);
 };
 
-export { Project, createProject, allProjects };
+export { createProject, allProjects };

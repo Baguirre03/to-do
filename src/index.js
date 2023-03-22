@@ -1,4 +1,5 @@
 import pageLoad from "./pageLoad";
+import { allProjects } from "./project";
 import assignToDo from "./projectAssign";
 import "./style.css";
 import { createNewToDo } from "./toDo";
@@ -15,3 +16,4 @@ createNewToDo(
   "proj2"
 );
 assignToDo();
+console.log(allProjects);
