@@ -14,11 +14,11 @@ const pageLoad = () => {
           <div class="projects">
             <h3>Projects</h3>
             <div class="projects-holder"></div>
-            <button>Create New Project</button>
+            <button id="createProj">Create New Project</button>
           </div>
         </div>
         <div class="to-do-container">
-          <button>Create New To-Do</button>
+          <button id="createToDo">Create New To-Do</button>
           <div class="to-do-holder"></div>
         </div>
       </main>
@@ -27,5 +27,4 @@ const pageLoad = () => {
       </footer>
     </div>`;
 };
-
 export default pageLoad;
