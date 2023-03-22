@@ -3,6 +3,15 @@ import { createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { allToDo, createNewToDo } from "./toDo";
 
+const updateDelete = () => {
+  const deleteButtons = document.querySelectorAll(".delete");
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      console.log("hell");
+    });
+  });
+};
+
 const clearToDo = () => {
   const holder = document.querySelector(".task-holder");
   while (holder.firstChild) {
@@ -162,7 +171,22 @@ const createToDoForm = () => {
     );
     projectSort();
     displayTasks();
+    updateDelete();
   });
 };
 
-export { displayTasks, createToDoForm, createProjectForm };
+const eventListeners = () => {
+  const newProject = document.querySelector("#createProj");
+  newProject.addEventListener("click", createProjectForm);
+
+  const newToDo = document.querySelector("#createToDo");
+  newToDo.addEventListener("click", createToDoForm);
+};
+
+export {
+  displayTasks,
+  createToDoForm,
+  createProjectForm,
+  eventListeners,
+  updateDelete,
+};
