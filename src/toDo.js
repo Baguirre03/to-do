@@ -20,10 +20,10 @@ export class ToDo {
   }
 }
 
-const toDoholder = [];
+const allToDo = [];
 
 const pushToDo = (toDo) => {
-  toDoholder.push(toDo);
+  allToDo.push(toDo);
 };
 
 const createNewToDo = (
@@ -49,4 +49,4 @@ const createNewToDo = (
   pushToDo(holder);
 };
 
-export { createNewToDo, toDoholder };
+export { createNewToDo, allToDo };

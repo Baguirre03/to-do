@@ -1,7 +1,7 @@
 import pageLoad from "./pageLoad";
-import { allProjects, createProject, Project } from "./project";
+import assignToDo from "./projectAssign";
 import "./style.css";
-import { createNewToDo, toDoholder } from "./toDo";
+import { createNewToDo } from "./toDo";
 
 pageLoad();
 createNewToDo(
@@ -12,17 +12,6 @@ createNewToDo(
   "allocate 2 hours",
   "note here",
   "done",
-  "this project"
+  "default"
 );
-
-createProject("hello");
-createProject("three");
-
-createNewToDo("1", "2", "3", "4", "5");
-
-console.log(allProjects);
-console.log(toDoholder);
-
-allProjects[0].projectToDo.push(toDoholder[0]);
-
-console.log(allProjects);
+assignToDo();
