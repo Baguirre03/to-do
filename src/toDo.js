@@ -1,3 +1,5 @@
+import { allProjects } from "./project";
+
 export class ToDo {
   constructor(
     title,
@@ -47,6 +49,7 @@ const createNewToDo = (
     project
   );
   pushToDo(holder);
+  allProjects[0].projectToDo.push(holder);
 };
 
 export { createNewToDo, allToDo };
