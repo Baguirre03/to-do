@@ -21,6 +21,8 @@ const pageLoad = () => {
           <button id="createToDo">Create New To-Do</button>
           <div class="to-do-holder"></div>
         </div>
+        <div class=task-holder>
+        </div>
       </main>
       <footer>
         <p>CopyRight Ben</p>

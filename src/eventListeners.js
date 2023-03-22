@@ -1,5 +1,7 @@
-import { allProjects, createNewProject } from "./project";
-import { allToDo, createNewToDo } from "./toDo";
+import displayToDos from "./DOM-controller";
+import { createNewProject } from "./project";
+import projectSort from "./projectAssign";
+import { createNewToDo } from "./toDo";
 
 const createProjectForm = () => {
   const parent = document.querySelector("main");
@@ -25,7 +27,8 @@ const createProjectForm = () => {
   submit.addEventListener("click", (event) => {
     event.preventDefault();
     createNewProject(input.value);
-    console.log(allProjects);
+    projectSort();
+    displayToDos();
   });
 };
 
@@ -129,7 +132,8 @@ const createToDoForm = () => {
       doneInput.value,
       projectInput.value
     );
-    console.log(allToDo);
+    projectSort();
+    displayToDos();
   });
 };
 
