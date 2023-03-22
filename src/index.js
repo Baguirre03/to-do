@@ -1,8 +1,8 @@
 import pageLoad from "./pageLoad";
-import { allProjects } from "./project";
-import assignToDo from "./projectAssign";
+import { allProjects, deleteProject } from "./project";
+import projectSort from "./projectAssign";
 import "./style.css";
-import { createNewToDo } from "./toDo";
+import { allToDo, createNewToDo, deleteTask } from "./toDo";
 
 pageLoad();
 createNewToDo(
@@ -15,5 +15,13 @@ createNewToDo(
   "done",
   "proj2"
 );
-assignToDo();
-console.log(allProjects);
+createNewToDo(
+  "2proj2Ass(1)",
+  "get this  done by friday",
+  "11/11",
+  "Now",
+  "allocate 2 hours",
+  "note here",
+  "done",
+  "projectt"
+);

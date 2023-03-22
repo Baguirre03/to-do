@@ -52,4 +52,8 @@ const createNewToDo = (
   allProjects[0].projectToDo.push(holder);
 };
 
-export { createNewToDo, allToDo };
+const deleteTask = (index) => {
+  allToDo.splice(index, 1);
+};
+
+export { createNewToDo, allToDo, deleteTask };

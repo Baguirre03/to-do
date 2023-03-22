@@ -16,4 +16,8 @@ const createProject = (name) => {
   pushProject(proj);
 };
 
-export { createProject, allProjects };
+const deleteProject = (index) => {
+  allProjects.splice(index, 1);
+};
+
+export { createProject, allProjects, deleteProject };

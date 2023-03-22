@@ -4,10 +4,24 @@ import { allProjects, createProject } from "./project";
 
 // defaultToDo - Holds All
 createProject("default");
+createProject("proj2");
+createProject("projectt");
+
+const resetProjects = () => {
+  for (let i = 0; i < allProjects.length; i++) {
+    allProjects[i].projectToDo = [];
+  }
+};
+
+const pushToDefault = () => {
+  for (let i = 0; i < allToDo.length; i++) {
+    allProjects[0].projectToDo.push(allToDo[i]);
+  }
+};
+
 const assignToDo = () => {
   for (let i = 0; i < allProjects.length; i++) {
     const projects = allProjects[i];
-    projects.projectToDo = [];
     if (projects === undefined) {
       return;
     }
@@ -18,4 +32,11 @@ const assignToDo = () => {
     }
   }
 };
-export default assignToDo;
+
+const projectSort = () => {
+  resetProjects();
+  pushToDefault();
+  assignToDo();
+};
+
+export default projectSort;
