@@ -2,7 +2,7 @@ import "./style.css";
 import pageLoad from "./pageLoad";
 import { createNewProject } from "./project";
 import { createNewToDo } from "./toDo";
-import { displayTasks, eventListeners, updateDelete } from "./DOM-controller";
+import { displayTasks, eventListeners } from "./DOM-controller";
 
 pageLoad();
 createNewProject("default");
