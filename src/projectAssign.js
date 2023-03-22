@@ -2,20 +2,23 @@
 import { allToDo } from "./toDo";
 import { allProjects, createProject } from "./project";
 
-// defaultToDo
+// defaultToDo - Holds All
 createProject("default");
 createProject("proj2");
+createProject("projectt");
 const assignToDo = () => {
-  for (let i = 1; i < allProjects.length; i++) {
+  for (let i = 0; i < allToDo.length; i++) {
     const projects = allProjects[i];
-    console.log(projects);
-    for (let i = 0; i < allToDo.length; i++) {
-      if (allToDo[i].project === projects.name) {
-        projects.projectToDo.push(allToDo[i]);
+    for (let j = 0; j < allToDo.length; j++) {
+      if (projects === undefined) {
+        return;
+      }
+      if (allToDo[j].project === projects.name) {
+        projects.projectToDo.push(allToDo[j]);
       }
     }
   }
 };
-assignToDo();
 console.log(allProjects);
+
 export default assignToDo;
