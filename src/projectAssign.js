@@ -1,11 +1,6 @@
 /* eslint-disable no-plusplus */
 import { allToDo } from "./toDo";
-import { allProjects, createProject } from "./project";
-
-// defaultToDo - Holds All
-createProject("default");
-createProject("proj2");
-createProject("projectt");
+import { allProjects } from "./project";
 
 const resetProjects = () => {
   for (let i = 0; i < allProjects.length; i++) {

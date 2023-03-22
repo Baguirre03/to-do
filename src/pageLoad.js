@@ -27,4 +27,5 @@ const pageLoad = () => {
       </footer>
     </div>`;
 };
+
 export default pageLoad;

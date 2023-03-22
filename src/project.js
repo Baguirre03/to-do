@@ -11,7 +11,7 @@ const pushProject = (project) => {
   allProjects.push(project);
 };
 
-const createProject = (name) => {
+const createNewProject = (name) => {
   const proj = new Project(name);
   pushProject(proj);
 };
@@ -20,4 +20,4 @@ const deleteProject = (index) => {
   allProjects.splice(index, 1);
 };
 
-export { createProject, allProjects, deleteProject };
+export { createNewProject, allProjects, deleteProject };
