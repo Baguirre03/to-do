@@ -1,22 +1,26 @@
 /* eslint-disable no-plusplus */
 import { createNewProject } from "./project";
 import projectSort from "./projectAssign";
-import { allToDo, createNewToDo } from "./toDo";
-
-const updateDelete = () => {
-  const deleteButtons = document.querySelectorAll(".delete");
-  deleteButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      console.log("hell");
-    });
-  });
-};
+import { allToDo, createNewToDo, deleteTask } from "./toDo";
 
 const clearToDo = () => {
   const holder = document.querySelector(".task-holder");
   while (holder.firstChild) {
     holder.removeChild(holder.firstChild);
   }
+};
+
+const updateDelete = () => {
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      deleteTask(event.target.id);
+      event.preventDefault();
+      event.stopPropagation();
+      console.log(allToDo);
+      displayTasks();
+    });
+  });
 };
 
 const displayTasks = () => {
@@ -36,8 +40,9 @@ const displayTasks = () => {
     <div class="notes"><p>Notes: ${allToDo[i].notes}</p></div>
     <div class="done"><p>Complete ${allToDo[i].checkStat}</p></div>
     <div class="project"><p>project: ${allToDo[i].project}</p></div>
-    <div class="delete"><button>X</button></div>`;
+    <div class="delete"><button class=delete-btn id=${i}>X</button></div>`;
   }
+  updateDelete();
 };
 
 const createProjectForm = () => {
@@ -69,6 +74,12 @@ const createProjectForm = () => {
   });
 };
 
+const removeChildren = (removeFrom) => {
+  const parent = document.querySelector(removeFrom);
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+};
 const createToDoForm = () => {
   const parent = document.querySelector("main");
   const form = document.createElement("form");
@@ -136,6 +147,7 @@ const createToDoForm = () => {
 
   const submit = document.createElement("button");
   submit.textContent = "+";
+  console.log("creating");
 
   form.append(
     nameLabel,
@@ -171,7 +183,6 @@ const createToDoForm = () => {
     );
     projectSort();
     displayTasks();
-    updateDelete();
   });
 };
 

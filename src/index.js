@@ -6,7 +6,9 @@ import { displayTasks, eventListeners, updateDelete } from "./DOM-controller";
 
 pageLoad();
 createNewProject("default");
-createNewToDo("bawd", "123", "1232", "1", "213", "123", "22", "proj2");
+createNewToDo("first", "123", "1232", "1", "213", "123", "22", "proj2");
+createNewToDo("second", "123", "1232", "1", "213", "123", "22", "proj2");
+createNewToDo("third", "123", "1232", "1", "213", "123", "22", "proj2");
+createNewToDo("fourt", "123", "1232", "1", "213", "123", "22", "proj2");
 displayTasks();
 eventListeners();
-updateDelete();
