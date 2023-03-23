@@ -2,7 +2,8 @@
 import { createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
-import { displayProjects } from "./displayProjects";
+import { currentProject, displayProjects } from "./displayProjects";
+import displayTasks from "./displayAllTasks";
 
 const createProjectForm = () => {
   const parent = document.querySelector("main");
@@ -137,6 +138,7 @@ const createToDoForm = () => {
     );
     projectSort();
     form.remove();
+    displayTasks(currentProject);
   });
 };
 
