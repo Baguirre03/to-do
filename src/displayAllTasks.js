@@ -48,16 +48,37 @@ const loopThroughTasks = (index) => {
   }
 };
 
+const checkDatesOfTasks = () => {
+  const getToday = new Date();
+  const formatted = format(getToday, "MM/dd/yyyy");
+  for (let i = 0; i < allToDo.length; i++) {
+    const date = format(parseISO(allToDo[i].dueDate), "MM/dd/yyyy");
+    if (date === formatted) {
+      const holder = document.querySelector(".task-holder");
+
+      const eachToDoHolder = document.createElement("div");
+      eachToDoHolder.classList.add("to-do");
+      eachToDoHolder.id = i;
+
+      holder.appendChild(eachToDoHolder);
+
+      eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${allToDo[i].title}</p></div>
+        <div class='description'><p>Description ${allToDo[i].description}</p></div>
+        <div class="due"><p>Due Date: ${date}</p></div>
+        <div class="priority"><p>Time Allocations: ${allToDo[i].priority}</p></div>
+        <div class="notes"><p>Notes: ${allToDo[i].notes}</p></div>
+        <div class="done"><p>Complete ${allToDo[i].checkStat}</p></div>
+        <div class="project"><p>project: ${allToDo.project}</p></div>
+        <div class="delete"><button class=delete-btn id=${i}>X</button></div>`;
+    }
+  }
+};
+
 const displayTasks = (projectOrDate) => {
   const getToday = new Date();
   const formatted = format(getToday, "MM/dd/yyyy");
   if (projectOrDate === formatted) {
-    for (let i = 0; i < allProjects[0].projectToDo.length; i++) {
-      const date = format(parseISO(allToDo[i].dueDate), "MM/dd/yyyy");
-      if (projectOrDate === date) {
-        console.log("ok");
-      }
-    }
+    checkDatesOfTasks();
   } else {
     loopThroughTasks(projectOrDate);
   }
