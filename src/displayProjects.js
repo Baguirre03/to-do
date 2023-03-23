@@ -16,7 +16,6 @@ const clearProjects = () => {
 
 const displayProjects = () => {
   const projectHolder = document.querySelector(".projects-holder");
-  clearProjects();
   for (let i = 0; i < allProjects.length; i++) {
     const project = document.createElement("button");
     project.textContent = allProjects[i].name;
@@ -32,4 +31,9 @@ const displayProjects = () => {
   }
 };
 
-export { displayProjects, currentProject };
+const clearAndDisplayProjects = () => {
+  clearProjects();
+  displayProjects();
+};
+
+export { clearAndDisplayProjects, currentProject };

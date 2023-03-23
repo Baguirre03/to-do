@@ -2,7 +2,7 @@
 import { createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
-import { currentProject, displayProjects } from "./displayProjects";
+import { clearAndDisplayProjects, currentProject } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
 
 const createProjectForm = () => {
@@ -28,10 +28,10 @@ const createProjectForm = () => {
 
   submit.addEventListener("click", (event) => {
     event.preventDefault();
+    form.remove();
     createNewProject(input.value);
     projectSort();
-    form.remove();
-    displayProjects();
+    clearAndDisplayProjects();
   });
 };
 
@@ -126,6 +126,7 @@ const createToDoForm = () => {
 
   submit.addEventListener("click", (event) => {
     event.preventDefault();
+    form.remove();
     createNewToDo(
       nameInput.value,
       descInput.value,
@@ -137,7 +138,6 @@ const createToDoForm = () => {
       projectInput.value
     );
     projectSort();
-    form.remove();
     sortAndDisplayTasks(currentProject);
   });
 };

@@ -51,8 +51,8 @@ const displayTasks = (projectOrDate) => {
 const sortAndDisplayTasks = (project) => {
   projectSort();
   clearToDoDisplay();
-  updateDeletes();
   displayTasks(project);
+  updateDeletes();
 };
 
 export { sortAndDisplayTasks };

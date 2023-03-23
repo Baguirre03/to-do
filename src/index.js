@@ -3,7 +3,7 @@ import pageLoad from "./pageLoad";
 import { createNewProject } from "./project";
 import { createNewToDo } from "./toDo";
 import { eventListeners } from "./FormControllers";
-import { displayProjects } from "./displayProjects";
+import { clearAndDisplayProjects } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
 
 pageLoad();
@@ -14,5 +14,5 @@ createNewToDo("second", "123", "1232", "1", "213", "123", "22", "proj2");
 createNewToDo("third", "123", "1232", "1", "213", "123", "22", "bleh");
 createNewToDo("fourt", "123", "1232", "1", "213", "123", "22", "BLEH");
 sortAndDisplayTasks("0");
-displayProjects();
+clearAndDisplayProjects();
 eventListeners();
