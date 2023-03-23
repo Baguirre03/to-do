@@ -1,4 +1,4 @@
-import navBarEvents from "./DOM-controller";
+import navBarEvents from "./navBar";
 
 const pageLoad = () => {
   const body = document.querySelector("body");
