@@ -1,9 +1,9 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-loop-func */
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-plusplus */
 import displayTasks from "./displayAllTasks";
 import { allProjects } from "./project";
-import projectSort from "./projectAssign";
 
 const clearProjects = () => {
   const holder = document.querySelector(".projects-holder");
