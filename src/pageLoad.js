@@ -1,3 +1,5 @@
+import navBarEvents from "./DOM-controller";
+
 const pageLoad = () => {
   const body = document.querySelector("body");
   body.innerHTML = `    <div class="main-container">
@@ -7,9 +9,9 @@ const pageLoad = () => {
       <main>
         <div class="sidebar">
           <ul>
-            <li id="inbox">Inbox</li>
-            <li id="today">Today</li>
-            <li id="week">This Week</li>
+            <li><button id="inbox">Inbox</button></li>
+            <li><button id="today">Today</button></li>
+            <li><button id="week">This Week</button></li>
           </ul>
           <div class="projects">
             <h3>Projects</h3>
@@ -28,6 +30,8 @@ const pageLoad = () => {
         <p>CopyRight Ben</p>
       </footer>
     </div>`;
+
+  navBarEvents();
 };
 
 export default pageLoad;
