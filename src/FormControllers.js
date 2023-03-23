@@ -1,4 +1,5 @@
 /* eslint-disable no-plusplus */
+import displayProjects from "./displayProjects";
 import { createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
@@ -29,6 +30,7 @@ const createProjectForm = () => {
     createNewProject(input.value);
     projectSort();
     form.remove();
+    displayProjects();
   });
 };
 
@@ -135,6 +137,7 @@ const createToDoForm = () => {
     );
     projectSort();
     form.remove();
+    // if ()
     // Add functions for need to display if  you are in a certain inbox
   });
 };
