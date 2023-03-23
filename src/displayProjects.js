@@ -3,7 +3,9 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-plusplus */
 import { allProjects } from "./project";
-import { displayTasks } from "./displayAllTasks";
+import { sortAndDisplayTasks } from "./displayAllTasks";
+
+let currentProject = "0";
 
 const clearProjects = () => {
   const holder = document.querySelector(".projects-holder");
@@ -11,8 +13,6 @@ const clearProjects = () => {
     holder.removeChild(holder.firstChild);
   }
 };
-
-let currentProject = "0";
 
 const displayProjects = () => {
   const projectHolder = document.querySelector(".projects-holder");
@@ -26,7 +26,7 @@ const displayProjects = () => {
     projectHolder.appendChild(project);
 
     project.addEventListener("click", () => {
-      displayTasks(project.id);
+      sortAndDisplayTasks(project.id);
       currentProject = project.id;
     });
   }

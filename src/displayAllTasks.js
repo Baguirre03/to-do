@@ -15,22 +15,19 @@ const clearToDoDisplay = () => {
   }
 };
 
-const updateDelete = () => {
+const updateDeletes = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       deleteTask(event.target.parentNode.id);
-      projectSort();
-      displayTasks(currentProject);
+      sortAndDisplayTasks(currentProject);
     });
   });
 };
 
-const displayTasks = (project) => {
-  projectSort();
-  clearToDoDisplay();
+const displayTasks = (projectOrDate) => {
   const holder = document.querySelector(".task-holder");
-  const display = allProjects[project];
+  const display = allProjects[projectOrDate];
   for (let i = 0; i < display.projectToDo.length; i++) {
     const eachToDoHolder = document.createElement("div");
     eachToDoHolder.classList.add("to-do");
@@ -49,7 +46,13 @@ const displayTasks = (project) => {
       <div class="project"><p>project: ${display.projectToDo[i].project}</p></div>
       <div class="delete"><button class=delete-btn id=${i}>X</button></div>`;
   }
-  updateDelete();
 };
 
-export { displayTasks, clearToDoDisplay, updateDelete };
+const sortAndDisplayTasks = (project) => {
+  projectSort();
+  clearToDoDisplay();
+  updateDeletes();
+  displayTasks(project);
+};
+
+export { sortAndDisplayTasks };
