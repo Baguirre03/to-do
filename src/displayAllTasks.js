@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 import { deleteTask, allToDo } from "./toDo";
 
-const clearToDo = () => {
+const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
   while (holder.firstChild) {
     holder.removeChild(holder.firstChild);
@@ -21,7 +21,7 @@ const updateDelete = () => {
 };
 
 const displayAllTasks = () => {
-  clearToDo();
+  clearToDoDisplay();
   const holder = document.querySelector(".task-holder");
   for (let i = 0; i < allToDo.length; i++) {
     const eachToDoHolder = document.createElement("div");

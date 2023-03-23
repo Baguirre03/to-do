@@ -2,8 +2,8 @@ import "./style.css";
 import pageLoad from "./pageLoad";
 import { createNewProject } from "./project";
 import { createNewToDo } from "./toDo";
-import displayAllTasks from "./displayAllTasks";
 import { eventListeners } from "./FormControllers";
+import displayAllTasks from "./displayAllTasks";
 
 pageLoad();
 createNewProject("default");
