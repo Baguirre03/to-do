@@ -12,7 +12,7 @@ const clearProjects = () => {
   }
 };
 
-let currentProject = "";
+let currentProject = "0";
 
 const displayProjects = () => {
   const projectHolder = document.querySelector(".projects-holder");

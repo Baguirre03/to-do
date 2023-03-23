@@ -129,7 +129,7 @@ const createToDoForm = () => {
     createNewToDo(
       nameInput.value,
       descInput.value,
-      dueDate.value,
+      dueDateInput.value,
       priorityInput.value,
       timeInput.value,
       noteInput.value,

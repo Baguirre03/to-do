@@ -1,6 +1,8 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-plusplus */
+import format from "date-fns/format";
+import { parseISO } from "date-fns";
 import { allProjects } from "./project";
 import { deleteTask } from "./toDo";
 import projectSort from "./projectAssign";
@@ -36,9 +38,11 @@ const displayTasks = (project) => {
 
     holder.appendChild(eachToDoHolder);
 
+    const date = format(parseISO(display.projectToDo[i].dueDate), "MM/dd/yyyy");
+
     eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${display.projectToDo[i].title}</p></div>
       <div class='description'><p>Description ${display.projectToDo[i].description}</p></div>
-      <div class="due"><p>Due Date: ${display.projectToDo[i].dueDate}</p></div>
+      <div class="due"><p>Due Date: ${date}</p></div>
       <div class="priority"><p>Time Allocations: ${display.projectToDo[i].priority}</p></div>
       <div class="notes"><p>Notes: ${display.projectToDo[i].notes}</p></div>
       <div class="done"><p>Complete ${display.projectToDo[i].checkStat}</p></div>
