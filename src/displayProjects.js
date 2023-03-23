@@ -19,12 +19,8 @@ const displayProjects = () => {
 
     projectHolder.appendChild(project);
 
-    const selections = document.querySelectorAll(".project");
-
-    selections.forEach((selection) => {
-      selection.addEventListener("click", (event) => {
-        console.log(selection.id);
-      });
+    project.addEventListener("click", () => {
+      console.log(project.id);
     });
   }
 };

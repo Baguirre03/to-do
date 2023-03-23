@@ -1,4 +1,5 @@
 /* eslint-disable no-plusplus */
+import { allProjects } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 
 const clearToDoDisplay = () => {
@@ -20,23 +21,25 @@ const updateDelete = () => {
   });
 };
 
-const displayAllTasks = () => {
+const displayAllTasks = (project) => {
   clearToDoDisplay();
   const holder = document.querySelector(".task-holder");
-  for (let i = 0; i < allToDo.length; i++) {
+  const displayProject = allProjects[project];
+  console.log(displayProject);
+  for (let i = 0; i < displayProject.projectToDo.length; i++) {
     const eachToDoHolder = document.createElement("div");
     eachToDoHolder.classList.add("to-do");
     eachToDoHolder.id = i;
 
     holder.appendChild(eachToDoHolder);
 
-    eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${allToDo[i].title}</p></div>
-      <div class='description'><p>Description ${allToDo[i].description}</p></div>
-      <div class="due"><p>Due Date: ${allToDo[i].dueDate}</p></div>
-      <div class="priority"><p>Time Allocations: ${allToDo[i].priority}</p></div>
-      <div class="notes"><p>Notes: ${allToDo[i].notes}</p></div>
-      <div class="done"><p>Complete ${allToDo[i].checkStat}</p></div>
-      <div class="project"><p>project: ${allToDo[i].project}</p></div>
+    eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${displayProject.projectToDo[i].title}</p></div>
+      <div class='description'><p>Description ${displayProject.projectToDo[i].description}</p></div>
+      <div class="due"><p>Due Date: ${displayProject.projectToDo[i].dueDate}</p></div>
+      <div class="priority"><p>Time Allocations: ${displayProject.projectToDo[i].priority}</p></div>
+      <div class="notes"><p>Notes: ${displayProject.projectToDo[i].notes}</p></div>
+      <div class="done"><p>Complete ${displayProject.projectToDo[i].checkStat}</p></div>
+      <div class="project"><p>project: ${displayProject.projectToDo[i].project}</p></div>
       <div class="delete"><button class=delete-btn id=${i}>X</button></div>`;
   }
   updateDelete();
