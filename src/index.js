@@ -8,11 +8,48 @@ import { sortAndDisplayTasks } from "./displayAllTasks";
 
 pageLoad();
 createNewProject("default");
-createNewProject("proj2");
-createNewToDo("first", "123", "1232", "1", "213", "123", "22", "proj2");
-createNewToDo("second", "123", "1232", "1", "213", "123", "22", "proj2");
-createNewToDo("third", "123", "1232", "1", "213", "123", "22", "bleh");
-createNewToDo("fourt", "123", "1232", "1", "213", "123", "22", "BLEH");
+createNewProject("school");
+createNewProject("personal");
+createNewToDo(
+  "Do Homework",
+  "ASAP",
+  "2023",
+  "priority 1",
+  "2 Hours",
+  "No Notes",
+  "complete",
+  "school"
+);
+createNewToDo(
+  "Work Hard",
+  "this usual",
+  "2023",
+  "priority 2",
+  "1 Hours",
+  "You got this",
+  "incomplete",
+  "school"
+);
+createNewToDo(
+  "Code",
+  "every day!",
+  "2023",
+  "priority 1",
+  "200 Hours",
+  "Shoutout TOP",
+  "incomplete",
+  "personal"
+);
+createNewToDo(
+  "Read a book",
+  "choose my fav book",
+  "2023",
+  "priority 3",
+  "1 Hour",
+  "NA",
+  "incomplete",
+  "personal"
+);
 sortAndDisplayTasks("0");
 clearAndDisplayProjects();
 eventListeners();

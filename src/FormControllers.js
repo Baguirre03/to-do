@@ -102,7 +102,6 @@ const createToDoForm = () => {
 
   const submit = document.createElement("button");
   submit.textContent = "+";
-  console.log("creating");
 
   form.append(
     nameLabel,
