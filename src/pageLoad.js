@@ -7,9 +7,9 @@ const pageLoad = () => {
       <main>
         <div class="sidebar">
           <ul>
-            <li>Inbox</li>
-            <li>Today</li>
-            <li>This Week</li>
+            <li id="inbox">Inbox</li>
+            <li id="today">Today</li>
+            <li id="week">This Week</li>
           </ul>
           <div class="projects">
             <h3>Projects</h3>
