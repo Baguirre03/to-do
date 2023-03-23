@@ -1,8 +1,8 @@
 /* eslint-disable no-plusplus */
-import displayProjects from "./displayProjects";
 import { createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
+import { displayProjects } from "./displayProjects";
 
 const createProjectForm = () => {
   const parent = document.querySelector("main");

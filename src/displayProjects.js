@@ -1,5 +1,9 @@
+/* eslint-disable no-loop-func */
+/* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-plusplus */
+import displayTasks from "./displayAllTasks";
 import { allProjects } from "./project";
+import projectSort from "./projectAssign";
 
 const clearProjects = () => {
   const holder = document.querySelector(".projects-holder");
@@ -7,6 +11,8 @@ const clearProjects = () => {
     holder.removeChild(holder.firstChild);
   }
 };
+
+let currentProject = "";
 
 const displayProjects = () => {
   const projectHolder = document.querySelector(".projects-holder");
@@ -20,9 +26,11 @@ const displayProjects = () => {
     projectHolder.appendChild(project);
 
     project.addEventListener("click", () => {
-      console.log(project.id);
+      displayTasks(project.id);
+      currentProject = project.id;
+      console.log(currentProject);
     });
   }
 };
 
-export default displayProjects;
+export { displayProjects, currentProject };
