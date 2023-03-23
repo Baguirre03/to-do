@@ -137,8 +137,6 @@ const createToDoForm = () => {
     );
     projectSort();
     form.remove();
-    // if ()
-    // Add functions for need to display if  you are in a certain inbox
   });
 };
 

@@ -28,7 +28,6 @@ const displayProjects = () => {
     project.addEventListener("click", () => {
       displayTasks(project.id);
       currentProject = project.id;
-      console.log(currentProject);
     });
   }
 };
