@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
 import { allProjects } from "./project";
-import { deleteTask, allToDo } from "./toDo";
+import { deleteTask } from "./toDo";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -16,12 +16,12 @@ const updateDelete = () => {
       deleteTask(event.target.parentNode.id);
       // Sorry for this error, hard to avoid.
       // eslint-disable-next-line no-use-before-define
-      displayAllTasks();
+      displayTasks("0");
     });
   });
 };
 
-const displayAllTasks = (project) => {
+const displayTasks = (project) => {
   clearToDoDisplay();
   const holder = document.querySelector(".task-holder");
   const displayProject = allProjects[project];
@@ -45,4 +45,4 @@ const displayAllTasks = (project) => {
   updateDelete();
 };
 
-export default displayAllTasks;
+export default displayTasks;

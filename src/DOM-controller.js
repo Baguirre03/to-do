@@ -6,7 +6,7 @@ const navBarEvents = () => {
   const week = document.querySelector("#week");
 
   mainInbox.addEventListener("click", () => {
-    displayAllTasks();
+    displayAllTasks("0");
   });
 
   today.addEventListener("click", () => {

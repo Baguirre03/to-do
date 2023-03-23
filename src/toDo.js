@@ -1,4 +1,5 @@
 import { allProjects } from "./project";
+import projectSort from "./projectAssign";
 
 export class ToDo {
   constructor(
@@ -54,6 +55,7 @@ const createNewToDo = (
 
 const deleteTask = (index) => {
   allToDo.splice(index, 1);
+  projectSort();
 };
 
 export { createNewToDo, allToDo, deleteTask };
