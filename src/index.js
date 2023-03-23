@@ -7,9 +7,10 @@ import displayAllTasks from "./displayAllTasks";
 
 pageLoad();
 createNewProject("default");
+createNewProject("proj2");
 createNewToDo("first", "123", "1232", "1", "213", "123", "22", "proj2");
 createNewToDo("second", "123", "1232", "1", "213", "123", "22", "proj2");
-createNewToDo("third", "123", "1232", "1", "213", "123", "22", "proj2");
+createNewToDo("third", "123", "1232", "1", "213", "123", "22", "bleh");
 createNewToDo("fourt", "123", "1232", "1", "213", "123", "22", "proj2");
 displayAllTasks();
 eventListeners();
