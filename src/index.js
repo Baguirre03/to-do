@@ -3,8 +3,8 @@ import pageLoad from "./pageLoad";
 import { createNewProject } from "./project";
 import { createNewToDo } from "./toDo";
 import { eventListeners } from "./FormControllers";
-import displayTasks from "./displayAllTasks";
 import { displayProjects } from "./displayProjects";
+import { displayTasks } from "./displayAllTasks";
 
 pageLoad();
 createNewProject("default");

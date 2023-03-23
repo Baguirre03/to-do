@@ -52,4 +52,4 @@ const displayTasks = (project) => {
   updateDelete();
 };
 
-export default displayTasks;
+export { displayTasks, clearToDoDisplay, updateDelete };
