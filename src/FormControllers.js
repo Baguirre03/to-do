@@ -5,9 +5,22 @@ import { createNewToDo } from "./toDo";
 import { clearAndDisplayProjects, currentProject } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
 
+const valiDate = (inputDate) => {
+  const parts = inputDate.split(/[\/\-\.]/);
+
+  if (parts.length < 3) {
+    return false;
+  }
+  const dt = new Date(parts[2], parts[1] - 1, parts[0]);
+  console.log("date is ", dt.toString());
+  return dt && dt.getMonth() === parseInt(parts[1], 10) - 1;
+};
+
 const createProjectForm = () => {
   const parent = document.querySelector("main");
   const form = document.createElement("form");
+  const newProject = document.querySelector("#createProj");
+
   form.classList.add("project-form");
 
   parent.appendChild(form);
@@ -32,10 +45,12 @@ const createProjectForm = () => {
     createNewProject(input.value);
     projectSort();
     clearAndDisplayProjects();
+    newProject.disabled = false;
   });
 };
 
 const createToDoForm = () => {
+  const newToDo = document.querySelector("#createToDo");
   const parent = document.querySelector("main");
   const form = document.createElement("form");
   form.classList.add("to-do-form");
@@ -124,6 +139,11 @@ const createToDoForm = () => {
   );
 
   submit.addEventListener("click", (event) => {
+    valiDate(dueDateInput.value);
+    if (!dueDateInput.value) {
+      alert("put a valid date");
+      return;
+    }
     event.preventDefault();
     form.remove();
     createNewToDo(
@@ -138,15 +158,22 @@ const createToDoForm = () => {
     );
     projectSort();
     sortAndDisplayTasks(currentProject);
+    newToDo.disabled = false;
   });
 };
 
 const eventListeners = () => {
   const newProject = document.querySelector("#createProj");
-  newProject.addEventListener("click", createProjectForm);
+  newProject.addEventListener("click", () => {
+    newProject.disabled = true;
+    createProjectForm();
+  });
 
   const newToDo = document.querySelector("#createToDo");
-  newToDo.addEventListener("click", createToDoForm);
+  newToDo.addEventListener("click", () => {
+    newToDo.disabled = true;
+    createToDoForm();
+  });
 };
 
 export { createToDoForm, createProjectForm, eventListeners };
