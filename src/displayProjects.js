@@ -25,8 +25,8 @@ const displayProjects = () => {
     projectHolder.appendChild(project);
 
     project.addEventListener("click", () => {
-      sortAndDisplayTasks(project.id);
       currentProject = project.id;
+      sortAndDisplayTasks(project.id);
     });
   }
 };

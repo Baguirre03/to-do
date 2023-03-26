@@ -21,16 +21,6 @@ createNewToDo(
   "school"
 );
 createNewToDo(
-  "Work Hard",
-  "this usual",
-  "2023",
-  "priority 2",
-  "1 Hours",
-  "You got this",
-  "incomplete",
-  "school"
-);
-createNewToDo(
   "Code",
   "every day!",
   "2023",
@@ -49,6 +39,16 @@ createNewToDo(
   "NA",
   "incomplete",
   "personal"
+);
+createNewToDo(
+  "Work Hard",
+  "this usual",
+  "2023",
+  "priority 2",
+  "1 Hours",
+  "You got this",
+  "incomplete",
+  "school"
 );
 sortAndDisplayTasks("0");
 clearAndDisplayProjects();

@@ -1,6 +1,11 @@
 /* eslint-disable no-plusplus */
-import format from "date-fns/format";
-import { sortAndDisplayTasks } from "./displayAllTasks";
+import {
+  checkDatesOfTasks,
+  clearToDoDisplay,
+  sortAndDisplayTasks,
+  updateDeletes,
+} from "./displayAllTasks";
+import projectSort from "./projectAssign";
 
 const navBarEvents = () => {
   const mainInbox = document.querySelector("#inbox");
@@ -12,9 +17,10 @@ const navBarEvents = () => {
   });
 
   today.addEventListener("click", () => {
-    const getToday = new Date();
-    const formatted = format(getToday, "MM/dd/yyyy");
-    sortAndDisplayTasks(formatted);
+    projectSort();
+    clearToDoDisplay();
+    checkDatesOfTasks();
+    updateDeletes();
   });
 
   week.addEventListener("click", () => {

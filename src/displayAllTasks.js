@@ -17,9 +17,10 @@ const clearToDoDisplay = () => {
 
 const updateDeletes = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
+  console.log(allToDo);
   deleteButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
-      deleteTask(event.target.parentNode.id);
+      deleteTask(event.target.id);
       sortAndDisplayTasks(currentProject);
     });
   });
@@ -34,6 +35,7 @@ const loopThroughTasks = (index) => {
     eachToDoHolder.id = i;
 
     holder.appendChild(eachToDoHolder);
+    const index = allToDo.indexOf(display.projectToDo[i]);
 
     const date = format(parseISO(display.projectToDo[i].dueDate), "MM/dd/yyyy");
 
@@ -44,7 +46,7 @@ const loopThroughTasks = (index) => {
       <div class="notes"><p>Notes: ${display.projectToDo[i].notes}</p></div>
       <div class="done"><p>Complete ${display.projectToDo[i].checkStat}</p></div>
       <div class="project"><p>project: ${display.projectToDo[i].project}</p></div>
-      <div class="delete"><button class=delete-btn id=${i}>X</button></div>`;
+      <div class="delete"><button class=delete-btn id=${index}>X</button></div>`;
   }
 };
 
@@ -74,21 +76,16 @@ const checkDatesOfTasks = () => {
   }
 };
 
-const displayTasks = (projectOrDate) => {
-  const getToday = new Date();
-  const formatted = format(getToday, "MM/dd/yyyy");
-  if (projectOrDate === formatted) {
-    checkDatesOfTasks();
-  } else {
-    loopThroughTasks(projectOrDate);
-  }
-};
-
 const sortAndDisplayTasks = (project) => {
   projectSort();
   clearToDoDisplay();
-  displayTasks(project);
+  loopThroughTasks(project);
   updateDeletes();
 };
 
-export { sortAndDisplayTasks };
+export {
+  sortAndDisplayTasks,
+  checkDatesOfTasks,
+  clearToDoDisplay,
+  updateDeletes,
+};
