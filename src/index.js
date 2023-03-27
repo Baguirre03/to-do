@@ -1,16 +1,11 @@
 import "./style.css";
 import pageLoad from "./pageLoad";
-import { createNewProject } from "./project";
 import { eventListeners } from "./FormControllers";
 import { clearAndDisplayProjects } from "./displayProjects";
-import { sortAndDisplayTasks } from "./displayAllTasks";
-import { checkStorage } from "./storage";
-import { createNewToDo } from "./toDo";
+import { checkProjStorage, checkStorage } from "./storage";
 
 pageLoad();
-createNewProject("default");
-createNewProject("school");
-createNewProject("personal");
+checkProjStorage();
 checkStorage();
 clearAndDisplayProjects();
 eventListeners();

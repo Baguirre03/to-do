@@ -1,4 +1,4 @@
-class Project {
+export class Project {
   constructor(name) {
     this.name = name;
     this.projectToDo = [];

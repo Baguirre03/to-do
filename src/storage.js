@@ -1,5 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { sortAndDisplayTasks } from "./displayAllTasks";
+import { clearAndDisplayProjects } from "./displayProjects";
+import { allProjects, defaultProjects, Project } from "./project";
 import { allToDo, defaultTasks, ToDo } from "./toDo";
 
 // Task storage
@@ -8,7 +10,7 @@ const addTasksToStorage = () => {
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
 };
 
-const displayStorage = () => {
+const displayTasksFromStore = () => {
   const storageData = JSON.parse(localStorage.getItem("allTasks"));
   console.log("storageData", storageData);
 
@@ -38,16 +40,44 @@ const checkStorage = () => {
     addTasksToStorage();
     sortAndDisplayTasks("0");
   } else if (storage.length !== 0) {
-    displayStorage();
+    displayTasksFromStore();
   } else {
     console.log("error");
   }
 };
 
 // Project storage
-// const storeProjects = () => {
-//   localStorage.setItem("projects", JSON.stringify(allProjects));
-//   console.log("allProjects :", localStorage.getItem("projects"));
-// };
+const addProjectsToStore = () => {
+  localStorage.setItem("projects", JSON.stringify(allProjects));
+  console.log("allProjects :", localStorage.getItem("projects"));
+};
 
-export { addTasksToStorage, checkStorage };
+const displayProjectsFromStorage = () => {
+  const storageData = JSON.parse(localStorage.getItem("projects"));
+  console.log("Projects Data:", storageData);
+
+  storageData.map((data) => allProjects.push(new Project(data.name)));
+  sortAndDisplayTasks("0");
+};
+
+// For page load
+const checkProjStorage = () => {
+  const storage = localStorage.getItem("projects");
+  if (storage === null) {
+    console.log("default projects display");
+    defaultProjects();
+    addProjectsToStore();
+    clearAndDisplayProjects();
+  } else if (storage.length !== 0) {
+    displayProjectsFromStorage();
+  } else {
+    console.log("error");
+  }
+};
+
+export {
+  addTasksToStorage,
+  checkStorage,
+  addProjectsToStore,
+  checkProjStorage,
+};
