@@ -11,18 +11,6 @@ pageLoad();
 createNewProject("default");
 createNewProject("school");
 createNewProject("personal");
-// createNewToDo(
-//   "Do Homework",
-//   "ASAP",
-//   "2023",
-//   "priority 1",
-//   "2 Hours",
-//   "No Notes",
-//   "complete",
-//   "school"
-// );
-
 checkStorage();
-sortAndDisplayTasks("0");
 clearAndDisplayProjects();
 eventListeners();

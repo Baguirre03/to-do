@@ -4,7 +4,7 @@ import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
 import { clearAndDisplayProjects, currentProject } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
-import { addTaskToStorage, checkStorage } from "./storage";
+import { addTaskToStorage } from "./storage";
 
 const valiDate = (inputDate) => {
   const parts = inputDate.split(/[/\-.]/);

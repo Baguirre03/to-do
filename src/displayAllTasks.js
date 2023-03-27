@@ -7,7 +7,6 @@ import { allProjects } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
 import { currentProject } from "./displayProjects";
-import { checkStorage } from "./storage";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -76,16 +75,15 @@ const checkDatesOfTasks = () => {
   }
 };
 
-const checkForDuplicates = () => {
-  allToDo.filter(
-    (value, index, self) =>
-      index === self.findIndex((t) => t.title === value.title)
-  );
-  return allToDo;
-};
+// const checkForDuplicates = () => {
+//   allToDo.filter(
+//     (value, index, self) =>
+//       index === self.findIndex((t) => t.title === value.title)
+//   );
+//   console.log(allToDo);
+// };
 
 const sortAndDisplayTasks = (project) => {
-  checkForDuplicates();
   projectSort();
   clearToDoDisplay();
   loopThroughTasks(project);
@@ -97,5 +95,4 @@ export {
   checkDatesOfTasks,
   clearToDoDisplay,
   updateDeletes,
-  checkForDuplicates,
 };

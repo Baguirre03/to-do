@@ -56,4 +56,17 @@ const createNewToDo = (
   allProjects[0].projectToDo.push(holder);
 };
 
-export { createNewToDo, allToDo, deleteTask, pushToDo };
+const defaultTasks = () => {
+  createNewToDo(
+    "Do Homework",
+    "ASAP",
+    "2023",
+    "priority 1",
+    "2 Hours",
+    "No Notes",
+    "complete",
+    "school"
+  );
+};
+
+export { createNewToDo, allToDo, deleteTask, pushToDo, defaultTasks };

@@ -1,15 +1,14 @@
 import { checkForDuplicates, sortAndDisplayTasks } from "./displayAllTasks";
-import { currentProject } from "./displayProjects";
-import { allToDo, ToDo } from "./toDo";
+import { allToDo, createNewToDo, defaultTasks, ToDo } from "./toDo";
 
 export const storeTasks = () => {
   localStorage.setItem("allTasks", JSON.stringify(allToDo));
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
+  sortAndDisplayTasks("0");
 };
 
 export const addTaskToStorage = () => {
   sortAndDisplayTasks("0");
-  console.log(allToDo);
 
   localStorage.setItem("allTasks", JSON.stringify(allToDo));
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
@@ -40,6 +39,7 @@ export const checkStorage = () => {
   const storage = localStorage.getItem("allTasks");
   if (storage === null) {
     console.log("empty");
+    defaultTasks();
     storeTasks();
   } else if (storage.length !== 0) {
     displayStorage();
