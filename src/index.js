@@ -22,7 +22,7 @@ createNewProject("personal");
 //   "school"
 // );
 
-// checkStorage();
+checkStorage();
 sortAndDisplayTasks("0");
 clearAndDisplayProjects();
 eventListeners();

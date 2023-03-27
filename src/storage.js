@@ -7,12 +7,33 @@ export const storeTasks = () => {
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
 };
 
-const exist = () => {
+export const addTaskToStorage = () => {
   sortAndDisplayTasks("0");
   console.log(allToDo);
 
   localStorage.setItem("allTasks", JSON.stringify(allToDo));
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
+};
+
+const displayStorage = () => {
+  const storageData = JSON.parse(localStorage.getItem("allTasks"));
+  console.log("storageData", storageData);
+
+  storageData.map((data) =>
+    allToDo.push(
+      new ToDo(
+        data.title,
+        data.description,
+        data.dueDate,
+        data.priority,
+        data.timeAllocate,
+        data.notes,
+        data.checkStat,
+        data.project
+      )
+    )
+  );
+  sortAndDisplayTasks("0");
 };
 
 export const checkStorage = () => {
@@ -21,8 +42,7 @@ export const checkStorage = () => {
     console.log("empty");
     storeTasks();
   } else if (storage.length !== 0) {
-    console.log("existing");
-    exist();
+    displayStorage();
   } else {
     console.log("error");
   }
