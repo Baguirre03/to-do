@@ -1,7 +1,5 @@
 /* eslint-disable import/no-cycle */
 import { sortAndDisplayTasks } from "./displayAllTasks";
-import { currentProject } from "./displayProjects";
-import { allProjects } from "./project";
 import { allToDo, defaultTasks, ToDo } from "./toDo";
 
 // Task storage
