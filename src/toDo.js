@@ -1,4 +1,5 @@
 import { allProjects } from "./project";
+import { checkStorage, storeTasks } from "./storage";
 
 export class ToDo {
   constructor(

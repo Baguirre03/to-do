@@ -6,7 +6,7 @@ import { clearAndDisplayProjects, currentProject } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
 
 const valiDate = (inputDate) => {
-  const parts = inputDate.split(/[\/\-\.]/);
+  const parts = inputDate.split(/[/\-.]/);
 
   if (parts.length < 3) {
     return false;
@@ -141,7 +141,7 @@ const createToDoForm = () => {
   submit.addEventListener("click", (event) => {
     valiDate(dueDateInput.value);
     if (!dueDateInput.value) {
-      alert("put a valid date");
+      console.log("put a valid date");
       return;
     }
     event.preventDefault();

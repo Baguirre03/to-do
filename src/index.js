@@ -5,6 +5,7 @@ import { createNewToDo } from "./toDo";
 import { eventListeners } from "./FormControllers";
 import { clearAndDisplayProjects } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
+import { checkStorage, storeTasks } from "./storage";
 
 pageLoad();
 createNewProject("default");
@@ -50,6 +51,7 @@ createNewToDo(
   "incomplete",
   "school"
 );
+storeTasks();
 sortAndDisplayTasks("0");
 clearAndDisplayProjects();
 eventListeners();
