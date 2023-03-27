@@ -1,15 +1,14 @@
+/* eslint-disable import/no-cycle */
 import { sortAndDisplayTasks } from "./displayAllTasks";
 import { allToDo, defaultTasks, ToDo } from "./toDo";
 
-export const storeTasks = () => {
+// Task storage
+const storeTasks = () => {
   localStorage.setItem("allTasks", JSON.stringify(allToDo));
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
-  sortAndDisplayTasks("0");
 };
 
-export const addTaskToStorage = () => {
-  sortAndDisplayTasks("0");
-
+const addTaskToStorage = () => {
   localStorage.setItem("allTasks", JSON.stringify(allToDo));
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
 };
@@ -35,7 +34,7 @@ const displayStorage = () => {
   sortAndDisplayTasks("0");
 };
 
-export const checkStorage = () => {
+const checkStorage = () => {
   const storage = localStorage.getItem("allTasks");
   if (storage === null) {
     console.log("empty");
@@ -47,3 +46,7 @@ export const checkStorage = () => {
     console.log("error");
   }
 };
+
+// Project storage
+
+export { storeTasks, addTaskToStorage, checkStorage };

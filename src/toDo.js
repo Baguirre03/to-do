@@ -58,14 +58,44 @@ const createNewToDo = (
 
 const defaultTasks = () => {
   createNewToDo(
-    "Do Homework",
-    "ASAP",
+    "Homework",
+    "Mark HW",
     "2023",
     "priority 1",
-    "2 Hours",
+    "1.5 Hours",
     "No Notes",
     "complete",
     "school"
+  );
+  createNewToDo(
+    "Code",
+    "Get it done every day!",
+    "2023",
+    "priority 1",
+    "2 Hours",
+    "You can figure it out!",
+    "complete",
+    "personal"
+  );
+  createNewToDo(
+    "Study for LREB exam",
+    "Lots of content on it",
+    "2023",
+    "priority 2",
+    "1 Hour",
+    "No notes",
+    "complete",
+    "school"
+  );
+  createNewToDo(
+    "Read a book",
+    "Gotta find a book first",
+    "2023",
+    "priority 3",
+    "1 Hour",
+    "No notes",
+    "complete",
+    "personal"
   );
 };
 

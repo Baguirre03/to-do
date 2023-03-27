@@ -6,8 +6,8 @@ import { parseISO } from "date-fns";
 import { allProjects } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
-import { currentProject } from "./displayProjects";
 import { storeTasks } from "./storage";
+import { currentProject } from "./displayProjects";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -22,7 +22,7 @@ const updateDeletes = () => {
     btn.addEventListener("click", (event) => {
       deleteTask(event.target.id);
       storeTasks();
-      // sortAndDisplayTasks(currentProject);
+      sortAndDisplayTasks(currentProject);
     });
   });
 };
