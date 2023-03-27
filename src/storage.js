@@ -1,4 +1,5 @@
 import { sortAndDisplayTasks } from "./displayAllTasks";
+import { currentProject } from "./displayProjects";
 import { allToDo, ToDo } from "./toDo";
 
 export const storeTasks = () => {
@@ -7,31 +8,13 @@ export const storeTasks = () => {
 
   const storageData = JSON.parse(localStorage.getItem("allTasks"));
   console.log("storageData ... raw task data :", storageData);
-
-  const list = storageData.map((data) =>
-    allToDo.push(
-      new ToDo(
-        data.title,
-        data.description,
-        data.dueDate,
-        data.priority,
-        data.timeAllocate,
-        data.notes,
-        data.checkStat,
-        data.project
-      )
-    )
-  );
-
-  console.log("lists :", list);
-  console.log(allToDo);
 };
 
 const exist = () => {
   const storageData = JSON.parse(localStorage.getItem("allTasks"));
-  console.log("storageData ... raw task data :", storageData);
+  console.log("storageData 2 :", storageData);
 
-  const list = storageData.map((data) =>
+  storageData.map((data) =>
     allToDo.push(
       new ToDo(
         data.title,
@@ -45,13 +28,10 @@ const exist = () => {
       )
     )
   );
-  console.log("lists :", list);
-
   localStorage.setItem("allTasks", JSON.stringify(allToDo));
   console.log("allTasksStored :", localStorage.getItem("allTasks"));
 
-  console.log(localStorage.getItem("allTasks"));
-  console.log(allToDo);
+  sortAndDisplayTasks(currentProject);
 };
 
 export const checkStorage = () => {

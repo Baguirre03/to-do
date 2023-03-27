@@ -13,7 +13,6 @@ const valiDate = (inputDate) => {
     return false;
   }
   const dt = new Date(parts[2], parts[1] - 1, parts[0]);
-  console.log("date is ", dt.toString());
   return dt && dt.getMonth() === parseInt(parts[1], 10) - 1;
 };
 

@@ -1,6 +1,4 @@
-import { sortAndDisplayTasks } from "./displayAllTasks";
 import { allProjects } from "./project";
-import { checkStorage } from "./storage";
 
 export class ToDo {
   constructor(
@@ -29,6 +27,9 @@ const allToDo = [];
 const pushToDo = (toDo) => {
   allToDo.push(toDo);
 };
+const deleteTask = (index) => {
+  allToDo.splice(index, 1);
+};
 
 const createNewToDo = (
   title,
@@ -52,10 +53,6 @@ const createNewToDo = (
   );
   pushToDo(holder);
   allProjects[0].projectToDo.push(holder);
-};
-
-const deleteTask = (index) => {
-  allToDo.splice(index, 1);
 };
 
 export { createNewToDo, allToDo, deleteTask, pushToDo };
