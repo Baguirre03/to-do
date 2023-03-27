@@ -6,7 +6,7 @@ import { parseISO } from "date-fns";
 import { allProjects } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
-import { storeTasks } from "./storage";
+import { addTasksToStorage } from "./storage";
 import { currentProject } from "./displayProjects";
 
 const clearToDoDisplay = () => {
@@ -21,7 +21,7 @@ const updateDeletes = () => {
   deleteButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       deleteTask(event.target.id);
-      storeTasks();
+      addTasksToStorage();
       sortAndDisplayTasks(currentProject);
     });
   });

@@ -4,7 +4,7 @@ import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
 import { clearAndDisplayProjects, currentProject } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
-import { addTaskToStorage } from "./storage";
+import { addTasksToStorage } from "./storage";
 
 const valiDate = (inputDate) => {
   const parts = inputDate.split(/[/\-.]/);
@@ -156,7 +156,7 @@ const createToDoForm = () => {
       doneInput.value,
       projectInput.value
     );
-    addTaskToStorage();
+    addTasksToStorage();
     projectSort();
     sortAndDisplayTasks(currentProject);
     newToDo.disabled = false;
