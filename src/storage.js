@@ -1,5 +1,5 @@
-import { checkForDuplicates, sortAndDisplayTasks } from "./displayAllTasks";
-import { allToDo, createNewToDo, defaultTasks, ToDo } from "./toDo";
+import { sortAndDisplayTasks } from "./displayAllTasks";
+import { allToDo, defaultTasks, ToDo } from "./toDo";
 
 export const storeTasks = () => {
   localStorage.setItem("allTasks", JSON.stringify(allToDo));

@@ -7,6 +7,7 @@ import { allProjects } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
 import { currentProject } from "./displayProjects";
+import { storeTasks } from "./storage";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -20,7 +21,8 @@ const updateDeletes = () => {
   deleteButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       deleteTask(event.target.id);
-      sortAndDisplayTasks(currentProject);
+      storeTasks();
+      // sortAndDisplayTasks(currentProject);
     });
   });
 };
@@ -74,14 +76,6 @@ const checkDatesOfTasks = () => {
     }
   }
 };
-
-// const checkForDuplicates = () => {
-//   allToDo.filter(
-//     (value, index, self) =>
-//       index === self.findIndex((t) => t.title === value.title)
-//   );
-//   console.log(allToDo);
-// };
 
 const sortAndDisplayTasks = (project) => {
   projectSort();
