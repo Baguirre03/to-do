@@ -56,8 +56,10 @@ const displayProjectsFromStorage = () => {
   const storageData = JSON.parse(localStorage.getItem("projects"));
   console.log("Projects Data:", storageData);
 
-  storageData.map((data) => allProjects.push(new Project(data.name)));
-  sortAndDisplayTasks("0");
+  storageData.map((data) =>
+    allProjects.push(new Project(data.name, data.projectToDo))
+  );
+  clearAndDisplayProjects();
 };
 
 // For page load
