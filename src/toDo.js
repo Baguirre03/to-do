@@ -27,6 +27,7 @@ const allToDo = [];
 const pushToDo = (toDo) => {
   allToDo.push(toDo);
 };
+
 const deleteTask = (index) => {
   allToDo.splice(index, 1);
 };
