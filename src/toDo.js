@@ -72,8 +72,8 @@ export class ToDo {
 
 const allToDo = [];
 
-const pushToDo = () => {
-  allToDo.push(this);
+const pushToDo = (holder) => {
+  allToDo.push(holder);
 };
 
 const deleteTask = (index) => {
@@ -100,7 +100,7 @@ const createNewToDo = (
     checkStat,
     project
   );
-  this.pushTask();
+  pushToDo(holder);
   allProjects[0].projectToDo.push(holder);
 };
 

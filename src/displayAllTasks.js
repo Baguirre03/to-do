@@ -55,7 +55,7 @@ const checkDatesOfTasks = () => {
   const getToday = new Date();
   const formatted = format(getToday, "MM/dd/yyyy");
   for (let i = 0; i < allToDo.length; i++) {
-    const date = format(parseISO(allToDo[i].dueDate), "MM/dd/yyyy");
+    const date = format(parseISO(allToDo[i].getDueDate()), "MM/dd/yyyy");
     if (date === formatted) {
       const holder = document.querySelector(".task-holder");
 
