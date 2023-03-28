@@ -20,12 +20,60 @@ export class ToDo {
     this.checkStat = checkStat;
     this.project = project;
   }
+
+  getTitle() {
+    return this.title;
+  }
+
+  setTitle(title) {
+    this.title = title;
+  }
+
+  getDescription() {
+    return this.description;
+  }
+
+  setDescription(description) {
+    this.description = description;
+  }
+
+  getDueDate() {
+    return this.dueDate;
+  }
+
+  setDueDate(dueDate) {
+    this.dueDate = dueDate;
+  }
+
+  getNotes() {
+    return this.notes;
+  }
+
+  setNotes(notes) {
+    this.notes = notes;
+  }
+
+  getCheckStat() {
+    return this.checkStat;
+  }
+
+  setCheckStat(checkStat) {
+    this.checkStat = checkStat;
+  }
+
+  getProject() {
+    return this.project;
+  }
+
+  setProject(project) {
+    this.project = project;
+  }
 }
 
 const allToDo = [];
 
-const pushToDo = (toDo) => {
-  allToDo.push(toDo);
+const pushToDo = () => {
+  allToDo.push(this);
 };
 
 const deleteTask = (index) => {
@@ -52,7 +100,7 @@ const createNewToDo = (
     checkStat,
     project
   );
-  pushToDo(holder);
+  this.pushTask();
   allProjects[0].projectToDo.push(holder);
 };
 
