@@ -1,5 +1,3 @@
-import { allProjects } from "./project";
-
 export class ToDo {
   constructor(
     title,

@@ -120,7 +120,6 @@ const createToDoForm = () => {
 
   const projectInput = document.createElement("select");
   projectInput.setAttribute("id", "project");
-  // projectInput.setAttribute("type", "select");
 
   allProjects.forEach((element) => {
     const option = document.createElement("option");
@@ -192,4 +191,4 @@ const eventListeners = () => {
   });
 };
 
-export { createToDoForm, createProjectForm, eventListeners };
+export { eventListeners, createToDoForm, createProjectForm };
