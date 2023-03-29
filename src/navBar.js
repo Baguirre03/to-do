@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus */
 import {
   checkDatesOfTasks,
+  checkForCurrentWeek,
   clearToDoDisplay,
   sortAndDisplayTasks,
   updateDeletes,
@@ -24,7 +25,10 @@ const navBarEvents = () => {
   });
 
   week.addEventListener("click", () => {
-    // tasks per week functions
+    projectSort();
+    clearToDoDisplay();
+    checkForCurrentWeek();
+    updateDeletes();
   });
 };
 

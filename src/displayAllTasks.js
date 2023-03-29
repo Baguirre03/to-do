@@ -2,7 +2,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-plusplus */
 import format from "date-fns/format";
-import { parseISO } from "date-fns";
+import { getWeek, parseISO } from "date-fns";
 import { allProjects } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
@@ -77,6 +77,34 @@ const checkDatesOfTasks = () => {
   }
 };
 
+const checkForCurrentWeek = () => {
+  const getToday = new Date();
+  const findWeek = getWeek(getToday);
+  console.log(findWeek);
+  for (let i = 0; i < allToDo.length; i++) {
+    const taskWeek = getWeek(parseISO(allToDo[i].getDueDate()));
+    console.log(taskWeek);
+    if (taskWeek === findWeek) {
+      const holder = document.querySelector(".task-holder");
+
+      const eachToDoHolder = document.createElement("div");
+      eachToDoHolder.classList.add("to-do");
+      eachToDoHolder.id = i;
+
+      holder.appendChild(eachToDoHolder);
+
+      eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${allToDo[i].title}</p></div>
+        <div class='description'><p>Description ${allToDo[i].description}</p></div>
+        <div class="due"><p>Due Date: ${allToDo[i].dueDate}</p></div>
+        <div class="priority"><p>Time Allocations: ${allToDo[i].priority}</p></div>
+        <div class="notes"><p>Notes: ${allToDo[i].notes}</p></div>
+        <div class="done"><p>Complete ${allToDo[i].checkStat}</p></div>
+        <div class="project"><p>project: ${allToDo.project}</p></div>
+        <div class="delete"><button class=delete-btn id=${i}>X</button></div>`;
+    }
+  }
+};
+
 const sortAndDisplayTasks = (project) => {
   projectSort();
   clearToDoDisplay();
@@ -89,4 +117,5 @@ export {
   checkDatesOfTasks,
   clearToDoDisplay,
   updateDeletes,
+  checkForCurrentWeek,
 };
