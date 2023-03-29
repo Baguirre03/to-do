@@ -30,16 +30,14 @@ const disiplayOnDOM = (indexDisplay, i) => {
   const date = format(parseISO(indexDisplay.dueDate), "MM/dd/yyyy");
 
   eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${indexDisplay.title}</p></div>
-<div class='description'><p>Description ${indexDisplay.description}</p></div>
-<div class="due"><p>Due Date: ${date}</p></div>
-<div class="priority"><p>Time Allocations: ${indexDisplay.priority}</p></div>
-<div class="notes"><p>Notes: ${indexDisplay.notes}</p></div>
-<div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
-<div class="project"><p>project: ${indexDisplay.project}</p></div>
-<div class="delete"><button class=delete-btn id=${indexOfTask}>X</button></div>`;
-};
+  <div class='description'><p>Description ${indexDisplay.description}</p></div>
+  <div class="due"><p>Due Date: ${date}</p></div>
+  <div class="priority"><p>Time Allocations: ${indexDisplay.priority}</p></div>
+  <div class="notes"><p>Notes: ${indexDisplay.notes}</p></div>
+  <div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
+  <div class="project"><p>project: ${indexDisplay.project}</p></div>
+  <div class="delete"><button class=delete-btn id=${indexOfTask}>X</button></div>`;
 
-const updateDeletes = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
@@ -83,13 +81,11 @@ const sortAndDisplayTasks = (project) => {
   projectSort();
   clearToDoDisplay();
   loopThroughTasks(project);
-  updateDeletes();
 };
 
 export {
   sortAndDisplayTasks,
   checkDatesOfTasks,
   clearToDoDisplay,
-  updateDeletes,
   checkForCurrentWeek,
 };
