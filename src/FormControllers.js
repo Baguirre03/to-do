@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-import { createNewProject } from "./project";
+import { allProjects, createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
 import { clearAndDisplayProjects, currentProject } from "./displayProjects";
@@ -113,8 +113,16 @@ const createToDoForm = () => {
   projectLabel.setAttribute("for", "project");
   projectLabel.textContent = "Project : ";
 
-  const projectInput = document.createElement("input");
+  const projectInput = document.createElement("select");
   projectInput.setAttribute("id", "project");
+  // projectInput.setAttribute("type", "select");
+
+  allProjects.forEach((element) => {
+    const option = document.createElement("option");
+    option.value = element.name;
+    option.textContent = element.name;
+    projectInput.appendChild(option);
+  });
 
   const submit = document.createElement("button");
   submit.textContent = "+";
