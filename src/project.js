@@ -11,6 +11,10 @@ export class Project {
   setName(name) {
     this.name = name;
   }
+
+  getProjects() {
+    return this.projectToDo;
+  }
 }
 
 const allProjects = [];

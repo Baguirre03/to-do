@@ -50,6 +50,10 @@ const disiplayOnDOM = (indexDisplay, i) => {
 
 const loopThroughTasks = (index) => {
   const display = allProjects[index];
+  if (display.getProjects().length === 0) {
+    const displayEmpty = document.querySelector(".task-holder");
+    displayEmpty.textContent = `${display.getName()} has no tasks! Go add some!`;
+  }
   for (let i = 0; i < display.projectToDo.length; i++) {
     disiplayOnDOM(display.projectToDo[i], i);
   }
