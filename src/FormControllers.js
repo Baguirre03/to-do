@@ -121,11 +121,17 @@ const createToDoForm = () => {
   const projectInput = document.createElement("select");
   projectInput.setAttribute("id", "project");
 
+  const currentProjectName = allProjects[currentProject].getName();
+  console.log(currentProjectName);
+
   allProjects.forEach((element) => {
     const option = document.createElement("option");
     option.value = element.name;
     option.textContent = element.name;
     projectInput.appendChild(option);
+    if (option.value === currentProjectName) {
+      option.setAttribute("selected", "selected");
+    }
   });
 
   const submit = document.createElement("button");
