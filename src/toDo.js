@@ -101,7 +101,6 @@ const createNewToDo = (
     project
   );
   pushToDo(holder);
-  allProjects[0].projectToDo.push(holder);
 };
 
 const defaultTasks = () => {

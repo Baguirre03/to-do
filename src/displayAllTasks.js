@@ -30,6 +30,7 @@ const updateDeletes = () => {
 const loopThroughTasks = (index) => {
   const holder = document.querySelector(".task-holder");
   const display = allProjects[index];
+  console.log(display);
   for (let i = 0; i < display.projectToDo.length; i++) {
     const eachToDoHolder = document.createElement("div");
     eachToDoHolder.classList.add("to-do");
@@ -80,10 +81,8 @@ const checkDatesOfTasks = () => {
 const checkForCurrentWeek = () => {
   const getToday = new Date();
   const findWeek = getWeek(getToday);
-  console.log(findWeek);
   for (let i = 0; i < allToDo.length; i++) {
     const taskWeek = getWeek(parseISO(allToDo[i].getDueDate()));
-    console.log(taskWeek);
     if (taskWeek === findWeek) {
       const holder = document.querySelector(".task-holder");
 

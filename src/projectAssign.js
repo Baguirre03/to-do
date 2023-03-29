@@ -15,7 +15,7 @@ const pushToDefault = () => {
 };
 
 const assignToDo = () => {
-  for (let i = 0; i < allProjects.length; i++) {
+  for (let i = 1; i < allProjects.length; i++) {
     const projects = allProjects[i];
     if (projects === undefined) {
       return;

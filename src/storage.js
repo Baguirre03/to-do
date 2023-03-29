@@ -26,7 +26,6 @@ const displayTasksFromStore = () => {
       )
     )
   );
-  sortAndDisplayTasks("0");
 };
 
 // on page load
@@ -38,6 +37,7 @@ const checkStorage = () => {
     sortAndDisplayTasks("0");
   } else if (storage.length !== 0) {
     displayTasksFromStore();
+    sortAndDisplayTasks("0");
   }
 };
 
