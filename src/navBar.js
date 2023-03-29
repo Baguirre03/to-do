@@ -4,7 +4,6 @@ import {
   checkForCurrentWeek,
   clearToDoDisplay,
   sortAndDisplayTasks,
-  updateDeletes,
 } from "./displayAllTasks";
 import projectSort from "./projectAssign";
 
@@ -21,14 +20,12 @@ const navBarEvents = () => {
     projectSort();
     clearToDoDisplay();
     checkDatesOfTasks();
-    updateDeletes();
   });
 
   week.addEventListener("click", () => {
     projectSort();
     clearToDoDisplay();
     checkForCurrentWeek();
-    updateDeletes();
   });
 };
 
