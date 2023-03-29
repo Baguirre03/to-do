@@ -40,6 +40,11 @@ const createProjectForm = () => {
   form.appendChild(submit);
 
   submit.addEventListener("click", (event) => {
+    if (input.value === "") {
+      // eslint-disable-next-line no-alert
+      alert("Give your project a name;)");
+      return;
+    }
     event.preventDefault();
     form.remove();
     createNewProject(input.value);
@@ -150,7 +155,8 @@ const createToDoForm = () => {
   submit.addEventListener("click", (event) => {
     valiDate(dueDateInput.value);
     if (!dueDateInput.value) {
-      console.log("put a valid date");
+      // eslint-disable-next-line no-alert
+      alert("please put a valid date");
       return;
     }
     event.preventDefault();

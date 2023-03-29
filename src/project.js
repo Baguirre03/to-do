@@ -3,6 +3,14 @@ export class Project {
     this.name = name;
     this.projectToDo = [];
   }
+
+  getName() {
+    return this.name;
+  }
+
+  setName(name) {
+    this.name = name;
+  }
 }
 
 const allProjects = [];
@@ -20,9 +28,9 @@ const deleteProject = (index) => {
   allProjects.splice(index, 1);
 };
 const defaultProjects = () => {
-  createNewProject("default");
-  createNewProject("school");
-  createNewProject("personal");
+  createNewProject("All");
+  createNewProject("School");
+  createNewProject("Personal");
 };
 
 export { createNewProject, allProjects, deleteProject, defaultProjects };

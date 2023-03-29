@@ -113,7 +113,7 @@ const defaultTasks = () => {
     "1.5 Hours",
     "No Notes",
     "complete",
-    "school"
+    "School"
   );
   createNewToDo(
     "Code",
@@ -123,7 +123,7 @@ const defaultTasks = () => {
     "2 Hours",
     "You can figure it out!",
     "complete",
-    "personal"
+    "Personal"
   );
   createNewToDo(
     "Study for LREB exam",
@@ -133,7 +133,7 @@ const defaultTasks = () => {
     "1 Hour",
     "No notes",
     "complete",
-    "school"
+    "School"
   );
   createNewToDo(
     "Read a book",
@@ -143,7 +143,7 @@ const defaultTasks = () => {
     "1 Hour",
     "No notes",
     "complete",
-    "personal"
+    "Personal"
   );
 };
 
