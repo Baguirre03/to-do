@@ -16,12 +16,20 @@ const clearToDoDisplay = () => {
   }
 };
 
-const disiplayOnDOM = (parent, indexDisplay) => {
+const disiplayOnDOM = (indexDisplay, i) => {
+  const holder = document.querySelector(".task-holder");
+
+  const eachToDoHolder = document.createElement("div");
+  eachToDoHolder.classList.add("to-do");
+  eachToDoHolder.id = i;
+
+  holder.appendChild(eachToDoHolder);
+
   const indexOfTask = allToDo.indexOf(indexDisplay);
 
   const date = format(parseISO(indexDisplay.dueDate), "MM/dd/yyyy");
 
-  parent.innerHTML += ` <div class='title'><p>Title: ${indexDisplay.title}</p></div>
+  eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${indexDisplay.title}</p></div>
 <div class='description'><p>Description ${indexDisplay.description}</p></div>
 <div class="due"><p>Due Date: ${date}</p></div>
 <div class="priority"><p>Time Allocations: ${indexDisplay.priority}</p></div>
@@ -43,19 +51,9 @@ const updateDeletes = () => {
 };
 
 const loopThroughTasks = (index) => {
-  const holder = document.querySelector(".task-holder");
   const display = allProjects[index];
   for (let i = 0; i < display.projectToDo.length; i++) {
-    const eachToDoHolder = document.createElement("div");
-    eachToDoHolder.classList.add("to-do");
-    eachToDoHolder.id = i;
-
-    holder.appendChild(eachToDoHolder);
-    const indexOfTask = allToDo.indexOf(display.projectToDo[i]);
-
-    const date = format(parseISO(display.projectToDo[i].dueDate), "MM/dd/yyyy");
-
-    disiplayOnDOM(eachToDoHolder, display.projectToDo[i], i);
+    disiplayOnDOM(display.projectToDo[i], i);
   }
 };
 
@@ -65,15 +63,7 @@ const checkDatesOfTasks = () => {
   for (let i = 0; i < allToDo.length; i++) {
     const date = format(parseISO(allToDo[i].getDueDate()), "MM/dd/yyyy");
     if (date === formatted) {
-      const holder = document.querySelector(".task-holder");
-
-      const eachToDoHolder = document.createElement("div");
-      eachToDoHolder.classList.add("to-do");
-      eachToDoHolder.id = i;
-
-      holder.appendChild(eachToDoHolder);
-
-      disiplayOnDOM(eachToDoHolder, allToDo[i], i);
+      disiplayOnDOM(allToDo[i], i);
     }
   }
 };
@@ -84,15 +74,7 @@ const checkForCurrentWeek = () => {
   for (let i = 0; i < allToDo.length; i++) {
     const taskWeek = getWeek(parseISO(allToDo[i].getDueDate()));
     if (taskWeek === findWeek) {
-      const holder = document.querySelector(".task-holder");
-
-      const eachToDoHolder = document.createElement("div");
-      eachToDoHolder.classList.add("to-do");
-      eachToDoHolder.id = i;
-
-      holder.appendChild(eachToDoHolder);
-
-      disiplayOnDOM(eachToDoHolder, allToDo[i], i);
+      disiplayOnDOM(allToDo[i], i);
     }
   }
 };
