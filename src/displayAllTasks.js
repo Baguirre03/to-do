@@ -72,6 +72,7 @@ const checkDatesOfTasks = () => {
     }
   }
   updateDeletes();
+  checkEmptyDiv();
 };
 
 const checkForCurrentWeek = () => {
@@ -84,6 +85,14 @@ const checkForCurrentWeek = () => {
     }
   }
   updateDeletes();
+  checkEmptyDiv();
+};
+
+const checkEmptyDiv = () => {
+  const displayHolder = document.querySelector(".task-holder");
+  if (displayHolder.childElementCount === 0) {
+    displayHolder.textContent = "No tasks due soon, congrats!";
+  }
 };
 
 const sortAndDisplayTasks = (project) => {
