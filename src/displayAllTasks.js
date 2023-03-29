@@ -16,6 +16,17 @@ const clearToDoDisplay = () => {
   }
 };
 
+const updateDeletes = () => {
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      deleteTask(event.target.id);
+      addTasksToStorage();
+      sortAndDisplayTasks(currentProject);
+    });
+  });
+};
+
 const disiplayOnDOM = (indexDisplay, i) => {
   const holder = document.querySelector(".task-holder");
 
@@ -37,25 +48,17 @@ const disiplayOnDOM = (indexDisplay, i) => {
   <div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
   <div class="project"><p>project: ${indexDisplay.project}</p></div>
   <div class="delete"><button class=delete-btn id=${indexOfTask}>X</button></div>`;
-
-  const deleteButtons = document.querySelectorAll(".delete-btn");
-  deleteButtons.forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      deleteTask(event.target.id);
-      addTasksToStorage();
-      sortAndDisplayTasks(currentProject);
-    });
-  });
 };
 
 const loopThroughTasks = (index) => {
   const display = allProjects[index];
+  for (let i = 0; i < display.projectToDo.length; i++) {
+    disiplayOnDOM(display.projectToDo[i], i);
+  }
+  updateDeletes();
   if (display.getProjects().length === 0) {
     const displayEmpty = document.querySelector(".task-holder");
     displayEmpty.textContent = `${display.getName()} has no tasks! Go add some!`;
-  }
-  for (let i = 0; i < display.projectToDo.length; i++) {
-    disiplayOnDOM(display.projectToDo[i], i);
   }
 };
 
@@ -68,6 +71,7 @@ const checkDatesOfTasks = () => {
       disiplayOnDOM(allToDo[i], i);
     }
   }
+  updateDeletes();
 };
 
 const checkForCurrentWeek = () => {
@@ -79,6 +83,7 @@ const checkForCurrentWeek = () => {
       disiplayOnDOM(allToDo[i], i);
     }
   }
+  updateDeletes();
 };
 
 const sortAndDisplayTasks = (project) => {

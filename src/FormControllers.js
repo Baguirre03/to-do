@@ -42,7 +42,7 @@ const createProjectForm = () => {
   submit.addEventListener("click", (event) => {
     if (input.value === "") {
       // eslint-disable-next-line no-alert
-      alert("Give your project a name)");
+      alert("Give your project a name");
       return;
     }
     event.preventDefault();
