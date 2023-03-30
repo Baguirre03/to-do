@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
   --basicPadding: 2vw;
+
+  --majorBlue: #07004d;
+  --royalBlue: #2d82b7;
+  --ultraVoilet: #42e2b8;
+  --lavender: #f3dfbf;
+  --muave: #eb8a90;
 }
 
 .main-container {
@@ -17,6 +23,10 @@ header {
   display: grid;
   align-items: center;
   padding-left: var(--basicPadding);
+  background-color: var(--royalBlue);
+  color: var(--muave);
+  font-size: 2rem;
+  border-bottom: 2px solid black;
 }
 
 /* Main Content */
@@ -29,6 +39,7 @@ main {
   padding: 0vw var(--basicPadding) 0svw var(--basicPadding);
 }
 
+/* Sidebar */
 .sidebar {
   grid-row: span 2;
   display: flex;
@@ -55,11 +66,20 @@ ul {
   gap: 20px;
 }
 
+li {
+  list-style-type: none;
+}
+
+ul li button {
+  width: 100%;
+}
+
 .project-form {
   position: absolute;
   right: 50vw;
   top: 50vh;
 }
+/* Sidebar End */
 
 /* Task holder */
 .task-holder {
@@ -69,6 +89,7 @@ ul {
 .to-do {
   display: flex;
 }
+/* Task hold end */
 
 /* End Main */
 /* Footer */
@@ -77,5 +98,6 @@ footer {
   display: grid;
   align-items: center;
   justify-content: center;
-  height: 7vh;
+  height: 5vh;
+  background-color: var(--lavender);
 }
