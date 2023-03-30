@@ -1,3 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  --basicPadding: 2vw;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header */
+
+header {
+  height: 7vh;
+  display: grid;
+  align-items: center;
+  padding-left: var(--basicPadding);
+}
+
+/* Main Content */
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: min-content 1fr;
+  flex: 1;
+  padding: 0vw var(--basicPadding) 0svw var(--basicPadding);
+}
+
+.sidebar {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+.projects-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-form {
+  position: absolute;
+  right: 50vw;
+  top: 50vh;
+}
+
+/* Task holder */
+.task-holder {
+  padding: 1vw;
+}
+
 .to-do {
   display: flex;
+}
+
+/* End Main */
+/* Footer */
+
+footer {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
 }

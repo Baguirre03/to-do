@@ -4,7 +4,7 @@ const pageLoad = () => {
   const body = document.querySelector("body");
   body.innerHTML = `    <div class="main-container">
       <header>
-        <h3 class="logo">Logo</h3>
+        <h3 class="logo">To Do List</h3>
       </header>
       <main>
         <div class="sidebar">
