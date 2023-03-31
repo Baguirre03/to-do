@@ -31,6 +31,7 @@ const createNewProject = (name) => {
 const deleteProject = (index) => {
   allProjects.splice(index, 1);
 };
+
 const defaultProjects = () => {
   createNewProject("All");
   createNewProject("School");

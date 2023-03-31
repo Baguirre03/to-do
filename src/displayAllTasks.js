@@ -3,11 +3,11 @@
 /* eslint-disable no-plusplus */
 import format from "date-fns/format";
 import { getWeek, parseISO } from "date-fns";
-import { allProjects } from "./project";
+import { allProjects, deleteProject } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
 import { addTasksToStorage } from "./storage";
-import { currentProject } from "./displayProjects";
+import { clearAndDisplayProjects, currentProject } from "./displayProjects";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -57,14 +57,33 @@ const disiplayOnDOM = (indexDisplay, i) => {
   <div class="get-information"><button class=info-btn id=${indexOfTask}>Get Info</button></div>`;
 };
 
+const createEmptyDisplay = () => {
+  const project = allProjects[currentProject];
+
+  const parent = document.querySelector(".task-holder");
+  const emptyDisplay = document.createElement("h2");
+  emptyDisplay.classList.add("empty-display");
+  emptyDisplay.textContent = `${project.getName()} has no tasks, go add some!`;
+  parent.appendChild(emptyDisplay);
+
+  const deleteBtn = document.createElement("button");
+  parent.appendChild(deleteBtn);
+  deleteBtn.textContent = "Delete Project";
+  deleteBtn.classList.add("delete-proj");
+  deleteBtn.addEventListener("click", () => {
+    deleteProject(currentProject);
+    clearAndDisplayProjects();
+    sortAndDisplayTasks("0");
+  });
+};
+
 const loopThroughTasks = (index) => {
   const display = allProjects[index];
   for (let i = 0; i < display.projectToDo.length; i++) {
     disiplayOnDOM(display.projectToDo[i], i);
   }
   if (display.getProjects().length === 0) {
-    const displayEmpty = document.querySelector(".task-holder");
-    displayEmpty.textContent = `${display.getName()} has no tasks! Go add some!`;
+    createEmptyDisplay();
   }
   getEventListeners();
 };
@@ -99,7 +118,10 @@ const checkForCurrentWeek = () => {
 const checkEmptyDivForNav = () => {
   const displayHolder = document.querySelector(".task-holder");
   if (displayHolder.childElementCount === 0) {
-    displayHolder.textContent = "No tasks due soon, congrats!";
+    const emptyDisplay = document.createElement("h2");
+    emptyDisplay.classList.add("empty-display");
+    emptyDisplay.textContent = "No tasks due soon, congrats!";
+    displayHolder.appendChild(emptyDisplay);
   }
 };
 

@@ -140,6 +140,11 @@ li {
 .to-do {
   display: flex;
 }
+
+.empty-display {
+  display: flex;
+  justify-content: center;
+}
 /* Task hold end */
 
 /* End Main */
