@@ -93,11 +93,3 @@ ul li button {
 
 /* End Main */
 /* Footer */
-
-footer {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  height: 5vh;
-  background-color: var(--lavender);
-}

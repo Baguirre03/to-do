@@ -26,9 +26,6 @@ const pageLoad = () => {
         <div class=task-holder>
         </div>
       </main>
-      <footer>
-        <p>CopyRight Ben</p>
-      </footer>
     </div>`;
 
   navBarEvents();
