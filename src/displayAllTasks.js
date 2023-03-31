@@ -8,6 +8,7 @@ import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
 import { addTasksToStorage } from "./storage";
 import {
+  addProjectTitleToDOM,
   clearAndDisplayProjects,
   currentProject,
   selectedProj,
@@ -140,18 +141,21 @@ const sortAndDisplayTasks = (project) => {
       clearToDoDisplay();
       checkDatesOfTasks();
       selectedProj();
+      addProjectTitleToDOM();
       break;
     case "week":
       projectSort();
       clearToDoDisplay();
       checkForCurrentWeek();
       selectedProj();
+      addProjectTitleToDOM();
       break;
     default:
       projectSort();
       clearToDoDisplay();
       loopThroughTasks(project);
       selectedProj();
+      addProjectTitleToDOM();
   }
 };
 

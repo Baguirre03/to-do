@@ -32,6 +32,17 @@ const displayProjects = () => {
   }
 };
 
+const addProjectTitleToDOM = () => {
+  const titleDisplay = document.querySelector(".proj-display");
+
+  if (currentProject === "week") {
+    titleDisplay.textContent = "Week";
+  } else if (currentProject === "today") {
+    titleDisplay.textContent = "Today";
+  }
+  titleDisplay.textContent = allProjects[currentProject].getName();
+};
+
 const navBarEvents = () => {
   const allTasks = document.querySelector("#all");
   const today = document.querySelector("#today");
@@ -68,14 +79,18 @@ const selectedProj = () => {
   const buttons = document.querySelectorAll(".project");
   buttons.forEach((btn) => {
     if (btn.classList.contains("selected")) {
-      console.log("remove :", btn);
       btn.classList.remove("selected");
     }
     btn.addEventListener("click", () => {
-      console.log("addthis :", btn);
       btn.classList.add("selected");
     });
   });
 };
 
-export { clearAndDisplayProjects, currentProject, navBarEvents, selectedProj };
+export {
+  clearAndDisplayProjects,
+  currentProject,
+  navBarEvents,
+  selectedProj,
+  addProjectTitleToDOM,
+};
