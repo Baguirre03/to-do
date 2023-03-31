@@ -77,6 +77,8 @@ li {
 
 .default-options:hover {
   font-size: 1.3rem;
+  translate: 0rem -0.2rem;
+  transition: 0.2s;
 }
 
 .projects h3 {
@@ -104,7 +106,7 @@ li {
 }
 
 .projects-holder .project:hover {
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
   background-color: var(--majorBlue);
   color: var(--ultraVoilet);
   transition: 0.2s;

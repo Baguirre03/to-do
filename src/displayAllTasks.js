@@ -107,7 +107,6 @@ const checkForCurrentWeek = () => {
   for (let i = 0; i < allToDo.length; i++) {
     const taskWeek = getWeek(parseISO(allToDo[i].getDueDate()));
     if (taskWeek === findWeek) {
-      console.log(allToDo[i]);
       disiplayOnDOM(allToDo[i], i);
     }
   }

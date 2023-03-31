@@ -1,4 +1,5 @@
 import { navBarEvents } from "./displayProjects";
+import { createNewProject } from "./project";
 
 const pageLoad = () => {
   const body = document.querySelector("body");
@@ -9,6 +10,7 @@ const pageLoad = () => {
       <main>
         <div class="sidebar">
           <ul class="current-times">
+          <li><button id="all" class="default-options">All Tasks</button></li>
             <li><button id="today" class="default-options">Today</button></li>
             <li><button id="week" class="default-options">This Week</button></li>
           </ul>
@@ -25,7 +27,7 @@ const pageLoad = () => {
         </div>
       </main>
     </div>`;
-
+  createNewProject("All");
   navBarEvents();
 };
 

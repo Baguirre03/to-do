@@ -22,7 +22,7 @@ const clearProjects = () => {
 
 const displayProjects = () => {
   const projectHolder = document.querySelector(".projects-holder");
-  for (let i = 0; i < allProjects.length; i++) {
+  for (let i = 1; i < allProjects.length; i++) {
     const project = document.createElement("button");
     project.textContent = allProjects[i].name;
     project.classList.add("project");
@@ -38,8 +38,16 @@ const displayProjects = () => {
 };
 
 const navBarEvents = () => {
+  const allTasks = document.querySelector("#all");
   const today = document.querySelector("#today");
   const week = document.querySelector("#week");
+
+  allTasks.addEventListener("click", () => {
+    currentProject = "0";
+    projectSort();
+    clearToDoDisplay();
+    sortAndDisplayTasks(currentProject);
+  });
 
   today.addEventListener("click", () => {
     currentProject = "today";
