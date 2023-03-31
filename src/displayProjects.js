@@ -64,6 +64,8 @@ const navBarEvents = () => {
   });
 };
 
+const selectedProj = () => {};
+
 const clearAndDisplayProjects = () => {
   clearProjects();
   displayProjects();

@@ -1,5 +1,4 @@
 import { navBarEvents } from "./displayProjects";
-import { createNewProject } from "./project";
 
 const pageLoad = () => {
   const body = document.querySelector("body");
@@ -27,7 +26,6 @@ const pageLoad = () => {
         </div>
       </main>
     </div>`;
-  createNewProject("All");
   navBarEvents();
 };
 

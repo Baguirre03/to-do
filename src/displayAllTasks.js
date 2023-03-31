@@ -66,6 +66,11 @@ const createEmptyDisplay = () => {
   emptyDisplay.textContent = `${project.getName()} has no tasks, go add some!`;
   parent.appendChild(emptyDisplay);
 
+  if (currentProject === "0") {
+    emptyDisplay.textContent = "No tasks at all? Lets get this going";
+    return;
+  }
+
   const deleteBtn = document.createElement("button");
   parent.appendChild(deleteBtn);
   deleteBtn.textContent = "Delete Project";
@@ -98,7 +103,7 @@ const checkDatesOfTasks = () => {
     }
   }
   getEventListeners();
-  checkEmptyDivForNav();
+  checkEmptyDivForNav("No tasks due today, nice job!");
 };
 
 const checkForCurrentWeek = () => {
@@ -111,15 +116,15 @@ const checkForCurrentWeek = () => {
     }
   }
   getEventListeners();
-  checkEmptyDivForNav();
+  checkEmptyDivForNav("No tasks due this week, enjoy it!");
 };
 
-const checkEmptyDivForNav = () => {
+const checkEmptyDivForNav = (text) => {
   const displayHolder = document.querySelector(".task-holder");
   if (displayHolder.childElementCount === 0) {
     const emptyDisplay = document.createElement("h2");
     emptyDisplay.classList.add("empty-display");
-    emptyDisplay.textContent = "No tasks due soon, congrats!";
+    emptyDisplay.textContent = text;
     displayHolder.appendChild(emptyDisplay);
   }
 };
