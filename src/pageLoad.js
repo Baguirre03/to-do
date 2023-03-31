@@ -9,9 +9,9 @@ const pageLoad = () => {
       <main>
         <div class="sidebar">
           <ul class="current-times">
-          <li><button id="all" class="default-options">All Tasks</button></li>
-            <li><button id="today" class="default-options">Today</button></li>
-            <li><button id="week" class="default-options">This Week</button></li>
+          <li><button id="all" class="default-options project">All Tasks</button></li>
+            <li><button id="today" class="default-options project">Today</button></li>
+            <li><button id="week" class="default-options project">This Week</button></li>
           </ul>
           <div class="projects">
             <h3>Your Projects</h3>

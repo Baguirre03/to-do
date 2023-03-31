@@ -7,7 +7,11 @@ import { allProjects, deleteProject } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
 import { addTasksToStorage } from "./storage";
-import { clearAndDisplayProjects, currentProject } from "./displayProjects";
+import {
+  clearAndDisplayProjects,
+  currentProject,
+  selectedProj,
+} from "./displayProjects";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -133,19 +137,21 @@ const sortAndDisplayTasks = (project) => {
   switch (project) {
     case "today":
       projectSort();
-
       clearToDoDisplay();
       checkDatesOfTasks();
+      selectedProj();
       break;
     case "week":
       projectSort();
       clearToDoDisplay();
       checkForCurrentWeek();
+      selectedProj();
       break;
     default:
       projectSort();
       clearToDoDisplay();
       loopThroughTasks(project);
+      selectedProj();
   }
 };
 
