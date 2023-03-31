@@ -66,6 +66,10 @@ export class ToDo {
   setProject(project) {
     this.project = project;
   }
+
+  getInfo() {
+    return `Description: ${this.description} Notes: ${this.notes} Time Allocation: ${this.timeAllocate} Project: ${this.project}`;
+  }
 }
 
 const allToDo = [];

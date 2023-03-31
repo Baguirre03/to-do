@@ -27,6 +27,20 @@ const updateDeletes = () => {
   });
 };
 
+const getInformation = () => {
+  const getInfoButtons = document.querySelectorAll(".info-btn");
+  getInfoButtons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const task = allToDo[event.target.id];
+      console.log(task.getInfo());
+    });
+  });
+};
+
+// const editTask = () => {
+//   const editBtns = document.querySelectorAll(".");
+// };
+
 const disiplayOnDOM = (indexDisplay, i) => {
   const holder = document.querySelector(".task-holder");
 
@@ -40,19 +54,11 @@ const disiplayOnDOM = (indexDisplay, i) => {
 
   const date = format(parseISO(indexDisplay.dueDate), "MM/dd/yyyy");
 
-  // eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${indexDisplay.title}</p></div>
-  // <div class='description'><p>Description ${indexDisplay.description}</p></div>
-  // <div class="due"><p>Due Date: ${date}</p></div>
-  // <div class="priority"><p>Time Allocations: ${indexDisplay.priority}</p></div>
-  // <div class="notes"><p>Notes: ${indexDisplay.notes}</p></div>
-  // <div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
-  // <div class="project"><p>project: ${indexDisplay.project}</p></div>
-  // <div class="delete"><button class=delete-btn id=${indexOfTask}>X</button></div>`;
-
   eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${indexDisplay.title}</p></div>
   <div class="due"><p>Due Date: ${date}</p></div>
-  <div class="priority"><p>Time Allocations: ${indexDisplay.priority}</p></div>
+  <div class="priority"><p>Priority: ${indexDisplay.priority}</p></div>
   <div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
+  <div class="edit"><button class=edit-task id=${indexOfTask}>Edit Task</button></div>
   <div class="delete"><button class=delete-btn id=${indexOfTask}>X</button></div>
   <div class="get-information"><button class=info-btn id=${indexOfTask}>Get Info</button></div>`;
 };
@@ -63,6 +69,7 @@ const loopThroughTasks = (index) => {
     disiplayOnDOM(display.projectToDo[i], i);
   }
   updateDeletes();
+  getInformation();
   if (display.getProjects().length === 0) {
     const displayEmpty = document.querySelector(".task-holder");
     displayEmpty.textContent = `${display.getName()} has no tasks! Go add some!`;
@@ -79,7 +86,7 @@ const checkDatesOfTasks = () => {
     }
   }
   updateDeletes();
-  checkEmptyDiv();
+  checkEmptyDivForNav();
 };
 
 const checkForCurrentWeek = () => {
@@ -91,11 +98,11 @@ const checkForCurrentWeek = () => {
       disiplayOnDOM(allToDo[i], i);
     }
   }
-  updateDeletes();
-  checkEmptyDiv();
+  // updateDeletes();
+  checkEmptyDivForNav();
 };
 
-const checkEmptyDiv = () => {
+const checkEmptyDivForNav = () => {
   const displayHolder = document.querySelector(".task-holder");
   if (displayHolder.childElementCount === 0) {
     displayHolder.textContent = "No tasks due soon, congrats!";
