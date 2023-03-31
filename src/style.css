@@ -80,20 +80,33 @@ li {
 }
 
 .projects h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   align-self: center;
 }
 
 .projects-holder {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .project-form {
   position: absolute;
   right: 50vw;
   top: 50vh;
+}
+
+.projects-holder .project {
+  background-color: var(--royalBlue);
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.4vh;
+}
+
+.projects-holder .project:hover {
+  font-size: 1.4rem;
+  background-color: var(--majorBlue);
+  color: var(--ultraVoilet);
+  cursor: pointer;
 }
 /* Sidebar End */
 
@@ -110,6 +123,12 @@ li {
   font-size: 1.3rem;
   background-color: var(--lavender);
   border: none;
+}
+
+#createToDo:hover {
+  color: var(--muave);
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .task-holder {

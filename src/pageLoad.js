@@ -14,7 +14,7 @@ const pageLoad = () => {
             <li><button id="week" class="default-options">This Week</button></li>
           </ul>
           <div class="projects">
-            <h3>Projects</h3>
+            <h3>Your Projects</h3>
             <div class="projects-holder"></div>
             <button id="createProj">Create New Project</button>
           </div>
