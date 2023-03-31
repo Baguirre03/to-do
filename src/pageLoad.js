@@ -8,10 +8,10 @@ const pageLoad = () => {
       </header>
       <main>
         <div class="sidebar">
-          <ul>
-            <li><button id="inbox">All Tasks</button></li>
-            <li><button id="today">Today</button></li>
-            <li><button id="week">This Week</button></li>
+          <ul class="current-times">
+            <li><button id="inbox" class="default-options">All Tasks</button></li>
+            <li><button id="today" class="default-options">Today</button></li>
+            <li><button id="week" class="default-options">This Week</button></li>
           </ul>
           <div class="projects">
             <h3>Projects</h3>
@@ -20,8 +20,7 @@ const pageLoad = () => {
           </div>
         </div>
         <div class="to-do-container">
-          <button id="createToDo">Create New To-Do</button>
-          <div class="to-do-holder"></div>
+          <button id="createToDo">Create New Task +</button>
         </div>
         <div class=task-holder>
         </div>

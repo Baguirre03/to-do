@@ -3,11 +3,11 @@
   padding: 0;
   --basicPadding: 2vw;
 
-  --majorBlue: #07004d;
-  --royalBlue: #2d82b7;
-  --ultraVoilet: #42e2b8;
-  --lavender: #f3dfbf;
-  --muave: #eb8a90;
+  --majorBlue: #1d3557;
+  --royalBlue: #457b9d;
+  --ultraVoilet: #a8dadc;
+  --lavender: #f1faee;
+  --muave: #e63946;
 }
 
 .main-container {
@@ -23,8 +23,8 @@ header {
   display: grid;
   align-items: center;
   padding-left: var(--basicPadding);
-  background-color: var(--royalBlue);
-  color: var(--muave);
+  background-color: var(--majorBlue);
+  color: var(--ultraVoilet);
   font-size: 2rem;
   border-bottom: 2px solid black;
 }
@@ -36,17 +36,9 @@ main {
   grid-template-columns: 1fr 5fr;
   grid-template-rows: min-content 1fr;
   flex: 1;
-  padding: 0vw var(--basicPadding) 0svw var(--basicPadding);
 }
 
 /* Sidebar */
-.sidebar {
-  grid-row: span 2;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .projects {
   display: flex;
   flex-direction: column;
@@ -54,24 +46,48 @@ main {
   gap: 20px;
 }
 
-.projects-holder {
+.sidebar {
+  grid-row: span 2;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background-color: var(--royalBlue);
 }
 
-ul {
+.current-times {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  padding-top: 2vh;
 }
 
 li {
   list-style-type: none;
 }
 
-ul li button {
+.default-options {
   width: 100%;
+  background-color: var(--royalBlue);
+  border: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding: 1vh;
+  cursor: pointer;
+}
+
+.default-options:hover {
+  font-size: 1.3rem;
+}
+
+.projects h3 {
+  font-size: 2rem;
+  align-self: center;
+}
+
+.projects-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .project-form {
@@ -82,8 +98,23 @@ ul li button {
 /* Sidebar End */
 
 /* Task holder */
+.to-do-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  background-color: var(--lavender);
+}
+
+#createToDo {
+  font-size: 1.3rem;
+  background-color: var(--lavender);
+  border: none;
+}
+
 .task-holder {
   padding: 1vw;
+  background-color: var(--lavender);
 }
 
 .to-do {
