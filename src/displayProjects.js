@@ -32,17 +32,6 @@ const displayProjects = () => {
   }
 };
 
-const addProjectTitleToDOM = () => {
-  const titleDisplay = document.querySelector(".proj-display");
-
-  if (currentProject === "week") {
-    titleDisplay.textContent = "Week";
-  } else if (currentProject === "today") {
-    titleDisplay.textContent = "Today";
-  }
-  titleDisplay.textContent = allProjects[currentProject].getName();
-};
-
 const navBarEvents = () => {
   const allTasks = document.querySelector("#all");
   const today = document.querySelector("#today");
@@ -73,6 +62,17 @@ const navBarEvents = () => {
 const clearAndDisplayProjects = () => {
   clearProjects();
   displayProjects();
+};
+
+const addProjectTitleToDOM = () => {
+  const titleDisplay = document.querySelector(".proj-display");
+
+  if (currentProject === "week") {
+    titleDisplay.textContent = "Week";
+  } else if (currentProject === "today") {
+    titleDisplay.textContent = "Today";
+  }
+  titleDisplay.textContent = allProjects[currentProject].getName();
 };
 
 const selectedProj = () => {
