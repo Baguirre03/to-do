@@ -4,6 +4,7 @@ import {
   checkForCurrentWeek,
   clearToDoDisplay,
 } from "./displayAllTasks";
+import { currentProject } from "./displayProjects";
 import projectSort from "./projectAssign";
 
 const navBarEvents = () => {
@@ -11,6 +12,8 @@ const navBarEvents = () => {
   const week = document.querySelector("#week");
 
   today.addEventListener("click", () => {
+    currentProject = "today";
+    console.log(currentProject);
     projectSort();
     clearToDoDisplay();
     checkDatesOfTasks();

@@ -16,7 +16,7 @@ const clearToDoDisplay = () => {
   }
 };
 
-const updateDeletes = () => {
+const getEventListeners = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
@@ -25,9 +25,7 @@ const updateDeletes = () => {
       sortAndDisplayTasks(currentProject);
     });
   });
-};
 
-const getInformation = () => {
   const getInfoButtons = document.querySelectorAll(".info-btn");
   getInfoButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
@@ -36,10 +34,6 @@ const getInformation = () => {
     });
   });
 };
-
-// const editTask = () => {
-//   const editBtns = document.querySelectorAll(".");
-// };
 
 const disiplayOnDOM = (indexDisplay, i) => {
   const holder = document.querySelector(".task-holder");
@@ -68,12 +62,11 @@ const loopThroughTasks = (index) => {
   for (let i = 0; i < display.projectToDo.length; i++) {
     disiplayOnDOM(display.projectToDo[i], i);
   }
-  updateDeletes();
-  getInformation();
   if (display.getProjects().length === 0) {
     const displayEmpty = document.querySelector(".task-holder");
     displayEmpty.textContent = `${display.getName()} has no tasks! Go add some!`;
   }
+  getEventListeners();
 };
 
 const checkDatesOfTasks = () => {
@@ -85,7 +78,7 @@ const checkDatesOfTasks = () => {
       disiplayOnDOM(allToDo[i], i);
     }
   }
-  updateDeletes();
+  getEventListeners();
   checkEmptyDivForNav();
 };
 
@@ -95,10 +88,11 @@ const checkForCurrentWeek = () => {
   for (let i = 0; i < allToDo.length; i++) {
     const taskWeek = getWeek(parseISO(allToDo[i].getDueDate()));
     if (taskWeek === findWeek) {
+      console.log(allToDo[i]);
       disiplayOnDOM(allToDo[i], i);
     }
   }
-  // updateDeletes();
+  getEventListeners();
   checkEmptyDivForNav();
 };
 

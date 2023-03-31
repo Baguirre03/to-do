@@ -3,7 +3,13 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-plusplus */
 import { allProjects } from "./project";
-import { sortAndDisplayTasks } from "./displayAllTasks";
+import {
+  checkDatesOfTasks,
+  checkForCurrentWeek,
+  clearToDoDisplay,
+  sortAndDisplayTasks,
+} from "./displayAllTasks";
+import projectSort from "./projectAssign";
 
 let currentProject = "0";
 
@@ -31,9 +37,28 @@ const displayProjects = () => {
   }
 };
 
+const navBarEvents = () => {
+  const today = document.querySelector("#today");
+  const week = document.querySelector("#week");
+
+  today.addEventListener("click", () => {
+    currentProject = "today";
+    console.log(currentProject);
+    projectSort();
+    clearToDoDisplay();
+    checkDatesOfTasks();
+  });
+
+  week.addEventListener("click", () => {
+    projectSort();
+    clearToDoDisplay();
+    checkForCurrentWeek();
+  });
+};
+
 const clearAndDisplayProjects = () => {
   clearProjects();
   displayProjects();
 };
 
-export { clearAndDisplayProjects, currentProject };
+export { clearAndDisplayProjects, currentProject, navBarEvents };
