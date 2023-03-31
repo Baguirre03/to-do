@@ -1,4 +1,4 @@
-import navBarEvents from "./navBar";
+import { navBarEvents } from "./displayProjects";
 
 const pageLoad = () => {
   const body = document.querySelector("body");

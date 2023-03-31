@@ -50,6 +50,7 @@ const navBarEvents = () => {
   });
 
   week.addEventListener("click", () => {
+    currentProject = "week";
     projectSort();
     clearToDoDisplay();
     checkForCurrentWeek();
