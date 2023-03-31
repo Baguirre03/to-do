@@ -43,7 +43,6 @@ const navBarEvents = () => {
 
   today.addEventListener("click", () => {
     currentProject = "today";
-    console.log(currentProject);
     projectSort();
     clearToDoDisplay();
     checkDatesOfTasks();

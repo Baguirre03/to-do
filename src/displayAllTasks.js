@@ -104,9 +104,23 @@ const checkEmptyDivForNav = () => {
 };
 
 const sortAndDisplayTasks = (project) => {
-  projectSort();
-  clearToDoDisplay();
-  loopThroughTasks(project);
+  switch (project) {
+    case "today":
+      projectSort();
+
+      clearToDoDisplay();
+      checkDatesOfTasks();
+      break;
+    case "week":
+      projectSort();
+      clearToDoDisplay();
+      checkForCurrentWeek();
+      break;
+    default:
+      projectSort();
+      clearToDoDisplay();
+      loopThroughTasks(project);
+  }
 };
 
 export {
