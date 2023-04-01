@@ -1,4 +1,6 @@
 import { navBarEvents } from "./displayProjects";
+import { eventListeners } from "./FormControllers";
+import { checkProjStorage, checkStorage } from "./storage";
 
 const pageLoad = () => {
   const body = document.querySelector("body");
@@ -28,6 +30,9 @@ const pageLoad = () => {
       </main>
     </div>`;
   navBarEvents();
+  checkProjStorage();
+  checkStorage();
+  eventListeners();
 };
 
 export default pageLoad;
