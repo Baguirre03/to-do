@@ -34,8 +34,9 @@ header {
   gap: 1vw;
 }
 
-.logo-svg {
-  height: 70%;
+header svg {
+  height: 60%;
+  fill: var(--ultraVoilet);
 }
 
 /* Main Content */
@@ -148,7 +149,7 @@ li {
 }
 
 .proj-display {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 #createToDo {
@@ -194,8 +195,42 @@ li {
   gap: 1vw;
 }
 
-.edit-image {
-  height: 1rem;
+.edit-task {
+  background-color: var(--ultraVoilet);
+  border: none;
+}
+
+#edit-image {
+  height: 2rem;
+  width: 2rem;
+}
+
+.delete-btn {
+  background-color: var(--ultraVoilet);
+  border: none;
+}
+
+#delete-img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.info-btn {
+  background-color: var(--ultraVoilet);
+  border: none;
+}
+
+#info-image {
+  height: 2rem;
+  width: 2rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.right-task-items button svg:hover {
+  fill: var(--muave);
 }
 
 .empty-display {
