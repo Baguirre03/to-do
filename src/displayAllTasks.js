@@ -53,9 +53,11 @@ const disiplayOnDOM = (indexDisplay, i) => {
 
   const date = format(parseISO(indexDisplay.dueDate), "MM/dd/yyyy");
 
-  eachToDoHolder.innerHTML += ` <div class='title'><p>${indexDisplay.title}</p></div>
-  <div class="right-task-items">
+  eachToDoHolder.innerHTML += ` <div class="left-task-tems">
+  <div class='title'><p>${indexDisplay.title}</p></div>
   <div class="due"><p>Due: ${date}</p></div>
+  </div>
+  <div class="right-task-items">
   <div class="priority"><p>Priority: ${indexDisplay.priority}</p></div>
   <div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
   <div class="edit"><button class=edit-task id=${indexOfTask}>Edit Task</button></div>
