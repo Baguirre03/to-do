@@ -42,7 +42,7 @@ header {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 6fr;
   grid-template-rows: min-content 1fr;
   flex: 1;
 }
@@ -192,6 +192,10 @@ li {
 .right-task-items {
   display: flex;
   gap: 1vw;
+}
+
+.edit-image {
+  height: 1rem;
 }
 
 .empty-display {

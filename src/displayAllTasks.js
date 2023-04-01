@@ -14,6 +14,9 @@ import {
   highlightAllTaskOnDOM,
   selectedProj,
 } from "./displayProjects";
+import editImage from "./imgs/edit.svg";
+import deleteImage from "./imgs/delete.svg";
+import infoImage from "./imgs/info.svg";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -61,9 +64,9 @@ const disiplayOnDOM = (indexDisplay, i) => {
   <div class="right-task-items">
   <div class="priority"><p>Priority: ${indexDisplay.priority}</p></div>
   <div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
-  <div class="edit"><button class=edit-task id=${indexOfTask}>Edit Task</button></div>
-  <div class="delete"><button class=delete-btn id=${indexOfTask}>X</button></div>
-  <div class="get-information"><button class=info-btn id=${indexOfTask}>Get Info</button></div>
+  <div class="edit"><button class=edit-task id=${indexOfTask}><img class="edit-image" src=${editImage}></button></div>
+  <div class="delete"><button class=delete-btn id=${indexOfTask}><img class="edit-image" src=${deleteImage}></button></div>
+  <div class="get-information"><button class=info-btn id=${indexOfTask}><img class="edit-image" src=${infoImage}></button></div>
   </div>`;
 };
 
