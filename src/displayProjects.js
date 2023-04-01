@@ -91,6 +91,10 @@ const setCurrentProjToZero = () => {
   currentProject = 0;
 };
 
+const setCurrentProj = (number) => {
+  currentProject = number;
+};
+
 const highlightAllTaskOnDOM = () => {
   document.querySelector("#all").click();
 };
@@ -103,4 +107,5 @@ export {
   addProjectTitleToDOM,
   setCurrentProjToZero,
   highlightAllTaskOnDOM,
+  setCurrentProj,
 };

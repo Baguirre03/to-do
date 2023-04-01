@@ -3,7 +3,12 @@ import { allProjects, createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
 // eslint-disable-next-line import/no-cycle
-import { clearAndDisplayProjects, currentProject } from "./displayProjects";
+import {
+  addProjectTitleToDOM,
+  clearAndDisplayProjects,
+  currentProject,
+  setCurrentProj,
+} from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
 import { addProjectsToStore, addTasksToStorage } from "./storage";
 
@@ -41,17 +46,22 @@ const createProjectForm = () => {
   form.appendChild(submit);
 
   submit.addEventListener("click", (event) => {
+    event.preventDefault();
     if (input.value === "") {
       // eslint-disable-next-line no-alert
       alert("Give your project a name");
       return;
     }
-    event.preventDefault();
-    form.remove();
+
     createNewProject(input.value);
     addProjectsToStore();
     projectSort();
     clearAndDisplayProjects();
+    setCurrentProj(allProjects.length - 1);
+    sortAndDisplayTasks(allProjects.length - 1);
+    addProjectTitleToDOM();
+
+    form.remove();
     newProject.disabled = false;
   });
 };
@@ -158,14 +168,13 @@ const createToDoForm = () => {
   );
 
   submit.addEventListener("click", (event) => {
+    event.preventDefault();
     valiDate(dueDateInput.value);
     if (!dueDateInput.value) {
       // eslint-disable-next-line no-alert
       alert("please put a valid date");
       return;
     }
-    event.preventDefault();
-    form.remove();
     createNewToDo(
       nameInput.value,
       descInput.value,
@@ -176,9 +185,11 @@ const createToDoForm = () => {
       doneInput.value,
       projectInput.value
     );
+
     addTasksToStorage();
     projectSort();
     sortAndDisplayTasks(currentProject);
+    form.remove();
     newToDo.disabled = false;
   });
 };

@@ -124,11 +124,11 @@ const createEmptyDisplay = () => {
 
 const loopThroughTasks = (index) => {
   const display = allProjects[index];
-  for (let i = 0; i < display.projectToDo.length; i++) {
-    disiplayOnDOM(display.projectToDo[i], i);
-  }
   if (display.getProjects().length === 0) {
     createEmptyDisplay();
+  }
+  for (let i = 0; i < display.projectToDo.length; i++) {
+    disiplayOnDOM(display.projectToDo[i], i);
   }
   getEventListeners();
 };
