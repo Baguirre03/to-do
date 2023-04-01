@@ -240,15 +240,6 @@ const editTaskPopUp = (task) => {
   noteInput.setAttribute("id", "notes");
   noteInput.value = task.getNotes();
 
-  const doneLabel = document.createElement("label");
-  doneLabel.setAttribute("for", "done");
-  doneLabel.textContent = "Complete? ";
-
-  const doneInput = document.createElement("input");
-  doneInput.setAttribute("id", "done");
-  doneInput.setAttribute("type", "checkbox");
-  doneInput.value = task.getCheckStat();
-
   const projectLabel = document.createElement("label");
   projectLabel.setAttribute("for", "project");
   projectLabel.textContent = "Project : ";
@@ -256,6 +247,18 @@ const editTaskPopUp = (task) => {
   const projectInput = document.createElement("select");
   projectInput.setAttribute("id", "project");
   projectInput.value = task.getProject();
+
+  const currentProjectName = allProjects[currentProject].getName();
+
+  allProjects.forEach((element) => {
+    const option = document.createElement("option");
+    option.value = element.name;
+    option.textContent = element.name;
+    projectInput.appendChild(option);
+    if (option.value === currentProjectName) {
+      option.setAttribute("selected", "selected");
+    }
+  });
 
   const submit = document.createElement("button");
   submit.textContent = "+";
@@ -273,12 +276,26 @@ const editTaskPopUp = (task) => {
     timeInput,
     noteLabel,
     noteInput,
-    doneLabel,
-    doneInput,
     projectLabel,
     projectInput,
     submit
   );
+
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    task.setTitle(nameInput.value);
+    task.setDescription(descInput.value);
+    task.setDueDate(dueDateInput.value);
+    task.setPriority(priorityInput.value);
+    task.getTimeAllocate(timeInput.value);
+    task.setNotes(noteInput.value);
+    task.setProject(projectInput.value);
+
+    sortAndDisplayTasks(currentProject);
+    addTasksToStorage();
+    form.remove();
+  });
 };
 
 const eventListeners = () => {
