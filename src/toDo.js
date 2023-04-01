@@ -43,6 +43,22 @@ export class ToDo {
     this.dueDate = dueDate;
   }
 
+  getTimeAllocate() {
+    return this.timeAllocate;
+  }
+
+  setTimeAllocate(time) {
+    this.timeAllocate = time;
+  }
+
+  setPriority(priority) {
+    this.priority = priority;
+  }
+
+  getPriority() {
+    return this.priority;
+  }
+
   getNotes() {
     return this.notes;
   }

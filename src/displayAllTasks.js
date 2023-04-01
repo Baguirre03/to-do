@@ -14,6 +14,7 @@ import {
   highlightAllTaskOnDOM,
   selectedProj,
 } from "./displayProjects";
+import { editTaskPopUp } from "./FormControllers";
 // import editImage from "./imgs/edit.svg";
 // import deleteImage from "./imgs/delete.svg";
 // import infoImage from "./imgs/info.svg";
@@ -39,6 +40,13 @@ const getEventListeners = () => {
   getInfoButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       displayInfoPopUp(allToDo[event.currentTarget.id]);
+    });
+  });
+
+  const getEditButtons = document.querySelectorAll(".edit-task");
+  getEditButtons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      editTaskPopUp(allToDo[event.currentTarget.id]);
     });
   });
 };
