@@ -6,11 +6,12 @@ import { getWeek, parseISO } from "date-fns";
 import { allProjects, deleteProject } from "./project";
 import { deleteTask, allToDo } from "./toDo";
 import projectSort from "./projectAssign";
-import { addTasksToStorage } from "./storage";
+import { addProjectsToStore, addTasksToStorage } from "./storage";
 import {
   addProjectTitleToDOM,
   clearAndDisplayProjects,
   currentProject,
+  highlightAllTaskOnDOM,
   selectedProj,
 } from "./displayProjects";
 
@@ -86,8 +87,10 @@ const createEmptyDisplay = () => {
   deleteBtn.classList.add("delete-proj");
   deleteBtn.addEventListener("click", () => {
     deleteProject(currentProject);
+    highlightAllTaskOnDOM();
+    addProjectsToStore();
     clearAndDisplayProjects();
-    sortAndDisplayTasks("0");
+    sortAndDisplayTasks(currentProject);
   });
 };
 

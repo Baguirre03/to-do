@@ -87,10 +87,20 @@ const selectedProj = () => {
   });
 };
 
+const setCurrentProjToZero = () => {
+  currentProject = 0;
+};
+
+const highlightAllTaskOnDOM = () => {
+  document.querySelector("#all").click();
+};
+
 export {
   clearAndDisplayProjects,
   currentProject,
   navBarEvents,
   selectedProj,
   addProjectTitleToDOM,
+  setCurrentProjToZero,
+  highlightAllTaskOnDOM,
 };
