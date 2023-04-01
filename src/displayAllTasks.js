@@ -53,13 +53,15 @@ const disiplayOnDOM = (indexDisplay, i) => {
 
   const date = format(parseISO(indexDisplay.dueDate), "MM/dd/yyyy");
 
-  eachToDoHolder.innerHTML += ` <div class='title'><p>Title: ${indexDisplay.title}</p></div>
-  <div class="due"><p>Due Date: ${date}</p></div>
+  eachToDoHolder.innerHTML += ` <div class='title'><p>${indexDisplay.title}</p></div>
+  <div class="right-task-items">
+  <div class="due"><p>Due: ${date}</p></div>
   <div class="priority"><p>Priority: ${indexDisplay.priority}</p></div>
   <div class="done"><p>Complete ${indexDisplay.checkStat}</p></div>
   <div class="edit"><button class=edit-task id=${indexOfTask}>Edit Task</button></div>
   <div class="delete"><button class=delete-btn id=${indexOfTask}>X</button></div>
-  <div class="get-information"><button class=info-btn id=${indexOfTask}>Get Info</button></div>`;
+  <div class="get-information"><button class=info-btn id=${indexOfTask}>Get Info</button></div>
+  </div>`;
 };
 
 const createEmptyDisplay = () => {

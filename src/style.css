@@ -43,7 +43,7 @@ main {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 20px;
+  gap: 10px;
 }
 
 .sidebar {
@@ -84,6 +84,7 @@ li {
 .projects h3 {
   font-size: 1.5rem;
   align-self: center;
+  border-bottom: 2px solid black;
 }
 
 .projects-holder {
@@ -120,10 +121,17 @@ li {
 /* Task holder */
 .to-do-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding-top: 2vh;
   padding-bottom: 2vh;
   background-color: var(--lavender);
+  gap: 1vh;
+}
+
+.proj-display {
+  font-size: 1.5rem;
 }
 
 #createToDo {
@@ -141,10 +149,24 @@ li {
 .task-holder {
   padding: 1vw;
   background-color: var(--lavender);
+  display: flex;
+  flex-direction: column;
 }
 
 .to-do {
   display: flex;
+  gap: 1vw;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  font-weight: 800;
+}
+
+.right-task-items {
+  display: flex;
+  gap: 1vw;
 }
 
 .empty-display {
