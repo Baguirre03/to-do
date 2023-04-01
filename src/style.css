@@ -29,6 +29,15 @@ header {
   border-bottom: 2px solid black;
 }
 
+header {
+  display: flex;
+  gap: 1vw;
+}
+
+.logo-svg {
+  height: 70%;
+}
+
 /* Main Content */
 
 main {

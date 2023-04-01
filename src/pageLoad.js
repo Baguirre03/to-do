@@ -1,9 +1,13 @@
 import { navBarEvents } from "./displayProjects";
 import { eventListeners } from "./FormControllers";
 import { checkProjStorage, checkStorage } from "./storage";
+import Svg from "./imgs/check.svg";
 
 const pageLoad = () => {
   const body = document.querySelector("body");
+  const checkMark = new Image();
+  checkMark.src = Svg;
+  checkMark.classList.add("logo-svg");
   body.innerHTML = `    <div class="main-container">
       <header>
         <h3 class="logo">To Do List</h3>
@@ -29,6 +33,8 @@ const pageLoad = () => {
         </div>
       </main>
     </div>`;
+  const logo = document.querySelector(".logo");
+  logo.parentNode.insertBefore(checkMark, logo);
   navBarEvents();
   checkProjStorage();
   checkStorage();
