@@ -38,9 +38,26 @@ const getEventListeners = () => {
   const getInfoButtons = document.querySelectorAll(".info-btn");
   getInfoButtons.forEach((btn) => {
     btn.addEventListener("click", (event) => {
-      const task = allToDo[event.currentTarget.id];
-      console.log(task.getInfo());
+      displayInfoPopUp(allToDo[event.currentTarget.id]);
     });
+  });
+};
+
+const displayInfoPopUp = (task) => {
+  const parent = document.querySelector("body");
+  const holder = document.createElement("div");
+  holder.textContent = task.getInfo();
+  holder.classList.add("task-info-popup");
+
+  const removeElement = document.createElement("button");
+  removeElement.classList.add("remove-popup");
+  removeElement.textContent = "X";
+
+  holder.appendChild(removeElement);
+  parent.appendChild(holder);
+
+  removeElement.addEventListener("click", () => {
+    holder.remove();
   });
 };
 

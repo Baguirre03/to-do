@@ -238,6 +238,12 @@ li {
 .info-image {
 }
 
+.task-info-popup {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
 button:hover {
   cursor: pointer;
 }
