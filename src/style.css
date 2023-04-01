@@ -181,8 +181,13 @@ li {
   border-radius: 1vw;
   overflow: hidden;
   align-items: center;
-  box-shadow: 4px 4px 4px black;
+  box-shadow: 4px 4px 4px var(--majorBlue);
   padding: 1vh;
+}
+
+.to-do:hover {
+  translate: 0px -0.2vh;
+  box-shadow: 5px 5px 5px black;
 }
 
 .title {
@@ -200,7 +205,7 @@ li {
   border: none;
 }
 
-#edit-image {
+.edit-image {
   height: 2rem;
   width: 2rem;
 }
@@ -210,9 +215,14 @@ li {
   border: none;
 }
 
-#delete-img {
+.delete-img {
   height: 2rem;
   width: 2rem;
+}
+
+.delete-img:hover {
+  fill: #e63946;
+  transition: 0.2s;
 }
 
 .info-btn {
@@ -220,17 +230,16 @@ li {
   border: none;
 }
 
-#info-image {
+.info-image {
   height: 2rem;
   width: 2rem;
 }
 
-button:hover {
-  cursor: pointer;
+.info-image {
 }
 
-.right-task-items button svg:hover {
-  fill: var(--muave);
+button:hover {
+  cursor: pointer;
 }
 
 .empty-display {
