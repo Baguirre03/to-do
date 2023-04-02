@@ -81,9 +81,14 @@ const selectedProj = () => {
     if (btn.classList.contains("selected")) {
       btn.classList.remove("selected");
     }
-    btn.addEventListener("click", () => {
+    if (btn.id === currentProject.toString()) {
       btn.classList.add("selected");
-    });
+    } else if (btn.id === "all" && currentProject === "0") {
+      btn.classList.add("selected");
+    }
+    // btn.addEventListener("click", () => {
+    //   btn.classList.add("selected");
+    // });
   });
 };
 
