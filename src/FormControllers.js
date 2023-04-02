@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-plusplus */
 import { allProjects, createNewProject } from "./project";
 import projectSort from "./projectAssign";

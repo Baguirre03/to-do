@@ -217,6 +217,7 @@ const sortAndDisplayTasks = (project) => {
       projectSort();
       clearToDoDisplay();
       checkForCurrentWeek();
+
       selectedProj();
       addProjectTitleToDOM();
       checkStat();

@@ -86,9 +86,6 @@ const selectedProj = () => {
     } else if (btn.id === "all" && currentProject === "0") {
       btn.classList.add("selected");
     }
-    // btn.addEventListener("click", () => {
-    //   btn.classList.add("selected");
-    // });
   });
 };
 
