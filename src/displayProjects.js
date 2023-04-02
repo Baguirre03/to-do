@@ -71,8 +71,9 @@ const addProjectTitleToDOM = () => {
     titleDisplay.textContent = "Week";
   } else if (currentProject === "today") {
     titleDisplay.textContent = "Today";
+  } else {
+    titleDisplay.textContent = allProjects[currentProject].getName();
   }
-  titleDisplay.textContent = allProjects[currentProject].getName();
 };
 
 const selectedProj = () => {
