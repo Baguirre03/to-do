@@ -129,7 +129,7 @@ const defaultTasks = () => {
     "priority 1",
     "1.5 Hours",
     "No Notes",
-    "false",
+    false,
     "School"
   );
   createNewToDo(
@@ -139,7 +139,7 @@ const defaultTasks = () => {
     "priority 1",
     "2 Hours",
     "You can figure it out!",
-    "true",
+    true,
     "Personal"
   );
   createNewToDo(
@@ -149,7 +149,7 @@ const defaultTasks = () => {
     "priority 2",
     "1 Hour",
     "No notes",
-    "true",
+    true,
     "School"
   );
   createNewToDo(
@@ -159,7 +159,7 @@ const defaultTasks = () => {
     "priority 3",
     "1 Hour",
     "No notes",
-    "false",
+    false,
     "Personal"
   );
 };

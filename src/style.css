@@ -160,10 +160,10 @@ li {
 }
 
 #createToDo:hover {
-  color: lightgreen;
+  color: var(--lavender);
   background-color: var(--majorBlue);
   box-shadow: 3px 3px 3px black;
-  transition: 0.2s;
+  transition: 0.5s;
   cursor: pointer;
   border-radius: 1vw;
 }
