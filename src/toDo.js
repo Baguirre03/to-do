@@ -125,7 +125,7 @@ const defaultTasks = () => {
   createNewToDo(
     "Homework",
     "Mark HW",
-    "2023",
+    "2023-04-05",
     "priority 1",
     "1.5 Hours",
     "No Notes",
@@ -135,7 +135,7 @@ const defaultTasks = () => {
   createNewToDo(
     "Code",
     "Get it done every day!",
-    "2023",
+    "2023-03-10",
     "priority 1",
     "2 Hours",
     "You can figure it out!",
@@ -145,7 +145,7 @@ const defaultTasks = () => {
   createNewToDo(
     "Study for LREB exam",
     "Lots of content on it",
-    "2023",
+    "2023-03-20",
     "priority 2",
     "1 Hour",
     "No notes",
@@ -155,7 +155,7 @@ const defaultTasks = () => {
   createNewToDo(
     "Read a book",
     "Gotta find a book first",
-    "2023",
+    "2023-07-04",
     "priority 3",
     "1 Hour",
     "No notes",
