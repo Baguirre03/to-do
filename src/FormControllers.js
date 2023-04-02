@@ -182,10 +182,9 @@ const createToDoForm = () => {
       priorityInput.value,
       timeInput.value,
       noteInput.value,
-      doneInput.value,
+      doneInput.checked,
       projectInput.value
     );
-
     addTasksToStorage();
     projectSort();
     sortAndDisplayTasks(currentProject);

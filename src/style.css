@@ -145,7 +145,7 @@ li {
   padding-top: 2vh;
   padding-bottom: 2vh;
   background-color: var(--lavender);
-  gap: 1vh;
+  gap: 2.5vh;
 }
 
 .proj-display {
@@ -156,12 +156,16 @@ li {
   font-size: 1.3rem;
   background-color: var(--lavender);
   border: none;
+  padding: 2vh;
 }
 
 #createToDo:hover {
-  color: var(--muave);
+  color: lightgreen;
+  background-color: var(--majorBlue);
+  box-shadow: 3px 3px 3px black;
   transition: 0.2s;
   cursor: pointer;
+  border-radius: 1vw;
 }
 
 .task-holder {
@@ -252,6 +256,24 @@ button:hover {
   display: flex;
   justify-content: center;
 }
+
+.delete-proj {
+  display: grid;
+  width: 15vw;
+  margin-top: 2vh;
+  align-self: center;
+  padding: 1vw;
+  font-size: 1.3rem;
+  background-color: var(--ultraVoilet);
+  box-shadow: 5px 5px 5px black;
+}
+
+.delete-proj:hover {
+  background-color: var(--muave);
+  color: var(--lavender);
+  box-shadow: 7px 7px 7px var(--majorBlue);
+}
+
 /* Task hold end */
 
 /* End Main */
