@@ -2,7 +2,6 @@
 import { allProjects, createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
-// eslint-disable-next-line import/no-cycle
 import {
   addProjectTitleToDOM,
   clearAndDisplayProjects,

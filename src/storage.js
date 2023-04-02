@@ -1,4 +1,4 @@
-/* eslint-disable import/no-cycle */
+// eslint-disable-next-line import/no-cycle
 import { sortAndDisplayTasks } from "./displayAllTasks";
 import { clearAndDisplayProjects } from "./displayProjects";
 import { allProjects, defaultProjects, Project } from "./project";

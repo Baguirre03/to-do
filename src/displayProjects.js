@@ -1,7 +1,6 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-loop-func */
 /* eslint-disable import/no-mutable-exports */
-/* eslint-disable no-plusplus */
 import { allProjects } from "./project";
 import { clearToDoDisplay, sortAndDisplayTasks } from "./displayAllTasks";
 import projectSort from "./projectAssign";
@@ -17,7 +16,7 @@ const clearProjects = () => {
 
 const displayProjects = () => {
   const projectHolder = document.querySelector(".projects-holder");
-  for (let i = 1; i < allProjects.length; i++) {
+  for (let i = 1; i < allProjects.length; i += 1) {
     const project = document.createElement("button");
     project.textContent = allProjects[i].name;
     project.classList.add("project");
@@ -27,7 +26,7 @@ const displayProjects = () => {
 
     project.addEventListener("click", () => {
       currentProject = project.id;
-      sortAndDisplayTasks(project.id);
+      sortAndDisplayTasks(currentProject);
     });
   }
 };
