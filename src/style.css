@@ -189,6 +189,12 @@ li {
   padding: 1vh;
 }
 
+.left-side {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
 .to-do:hover {
   translate: 0px -0.2vh;
   box-shadow: 5px 5px 5px black;
@@ -202,6 +208,21 @@ li {
 .right-task-items {
   display: flex;
   gap: 1vw;
+  align-items: center;
+}
+
+.check-stat {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.false-task {
+  background-color: var(--muave);
+}
+
+.done-task {
+  background-color: green;
 }
 
 .edit-task {
