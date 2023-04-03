@@ -4,13 +4,10 @@
   --basicPadding: 2vw;
 
   --majorBlue: #1d3557;
-  --majorBlue: #9d8189;
+  /* --majorBlue: #9d8189; */
   --royalBlue: #457b9d;
-  /* --royalBlue: #d8e2dc; */
   --ultraVoilet: #a8dadc;
-  /* --ultraVoilet: #f4acb7; */
   --ultraViolet: white;
-  /* --lavender: #f1faee; */
   --lavender: white;
   --muave: #e63946;
   --darkBlue: #020024;
@@ -76,7 +73,7 @@ main {
   flex-direction: column;
   gap: 20px;
   background-color: var(--darkGrey);
-  border-right: 2px solid black;
+  border-right: 2px solid var(--majorBlue);
 }
 
 .current-times {
@@ -133,7 +130,7 @@ li {
 .projects-holder .project:hover {
   /* font-size: 1.4rem; */
   background-color: var(--majorBlue);
-  color: var(--darkBlue);
+  color: white;
   transition: 0.2s;
   font-size: 1.5rem;
 }
@@ -152,7 +149,7 @@ li {
 }
 
 .selected:hover {
-  color: white !important;
+  color: white !;
   font-size: 1.5rem;
 }
 
@@ -207,7 +204,7 @@ li {
   border-radius: 1vw;
   overflow: hidden;
   align-items: center;
-  box-shadow: 4px 4px 4px var(--majorBlue);
+  box-shadow: 7px 7px 5px var(--majorBlue);
   padding: 1vh;
 }
 
