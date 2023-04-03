@@ -207,6 +207,7 @@ li {
 
 .done-title {
   text-decoration: line-through;
+  font-weight: 300;
 }
 
 .right-task-items {

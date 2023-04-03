@@ -59,6 +59,23 @@ const editCheckStat = (task, btn) => {
   }
 };
 
+const checkStat = () => {
+  const getCheckStatButtons = document.querySelectorAll(".check-stat");
+  getCheckStatButtons.forEach((btn) => {
+    const editThis = allToDo[btn.id];
+    const lineThrough =
+      btn.parentElement.nextElementSibling.querySelector("#title");
+    if (editThis.getCheckStat()) {
+      btn.classList.add("done-task");
+      lineThrough.classList.add("done-title");
+    } else {
+      btn.classList.add("false-task");
+      lineThrough.classList.remove("done-title");
+      addTasksToStorage();
+    }
+  });
+};
+
 const getEventListeners = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((btn) => {
@@ -88,23 +105,6 @@ const getEventListeners = () => {
     btn.addEventListener("click", (event) => {
       editCheckStat(allToDo[event.currentTarget.id], btn);
     });
-  });
-};
-
-const checkStat = () => {
-  const getCheckStatButtons = document.querySelectorAll(".check-stat");
-  getCheckStatButtons.forEach((btn) => {
-    const editThis = allToDo[btn.id];
-    const lineThrough =
-      btn.parentElement.nextElementSibling.querySelector("#title");
-    if (editThis.getCheckStat()) {
-      btn.classList.add("done-task");
-      lineThrough.classList.add("done-title");
-    } else {
-      btn.classList.add("false-task");
-      lineThrough.classList.remove("done-title");
-      addTasksToStorage();
-    }
   });
 };
 
