@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/no-cycle */
 import format from "date-fns/format";
@@ -48,12 +50,15 @@ const editCheckStat = (task, btn) => {
     editThis.setCheckStat(false);
     btn.classList.add("false-task");
     btn.classList.remove("done-task");
+    btn.innerHTML = "";
     lineThrough.classList.remove("done-title");
     addTasksToStorage();
   } else {
     editThis.setCheckStat(true);
     btn.classList.add("done-task");
     btn.classList.remove("false-task");
+    btn.innerHTML +=
+      '<svg class="check-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>check-bold</title><path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /></svg>';
     lineThrough.classList.add("done-title");
     addTasksToStorage();
   }
@@ -67,9 +72,12 @@ const checkStat = () => {
       btn.parentElement.nextElementSibling.querySelector("#title");
     if (editThis.getCheckStat()) {
       btn.classList.add("done-task");
+      btn.innerHTML +=
+        '<svg class = "check-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>check-bold</title><path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /></svg>';
       lineThrough.classList.add("done-title");
     } else {
       btn.classList.add("false-task");
+      btn.textContent = "";
       lineThrough.classList.remove("done-title");
       addTasksToStorage();
     }

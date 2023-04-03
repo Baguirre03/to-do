@@ -217,17 +217,17 @@ li {
 }
 
 .check-stat {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
+  height: 1.7rem;
+  width: 1.7rem;
+  border-radius: 100%;
 }
 
 .false-task {
-  background-color: var(--muave);
+  background-color: white;
 }
 
 .done-task {
-  background-color: green;
+  background-color: darkgray;
 }
 
 .edit-task {
