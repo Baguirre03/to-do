@@ -225,7 +225,6 @@ const editTaskPopUp = (task) => {
   const dueDateInput = document.createElement("input");
   dueDateInput.setAttribute("id", "due-date");
   dueDateInput.setAttribute("type", "date");
-  console.log(task.getDueDate());
   dueDateInput.value = task.getDueDate();
 
   const priorityLable = document.createElement("label");

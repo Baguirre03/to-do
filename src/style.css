@@ -7,7 +7,6 @@
   /* --majorBlue: #9d8189; */
   --royalBlue: #457b9d;
   --ultraVoilet: #a8dadc;
-  --ultraViolet: white;
   --lavender: white;
   --muave: #e63946;
   --darkBlue: #020024;
@@ -189,10 +188,16 @@ li {
 
 .task-holder {
   padding: 1vw;
-  background-color: var(--lavender);
+  background-color: var(--darkGrey);
+  border-radius: 1vw;
   display: flex;
   flex-direction: column;
   gap: 1vh;
+  border: #020024 solid 2px;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-bottom: 2vh;
+  box-shadow: 3px 3px 20px black;
 }
 
 .to-do {
@@ -201,10 +206,11 @@ li {
   justify-content: space-between;
   border: 2px solid black;
   background-color: var(--ultraVoilet);
+  background-color: white;
   border-radius: 1vw;
   overflow: hidden;
   align-items: center;
-  box-shadow: 7px 7px 5px var(--majorBlue);
+  box-shadow: 5px 5px 5px var(--majorBlue);
   padding: 1vh;
 }
 
