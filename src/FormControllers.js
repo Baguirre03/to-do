@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-plusplus */
 import { allProjects, createNewProject } from "./project";
@@ -98,12 +99,25 @@ const createToDoForm = () => {
   dueDateInput.setAttribute("id", "due-date");
   dueDateInput.setAttribute("type", "date");
 
-  const priorityLable = document.createElement("label");
+  const priorityLable = document.createElement("legend");
   priorityLable.setAttribute("for", "priority");
   priorityLable.textContent = "Priority: ";
 
-  const priorityInput = document.createElement("input");
-  priorityInput.setAttribute("id", "priority");
+  const priorityHolder = document.createElement("div");
+  priorityHolder.id = "priority";
+
+  priorityHolder.innerHTML += `<div class="input-and-label">
+    <input class="radio" value="one" type="radio" id="one" name="priority"></input>
+    <label for="one">One</label>
+  </div>
+  <div class="input-and-label">
+    <input class="radio" value="two" type="radio" id="two" name="priority"></input>
+    <label for="two">Two</label>
+  </div>
+  <div class="input-and-label">
+      <input class="radio" value="three" type="radio" id="three" name="priority"></input>
+      <label for="three">Three</label>
+  </div>`;
 
   const timeLabel = document.createElement("label");
   timeLabel.setAttribute("for", "time");
@@ -157,7 +171,8 @@ const createToDoForm = () => {
     dueDate,
     dueDateInput,
     priorityLable,
-    priorityInput,
+    priorityHolder,
+
     timeLabel,
     timeInput,
     noteLabel,
@@ -171,6 +186,9 @@ const createToDoForm = () => {
 
   submit.addEventListener("click", (event) => {
     event.preventDefault();
+    const radio = document.querySelector(
+      'input[name="priority"]:checked'
+    ).value;
     valiDate(dueDateInput.value);
     if (!dueDateInput.value) {
       // eslint-disable-next-line no-alert
@@ -181,7 +199,7 @@ const createToDoForm = () => {
       nameInput.value,
       descInput.value,
       dueDateInput.value,
-      priorityInput.value,
+      radio,
       timeInput.value,
       noteInput.value,
       doneInput.checked,
@@ -226,14 +244,6 @@ const editTaskPopUp = (task) => {
   dueDateInput.setAttribute("id", "due-date");
   dueDateInput.setAttribute("type", "date");
   dueDateInput.value = task.getDueDate();
-
-  const priorityLable = document.createElement("label");
-  priorityLable.setAttribute("for", "priority");
-  priorityLable.textContent = "Priority: ";
-
-  const priorityInput = document.createElement("input");
-  priorityInput.setAttribute("id", "priority");
-  priorityInput.value = task.getPriority();
 
   const timeLabel = document.createElement("label");
   timeLabel.setAttribute("for", "time");
@@ -281,8 +291,6 @@ const editTaskPopUp = (task) => {
     descInput,
     dueDate,
     dueDateInput,
-    priorityLable,
-    priorityInput,
     timeLabel,
     timeInput,
     noteLabel,
@@ -298,7 +306,6 @@ const editTaskPopUp = (task) => {
     task.setTitle(nameInput.value);
     task.setDescription(descInput.value);
     task.setDueDate(dueDateInput.value);
-    task.setPriority(priorityInput.value);
     task.getTimeAllocate(timeInput.value);
     task.setNotes(noteInput.value);
     task.setProject(projectInput.value);
