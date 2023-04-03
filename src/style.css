@@ -3,14 +3,18 @@
   padding: 0;
   --basicPadding: 2vw;
 
-  /* --majorBlue: #1d3557; */
+  --majorBlue: #1d3557;
   --majorBlue: #9d8189;
-  /* --royalBlue: #457b9d; */
-  --royalBlue: #d8e2dc;
+  --royalBlue: #457b9d;
+  /* --royalBlue: #d8e2dc; */
   --ultraVoilet: #a8dadc;
+  /* --ultraVoilet: #f4acb7; */
+  --ultraViolet: white;
   /* --lavender: #f1faee; */
   --lavender: white;
   --muave: #e63946;
+  --darkBlue: #020024;
+  --darkGrey: #e5e5e5;
 }
 
 .main-container {
@@ -26,10 +30,17 @@ header {
   display: grid;
   align-items: center;
   padding-left: var(--basicPadding);
-  background-color: var(--majorBlue);
-  color: var(--ultraVoilet);
+  /* background-color: var(--majorBlue); */
+  color: var(--lavender);
   font-size: 2rem;
   border-bottom: 2px solid black;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(32, 81, 107, 1) 30%,
+    rgba(168, 218, 220, 1) 100%
+  );
 }
 
 header {
@@ -39,7 +50,7 @@ header {
 
 header svg {
   height: 60%;
-  fill: var(--ultraVoilet);
+  fill: var(--lavender);
 }
 
 /* Main Content */
@@ -64,30 +75,34 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: var(--royalBlue);
+  background-color: var(--darkGrey);
+  border-right: 2px solid black;
 }
 
 .current-times {
   display: flex;
   flex-direction: column;
   padding-top: 2vh;
+  align-items: center;
+  gap: 2vh;
 }
 
 li {
+  width: 80%;
   list-style-type: none;
 }
 
 .default-options {
   width: 100%;
-  background-color: var(--royalBlue);
+  background-color: var(--darkGrey);
   border: none;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  padding: 1vh;
+  padding: 0.5vh;
   cursor: pointer;
   display: flex;
-  gap: 1vw;
+  border-radius: 1vw;
 }
 
 .default-options:hover {
@@ -108,7 +123,7 @@ li {
 }
 
 .projects-holder .project {
-  background-color: var(--royalBlue);
+  background-color: var(--darkGrey);
   border: none;
   font-size: 1.3rem;
   padding: 0.4vh;
@@ -118,18 +133,26 @@ li {
 .projects-holder .project:hover {
   /* font-size: 1.4rem; */
   background-color: var(--majorBlue);
-  color: var(--ultraVoilet);
+  color: var(--darkBlue);
   transition: 0.2s;
   font-size: 1.5rem;
 }
 
 .selected {
   font-size: 1.5rem;
-  color: var(--ultraVoilet);
-  transition: 0.2s;
+  color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(32, 81, 107, 1) 30%,
+    rgba(168, 218, 220, 1) 100%
+  );
+  background-size: 100%;
+  transition: 0.5s;
 }
 
 .selected:hover {
+  color: white !important;
   font-size: 1.5rem;
 }
 
