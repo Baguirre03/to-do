@@ -300,6 +300,11 @@ button:hover {
   box-shadow: 7px 7px 7px var(--majorBlue);
 }
 
+.hidden {
+  position: absolute;
+  visibility: hidden;
+}
+
 /* Task hold end */
 
 /* End Main */

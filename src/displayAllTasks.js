@@ -211,6 +211,16 @@ const checkEmptyDivForNav = (text) => {
   }
 };
 
+const removeCreateTask = () => {
+  const buttonCreateTask = document.querySelector("#createToDo");
+  buttonCreateTask.classList.add("hidden");
+};
+
+const addBackCreateTask = () => {
+  const buttonCreateTask = document.querySelector("#createToDo");
+  buttonCreateTask.classList.remove("hidden");
+};
+
 const sortAndDisplayTasks = (project) => {
   switch (project) {
     case "today":
@@ -220,6 +230,7 @@ const sortAndDisplayTasks = (project) => {
       selectedProj();
       addProjectTitleToDOM();
       checkStat();
+      removeCreateTask();
       break;
     case "week":
       projectSort();
@@ -228,6 +239,7 @@ const sortAndDisplayTasks = (project) => {
       selectedProj();
       addProjectTitleToDOM();
       checkStat();
+      removeCreateTask();
       break;
     default:
       projectSort();
@@ -235,6 +247,7 @@ const sortAndDisplayTasks = (project) => {
       loopThroughTasks(project);
       selectedProj();
       addProjectTitleToDOM();
+      addBackCreateTask();
   }
 };
 
