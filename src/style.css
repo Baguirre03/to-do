@@ -102,12 +102,6 @@ li {
   flex-direction: column;
 }
 
-.project-form {
-  position: absolute;
-  right: 50vw;
-  top: 50vh;
-}
-
 .projects-holder .project {
   background-color: var(--royalBlue);
   border: none;
@@ -305,7 +299,53 @@ button:hover {
   visibility: hidden;
 }
 
-/* Task hold end */
+/* FORMS */
 
-/* End Main */
-/* Footer */
+#createProj {
+  font-size: 1rem;
+  background-color: var(--lavender);
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding: 0.4vh;
+  box-shadow: 3px 3px 3px black;
+}
+
+#createProj:hover {
+  background-color: var(--majorBlue);
+  color: var(--lavender);
+}
+
+.project-form {
+  display: flex;
+  padding: 1vw;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6vw;
+}
+
+#project-name {
+  width: 70%;
+  border: none;
+  background-color: var(--royalBlue);
+  border-bottom: 3px black dotted;
+  font-size: 1.2rem;
+  color: var(--lavender);
+}
+
+#project-name:focus {
+  outline: none;
+}
+
+.project-form button {
+  font-size: 1rem;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  background-color: var(--majorBlue);
+  color: var(--lavender);
+  border: 1px solid black;
+}
+
+.project-form button:hover {
+  background-color: var(--lavender);
+  color: black;
+}

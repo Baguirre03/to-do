@@ -23,7 +23,7 @@ const valiDate = (inputDate) => {
 };
 
 const createProjectForm = () => {
-  const parent = document.querySelector("main");
+  const parent = document.querySelector(".projects-holder");
   const form = document.createElement("form");
   const newProject = document.querySelector("#createProj");
 
@@ -31,9 +31,9 @@ const createProjectForm = () => {
 
   parent.appendChild(form);
 
-  const label = document.createElement("label");
-  label.setAttribute("for", "project-name");
-  label.textContent = "Project Name: ";
+  // const label = document.createElement("label");
+  // label.setAttribute("for", "project-name");
+  // label.textContent = "Project Name: ";
 
   const input = document.createElement("input");
   input.setAttribute("id", "project-name");
@@ -41,9 +41,11 @@ const createProjectForm = () => {
   const submit = document.createElement("button");
   submit.textContent = "+";
 
-  form.appendChild(label);
+  // form.appendChild(label);
   form.appendChild(input);
   form.appendChild(submit);
+
+  input.focus();
 
   submit.addEventListener("click", (event) => {
     event.preventDefault();
