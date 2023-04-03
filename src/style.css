@@ -257,7 +257,7 @@ li {
 }
 
 .edit-task {
-  background-color: var(--ultraVoilet);
+  background-color: white;
   border: none;
 }
 
@@ -266,8 +266,13 @@ li {
   width: 2rem;
 }
 
+.edit-image:hover {
+  fill: green;
+  transition: 0.2s;
+}
+
 .delete-btn {
-  background-color: var(--ultraVoilet);
+  background-color: white;
   border: none;
 }
 
@@ -282,8 +287,13 @@ li {
 }
 
 .info-btn {
-  background-color: var(--ultraVoilet);
+  background-color: white;
   border: none;
+}
+
+.info-btn:hover {
+  fill: var(--royalBlue);
+  transition: 0.2s;
 }
 
 .info-image {
