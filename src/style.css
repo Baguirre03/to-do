@@ -205,6 +205,10 @@ li {
   font-weight: 800;
 }
 
+.done-title {
+  text-decoration: line-through;
+}
+
 .right-task-items {
   display: flex;
   gap: 1vw;

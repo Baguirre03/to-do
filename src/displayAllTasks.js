@@ -42,15 +42,19 @@ const displayInfoPopUp = (task) => {
 
 const editCheckStat = (task, btn) => {
   const editThis = task;
+  const lineThrough =
+    btn.parentElement.nextElementSibling.querySelector("#title");
   if (editThis.getCheckStat()) {
     editThis.setCheckStat(false);
     btn.classList.add("false-task");
     btn.classList.remove("done-task");
+    lineThrough.classList.remove("done-title");
     addTasksToStorage();
   } else {
     editThis.setCheckStat(true);
     btn.classList.add("done-task");
     btn.classList.remove("false-task");
+    lineThrough.classList.add("done-title");
     addTasksToStorage();
   }
 };
@@ -91,10 +95,14 @@ const checkStat = () => {
   const getCheckStatButtons = document.querySelectorAll(".check-stat");
   getCheckStatButtons.forEach((btn) => {
     const editThis = allToDo[btn.id];
+    const lineThrough =
+      btn.parentElement.nextElementSibling.querySelector("#title");
     if (editThis.getCheckStat()) {
       btn.classList.add("done-task");
+      lineThrough.classList.add("done-title");
     } else {
       btn.classList.add("false-task");
+      lineThrough.classList.remove("done-title");
       addTasksToStorage();
     }
   });
@@ -116,7 +124,7 @@ const disiplayOnDOM = (indexDisplay, i) => {
   eachToDoHolder.innerHTML += `  <div class="left-side"> 
     <div class="done"><button class="check-stat" id="${indexOfTask}"></button></div>
   <div class="left-task-items">
-    <div class='title'><p>${indexDisplay.title}</p></div>
+    <div class='title'><p id="title">${indexDisplay.title}</p></div>
     <div class="due"><p>Due: ${date}</p></div>
   </div>
   </div>
@@ -217,7 +225,6 @@ const sortAndDisplayTasks = (project) => {
       projectSort();
       clearToDoDisplay();
       checkForCurrentWeek();
-
       selectedProj();
       addProjectTitleToDOM();
       checkStat();
@@ -228,7 +235,6 @@ const sortAndDisplayTasks = (project) => {
       loopThroughTasks(project);
       selectedProj();
       addProjectTitleToDOM();
-      checkStat();
   }
 };
 
