@@ -3,10 +3,13 @@
   padding: 0;
   --basicPadding: 2vw;
 
-  --majorBlue: #1d3557;
-  --royalBlue: #457b9d;
+  /* --majorBlue: #1d3557; */
+  --majorBlue: #9d8189;
+  /* --royalBlue: #457b9d; */
+  --royalBlue: #d8e2dc;
   --ultraVoilet: #a8dadc;
-  --lavender: #f1faee;
+  /* --lavender: #f1faee; */
+  --lavender: white;
   --muave: #e63946;
 }
 
@@ -352,7 +355,7 @@ button:hover {
 .project-form button:hover {
   background-color: var(--lavender);
   color: black;
-  border-radius: 1vw;
+  border-radius: 50%;
   transition: 0.4s;
 }
 
