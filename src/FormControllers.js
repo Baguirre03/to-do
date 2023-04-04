@@ -32,10 +32,6 @@ const createProjectForm = () => {
 
   parent.appendChild(form);
 
-  // const label = document.createElement("label");
-  // label.setAttribute("for", "project-name");
-  // label.textContent = "Project Name: ";
-
   const input = document.createElement("input");
   input.setAttribute("id", "project-name");
 
@@ -213,109 +209,6 @@ const createToDoForm = () => {
   });
 };
 
-const editTaskPopUp = (task) => {
-  const parent = document.querySelector("body");
-  const form = document.createElement("form");
-  form.classList.add("edit-task-form");
-
-  parent.appendChild(form);
-
-  const nameLabel = document.createElement("label");
-  nameLabel.setAttribute("for", "to-do-name");
-  nameLabel.textContent = "To-Do : ";
-
-  const nameInput = document.createElement("input");
-  nameInput.setAttribute("id", "to-do-name");
-  nameInput.value = task.getTitle();
-
-  const descLabel = document.createElement("label");
-  descLabel.setAttribute("for", "description");
-  descLabel.textContent = "Description: ";
-
-  const descInput = document.createElement("input");
-  descInput.setAttribute("id", "description");
-  descInput.value = task.getDescription();
-
-  const dueDate = document.createElement("label");
-  dueDate.setAttribute("for", "due-date");
-  dueDate.textContent = "Due-date: ";
-
-  const dueDateInput = document.createElement("input");
-  dueDateInput.setAttribute("id", "due-date");
-  dueDateInput.setAttribute("type", "date");
-  dueDateInput.value = task.getDueDate();
-
-  const timeLabel = document.createElement("label");
-  timeLabel.setAttribute("for", "time");
-  timeLabel.textContent = "Time Allocation: ";
-
-  const timeInput = document.createElement("input");
-  timeInput.setAttribute("id", "description");
-  timeInput.value = task.getTimeAllocate();
-
-  const noteLabel = document.createElement("label");
-  noteLabel.setAttribute("for", "notes");
-  noteLabel.textContent = "Notes: ";
-
-  const noteInput = document.createElement("input");
-  noteInput.setAttribute("id", "notes");
-  noteInput.value = task.getNotes();
-
-  const projectLabel = document.createElement("label");
-  projectLabel.setAttribute("for", "project");
-  projectLabel.textContent = "Project : ";
-
-  const projectInput = document.createElement("select");
-  projectInput.setAttribute("id", "project");
-  projectInput.value = task.getProject();
-
-  const currentProjectName = allProjects[currentProject].getName();
-
-  allProjects.forEach((element) => {
-    const option = document.createElement("option");
-    option.value = element.name;
-    option.textContent = element.name;
-    projectInput.appendChild(option);
-    if (option.value === currentProjectName) {
-      option.setAttribute("selected", "selected");
-    }
-  });
-
-  const submit = document.createElement("button");
-  submit.textContent = "+";
-
-  form.append(
-    nameLabel,
-    nameInput,
-    descLabel,
-    descInput,
-    dueDate,
-    dueDateInput,
-    timeLabel,
-    timeInput,
-    noteLabel,
-    noteInput,
-    projectLabel,
-    projectInput,
-    submit
-  );
-
-  submit.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    task.setTitle(nameInput.value);
-    task.setDescription(descInput.value);
-    task.setDueDate(dueDateInput.value);
-    task.getTimeAllocate(timeInput.value);
-    task.setNotes(noteInput.value);
-    task.setProject(projectInput.value);
-
-    sortAndDisplayTasks(currentProject);
-    addTasksToStorage();
-    form.remove();
-  });
-};
-
 const eventListeners = () => {
   const newProject = document.querySelector("#createProj");
   newProject.addEventListener("click", () => {
@@ -330,4 +223,4 @@ const eventListeners = () => {
   });
 };
 
-export { eventListeners, createToDoForm, createProjectForm, editTaskPopUp };
+export { eventListeners, createToDoForm, createProjectForm };

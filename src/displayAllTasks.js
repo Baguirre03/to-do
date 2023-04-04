@@ -15,7 +15,7 @@ import {
   highlightAllTaskOnDOM,
   selectedProj,
 } from "./displayProjects";
-import { editTaskPopUp } from "./FormControllers";
+// import { editTaskPopUp } from "./FormControllers";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -39,6 +39,109 @@ const displayInfoPopUp = (task) => {
 
   removeElement.addEventListener("click", () => {
     holder.remove();
+  });
+};
+
+const editTaskPopUp = (task) => {
+  const parent = document.querySelector("body");
+  const form = document.createElement("form");
+  form.classList.add("edit-task-form");
+
+  parent.appendChild(form);
+
+  const nameLabel = document.createElement("label");
+  nameLabel.setAttribute("for", "to-do-name");
+  nameLabel.textContent = "To-Do : ";
+
+  const nameInput = document.createElement("input");
+  nameInput.setAttribute("id", "to-do-name");
+  nameInput.value = task.getTitle();
+
+  const descLabel = document.createElement("label");
+  descLabel.setAttribute("for", "description");
+  descLabel.textContent = "Description: ";
+
+  const descInput = document.createElement("input");
+  descInput.setAttribute("id", "description");
+  descInput.value = task.getDescription();
+
+  const dueDate = document.createElement("label");
+  dueDate.setAttribute("for", "due-date");
+  dueDate.textContent = "Due-date: ";
+
+  const dueDateInput = document.createElement("input");
+  dueDateInput.setAttribute("id", "due-date");
+  dueDateInput.setAttribute("type", "date");
+  dueDateInput.value = task.getDueDate();
+
+  const timeLabel = document.createElement("label");
+  timeLabel.setAttribute("for", "time");
+  timeLabel.textContent = "Time Allocation: ";
+
+  const timeInput = document.createElement("input");
+  timeInput.setAttribute("id", "description");
+  timeInput.value = task.getTimeAllocate();
+
+  const noteLabel = document.createElement("label");
+  noteLabel.setAttribute("for", "notes");
+  noteLabel.textContent = "Notes: ";
+
+  const noteInput = document.createElement("input");
+  noteInput.setAttribute("id", "notes");
+  noteInput.value = task.getNotes();
+
+  const projectLabel = document.createElement("label");
+  projectLabel.setAttribute("for", "project");
+  projectLabel.textContent = "Project : ";
+
+  const projectInput = document.createElement("select");
+  projectInput.setAttribute("id", "project");
+  projectInput.value = task.getProject();
+
+  const currentProjectName = allProjects[currentProject].getName();
+
+  allProjects.forEach((element) => {
+    const option = document.createElement("option");
+    option.value = element.name;
+    option.textContent = element.name;
+    projectInput.appendChild(option);
+    if (option.value === currentProjectName) {
+      option.setAttribute("selected", "selected");
+    }
+  });
+
+  const submit = document.createElement("button");
+  submit.textContent = "+";
+
+  form.append(
+    nameLabel,
+    nameInput,
+    descLabel,
+    descInput,
+    dueDate,
+    dueDateInput,
+    timeLabel,
+    timeInput,
+    noteLabel,
+    noteInput,
+    projectLabel,
+    projectInput,
+    submit
+  );
+
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    task.setTitle(nameInput.value);
+    task.setDescription(descInput.value);
+    task.setDueDate(dueDateInput.value);
+    task.getTimeAllocate(timeInput.value);
+    task.setNotes(noteInput.value);
+    task.setProject(projectInput.value);
+
+    sortAndDisplayTasks(currentProject);
+    addTasksToStorage();
+    form.remove();
   });
 };
 
@@ -95,25 +198,6 @@ const radioButtonDisplay = () => {
   });
 };
 
-// const radioButtonEventListener = () => {
-//   const priorityButtons = document.querySelectorAll(".priority-button");
-//   priorityButtons.forEach((btn) => {
-//     btn.classList.remove("active-priority");
-//     btn.addEventListener("click", () => {
-//       const task = allToDo[btn.id];
-//       const taskPriority = task.getPriority();
-//       if (taskPriority === btn.dataset.priority) {
-//         console.log("same");
-//       } else if (btn.dataset.priority === "two") {
-//         btn.setPriority("two");
-//       } else if (btn.dataset.priority === "three") {
-//         btn.setPriority("three");
-//       }
-//     });
-//   });
-//   radioButtonDisplay();
-// };
-
 const getEventListeners = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((btn) => {
@@ -145,13 +229,11 @@ const getEventListeners = () => {
     });
   });
 
-  // const radioButtonEventListener = () => {
   const priorityButtons = document.querySelectorAll(".priority-button");
   priorityButtons.forEach((btn) => {
     btn.classList.remove("active-priority");
     btn.addEventListener("click", () => {
       const task = allToDo[btn.id];
-      // const taskPriority = task.getPriority();
       if (btn.dataset.priority === "one") {
         task.setPriority("one");
         radioButtonDisplay();
@@ -164,7 +246,6 @@ const getEventListeners = () => {
       }
     });
   });
-  // };
 };
 
 const disiplayOnDOM = (indexDisplay, i) => {
@@ -230,7 +311,16 @@ const loopThroughTasks = (index) => {
   for (let i = 0; i < display.projectToDo.length; i += 1) {
     disiplayOnDOM(display.projectToDo[i], i);
   }
-  getEventListeners();
+};
+
+const checkEmptyDivForNav = (text) => {
+  const displayHolder = document.querySelector(".task-holder");
+  if (displayHolder.childElementCount === 0) {
+    const emptyDisplay = document.createElement("h2");
+    emptyDisplay.classList.add("empty-display");
+    emptyDisplay.textContent = text;
+    displayHolder.appendChild(emptyDisplay);
+  }
 };
 
 const checkDatesOfTasks = () => {
@@ -242,7 +332,6 @@ const checkDatesOfTasks = () => {
       disiplayOnDOM(allToDo[i], i);
     }
   }
-  getEventListeners();
   checkEmptyDivForNav("No tasks due today, nice job!");
 };
 
@@ -255,18 +344,7 @@ const checkForCurrentWeek = () => {
       disiplayOnDOM(allToDo[i], i);
     }
   }
-  getEventListeners();
   checkEmptyDivForNav("No tasks due this week, enjoy it!");
-};
-
-const checkEmptyDivForNav = (text) => {
-  const displayHolder = document.querySelector(".task-holder");
-  if (displayHolder.childElementCount === 0) {
-    const emptyDisplay = document.createElement("h2");
-    emptyDisplay.classList.add("empty-display");
-    emptyDisplay.textContent = text;
-    displayHolder.appendChild(emptyDisplay);
-  }
 };
 
 const removeCreateTask = () => {
@@ -280,37 +358,26 @@ const addBackCreateTask = () => {
 };
 
 const sortAndDisplayTasks = (project) => {
+  projectSort();
+  clearToDoDisplay();
   switch (project) {
     case "today":
-      projectSort();
-      clearToDoDisplay();
       checkDatesOfTasks();
-      selectedProj();
-      addProjectTitleToDOM();
-      checkStat();
-      radioButtonDisplay();
       removeCreateTask();
       break;
     case "week":
-      projectSort();
-      clearToDoDisplay();
       checkForCurrentWeek();
-      selectedProj();
-      addProjectTitleToDOM();
-      checkStat();
-      radioButtonDisplay();
       removeCreateTask();
       break;
     default:
-      projectSort();
-      clearToDoDisplay();
       loopThroughTasks(project);
-      checkStat();
-      radioButtonDisplay();
-      selectedProj();
-      addProjectTitleToDOM();
       addBackCreateTask();
   }
+  getEventListeners();
+  selectedProj();
+  addProjectTitleToDOM();
+  checkStat();
+  radioButtonDisplay();
 };
 
 export {
