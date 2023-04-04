@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text&family=Roboto+Slab&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@
   --muave: #e63946;
   --darkBlue: #020024;
   --darkGrey: #e5e5e5;
+  font-family: "Roboto Slab", serif;
 }
 
 .main-container {
@@ -422,4 +424,8 @@ button:hover {
 
 .to-do-form select {
   height: 2.5vh;
+}
+
+.active-priority {
+  background-color: red;
 }
