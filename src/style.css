@@ -279,6 +279,7 @@ li {
 .priority {
   display: flex;
   gap: 0.5vw;
+  height: 100%;
 }
 
 .priority-button {
@@ -316,10 +317,6 @@ li {
 [data-priority="three"].active-priority {
   background-color: red;
 }
-/* 
-.active-priority {
-  background-color: red;
-} */
 
 .data .done-task {
   background-color: darkgray;
@@ -334,6 +331,7 @@ li {
 .edit-image {
   height: 2rem;
   width: 2rem;
+  margin-top: 2px;
 }
 
 .edit-image:hover {
@@ -349,6 +347,7 @@ li {
 .delete-img {
   height: 2rem;
   width: 2rem;
+  margin-top: 2px;
 }
 
 .delete-img:hover {
@@ -369,6 +368,7 @@ li {
 .info-image {
   height: 2rem;
   width: 2rem;
+  margin-top: 2px;
 }
 
 /* .info-image {

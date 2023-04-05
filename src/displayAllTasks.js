@@ -12,7 +12,9 @@ import {
   addProjectTitleToDOM,
   clearAndDisplayProjects,
   currentProject,
+  editProjectName,
   highlightAllTaskOnDOM,
+  projectNameChange,
   selectedProj,
 } from "./displayProjects";
 // import { editTaskPopUp } from "./FormControllers";
@@ -251,6 +253,7 @@ const getEventListeners = () => {
       addTasksToStorage();
     });
   });
+  projectNameChange();
 };
 
 const disiplayOnDOM = (indexDisplay, i) => {

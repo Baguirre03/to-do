@@ -4,6 +4,7 @@
 import { allProjects } from "./project";
 import { clearToDoDisplay, sortAndDisplayTasks } from "./displayAllTasks";
 import projectSort from "./projectAssign";
+import { addProjectsToStore } from "./storage";
 
 let currentProject = "0";
 
@@ -75,6 +76,37 @@ const addProjectTitleToDOM = () => {
   }
 };
 
+const projectNameChange = () => {
+  const projDOM = document.querySelector(".proj-display");
+  projDOM.addEventListener(
+    "click",
+    () => {
+      if (currentProject === "0") {
+        return;
+      }
+      const currentProj = allProjects[currentProject].getName();
+      const form = document.createElement("form");
+      const input = document.createElement("input");
+      input.value = currentProj;
+      const submit = document.createElement("button");
+      submit.textContent = "submit";
+      form.append(input, submit);
+
+      projDOM.textContent = "";
+      projDOM.append(form);
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        allProjects[currentProject].setName(input.value);
+        addProjectTitleToDOM();
+        clearAndDisplayProjects();
+        addProjectsToStore();
+      });
+    },
+    { once: true }
+  );
+};
+
 const selectedProj = () => {
   const buttons = document.querySelectorAll(".project");
   buttons.forEach((btn) => {
@@ -110,4 +142,5 @@ export {
   setCurrentProjToZero,
   highlightAllTaskOnDOM,
   setCurrentProj,
+  projectNameChange,
 };
