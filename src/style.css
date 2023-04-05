@@ -276,7 +276,47 @@ li {
   background-color: white;
 }
 
-.done-task {
+.priority {
+  display: flex;
+  gap: 1vw;
+}
+
+.priority-button {
+  height: 1.5rem;
+  width: 1.5rem;
+  align-self: center;
+  border-radius: 1vw;
+}
+
+[data-priority="one"]:hover {
+  background-color: green;
+}
+
+[data-priority="two"]:hover {
+  background-color: orange;
+}
+
+[data-priority="three"]:hover {
+  background-color: red;
+}
+/*  */
+[data-priority="one"].active-priority {
+  background-color: green;
+}
+
+[data-priority="two"].active-priority {
+  background-color: orange;
+}
+
+[data-priority="three"].active-priority {
+  background-color: red;
+}
+/* 
+.active-priority {
+  background-color: red;
+} */
+
+.data .done-task {
   background-color: darkgray;
   transition: 0.3s;
 }
@@ -447,8 +487,4 @@ button:hover {
 
 .to-do-form select {
   height: 2.5vh;
-}
-
-.active-priority {
-  background-color: red;
 }
