@@ -12,12 +12,10 @@ import {
   addProjectTitleToDOM,
   clearAndDisplayProjects,
   currentProject,
-  editProjectName,
   highlightAllTaskOnDOM,
   projectNameChange,
   selectedProj,
 } from "./displayProjects";
-// import { editTaskPopUp } from "./FormControllers";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -253,6 +251,7 @@ const getEventListeners = () => {
       addTasksToStorage();
     });
   });
+  
   projectNameChange();
 };
 

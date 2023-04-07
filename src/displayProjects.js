@@ -4,7 +4,8 @@
 import { allProjects } from "./project";
 import { clearToDoDisplay, sortAndDisplayTasks } from "./displayAllTasks";
 import projectSort from "./projectAssign";
-import { addProjectsToStore } from "./storage";
+import { addProjectsToStore, addTasksToStorage } from "./storage";
+import { allToDo } from "./toDo";
 
 let currentProject = "0";
 
@@ -86,10 +87,12 @@ const projectNameChange = () => {
       }
       const currentProj = allProjects[currentProject].getName();
       const form = document.createElement("form");
+
       const input = document.createElement("input");
       input.value = currentProj;
       const submit = document.createElement("button");
       submit.textContent = "submit";
+
       form.append(input, submit);
 
       projDOM.textContent = "";
@@ -97,14 +100,28 @@ const projectNameChange = () => {
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
+        // console.log(allToDo, currentProject, input.value);
+        reAssignProjects(allToDo, input.value);
         allProjects[currentProject].setName(input.value);
         addProjectTitleToDOM();
         clearAndDisplayProjects();
         addProjectsToStore();
+        sortAndDisplayTasks();
+        addTasksToStorage();
       });
     },
     { once: true }
   );
+};
+
+const reAssignProjects = (tasks, newProject) => {
+  const array = tasks;
+  const project = allProjects[currentProject];
+  array.forEach((task) => {
+    if (task.getProject() === project.getName()) {
+      task.setProject(newProject);
+    }
+  });
 };
 
 const selectedProj = () => {
