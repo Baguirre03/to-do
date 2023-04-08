@@ -239,12 +239,15 @@ const getEventListeners = () => {
       const task = allToDo[btn.id];
       if (btn.dataset.priority === "one") {
         task.setPriority("one");
+        sortAndDisplayTasks(currentProject);
         radioButtonDisplay();
       } else if (btn.dataset.priority === "two") {
         task.setPriority("two");
+        sortAndDisplayTasks(currentProject);
         radioButtonDisplay();
       } else if (btn.dataset.priority === "three") {
         task.setPriority("three");
+        sortAndDisplayTasks(currentProject);
         radioButtonDisplay();
       }
       addTasksToStorage();
