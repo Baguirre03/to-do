@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-use-before-define */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-loop-func */
 /* eslint-disable import/no-mutable-exports */
@@ -65,20 +67,6 @@ const navBarEvents = () => {
   });
 };
 
-const addProjectTitleToDOM = () => {
-  const titleDisplay = document.querySelector(".proj-display");
-
-  if (currentProject === "week") {
-    titleDisplay.textContent = "Week";
-  } else if (currentProject === "today") {
-    titleDisplay.textContent = "Today";
-  } else {
-    titleDisplay.textContent = allProjects[currentProject].getName();
-  }
-  removeForm();
-  titleDisplay.addEventListener("click", changeProjName);
-};
-
 const reAssignProjects = (tasks, newProject) => {
   const taskArray = tasks;
   taskArray.forEach((task) => {
@@ -88,8 +76,9 @@ const reAssignProjects = (tasks, newProject) => {
   });
 };
 
-const removeForm = () => {
+const removeNameChangeForm = () => {
   if (document.querySelector(".change-proj-name") === null) {
+    /* empty */
   } else {
     document.querySelector(".change-proj-name").remove();
   }
@@ -129,6 +118,20 @@ const changeProjName = (event) => {
     },
     { once: true }
   );
+};
+
+const addProjectTitleToDOM = () => {
+  const titleDisplay = document.querySelector(".proj-display");
+
+  if (currentProject === "week") {
+    titleDisplay.textContent = "Week";
+  } else if (currentProject === "today") {
+    titleDisplay.textContent = "Today";
+  } else {
+    titleDisplay.textContent = allProjects[currentProject].getName();
+  }
+  removeNameChangeForm();
+  titleDisplay.addEventListener("click", changeProjName);
 };
 
 const selectedProj = () => {
