@@ -1,6 +1,6 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable quotes */
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-use-before-define */
 /* eslint-disable import/no-cycle */
 import format from "date-fns/format";
 import { getWeek, parseISO } from "date-fns";
@@ -355,12 +355,6 @@ const checkForCurrentWeek = () => {
   checkEmptyDivForNav("No tasks due this week, enjoy it!");
 };
 
-const sortByPriority = () => {
-  priorOne();
-  priorTwo();
-  priorThree();
-};
-
 const priorOne = () => {
   for (let i = 0; i < allToDo.length; i += 1) {
     if (allToDo[i].getPriority() === "one") {
@@ -381,6 +375,12 @@ const priorThree = () => {
       disiplayOnDOM(allToDo[i], i);
     }
   }
+};
+
+const sortByPriority = () => {
+  priorOne();
+  priorTwo();
+  priorThree();
 };
 
 const removeCreateTask = () => {

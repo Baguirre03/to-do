@@ -16,7 +16,7 @@ const pageLoad = () => {
           <li><button id="all" class="project default-options">All Tasks</button></li>
             <li><button id="today" class="default-options project">Today</button></li>
             <li><button id="week" class="default-options project">This Week</button></li>
-            <li><button id="sort-prior" class="default-options project">Priority</button></li>
+            <li><button id="priority" class="default-options project">Priority</button></li>
           </ul>
           <div class="projects">
             <h3>Your Projects</h3>

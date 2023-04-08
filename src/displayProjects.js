@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-use-before-define */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-loop-func */
 /* eslint-disable import/no-mutable-exports */
@@ -44,7 +43,7 @@ const navBarEvents = () => {
   const allTasks = document.querySelector("#all");
   const today = document.querySelector("#today");
   const week = document.querySelector("#week");
-  const priority = document.querySelector("#sort-prior");
+  const priority = document.querySelector("#priority");
 
   allTasks.addEventListener("click", () => {
     currentProject = "0";
@@ -118,6 +117,7 @@ const changeProjName = (event) => {
       e.preventDefault();
       reAssignProjects(allToDo, input.value);
       allProjects[currentProject].setName(input.value);
+      // eslint-disable-next-line no-use-before-define
       addProjectTitleToDOM();
       clearAndDisplayProjects();
       addProjectsToStore();
@@ -158,14 +158,6 @@ const selectedProj = () => {
   });
 };
 
-const setCurrentProjToZero = () => {
-  currentProject = 0;
-};
-
-const setCurrentProj = (number) => {
-  currentProject = number;
-};
-
 const highlightAllTaskOnDOM = () => {
   document.querySelector("#all").click();
 };
@@ -176,7 +168,5 @@ export {
   navBarEvents,
   selectedProj,
   addProjectTitleToDOM,
-  setCurrentProjToZero,
   highlightAllTaskOnDOM,
-  setCurrentProj,
 };
