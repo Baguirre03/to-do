@@ -169,6 +169,10 @@ const highlightAllTaskOnDOM = () => {
   document.querySelector("#all").click();
 };
 
+const setCurrentProj = (number) => {
+  currentProject = number;
+};
+
 export {
   clearAndDisplayProjects,
   currentProject,
@@ -176,4 +180,5 @@ export {
   selectedProj,
   addProjectTitleToDOM,
   highlightAllTaskOnDOM,
+  setCurrentProj,
 };

@@ -475,10 +475,10 @@ button:hover {
 #project-name {
   width: 70%;
   border: none;
-  background-color: var(--royalBlue);
+  background-color: var(--darkGrey);
   border-bottom: 3px black dotted;
   font-size: 1.2rem;
-  color: var(--lavender);
+  padding: 2px;
 }
 
 #project-name:focus {
@@ -541,4 +541,25 @@ button:hover {
   background-color: var(--majorBlue);
   color: var(--darkGrey);
   padding: 2vw;
+  font-size: 1.5rem;
+  gap: 1vh;
+  box-shadow: 10px 10px 10px var(--darkBlue);
+  border: 3px solid black;
+  width: 40vw;
+  border-radius: 1vw;
+}
+
+.edit-task-form input {
+  height: 3vh;
+  font-size: 1.1rem;
+}
+
+.edit-task-form input:focus {
+  outline: none;
+  outline: 2px solid var(--ultraVoilet);
+}
+
+.edit-task-form select {
+  height: 3vh;
+  font-size: 1.1rem;
 }
