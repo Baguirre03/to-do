@@ -352,6 +352,34 @@ const checkForCurrentWeek = () => {
   checkEmptyDivForNav("No tasks due this week, enjoy it!");
 };
 
+const sortByPriority = () => {
+  priorOne();
+  priorTwo();
+  priorThree();
+};
+
+const priorOne = () => {
+  for (let i = 0; i < allToDo.length; i += 1) {
+    if (allToDo[i].getPriority() === "one") {
+      disiplayOnDOM(allToDo[i], i);
+    }
+  }
+};
+const priorTwo = () => {
+  for (let i = 0; i < allToDo.length; i += 1) {
+    if (allToDo[i].getPriority() === "two") {
+      disiplayOnDOM(allToDo[i], i);
+    }
+  }
+};
+const priorThree = () => {
+  for (let i = 0; i < allToDo.length; i += 1) {
+    if (allToDo[i].getPriority() === "three") {
+      disiplayOnDOM(allToDo[i], i);
+    }
+  }
+};
+
 const removeCreateTask = () => {
   const buttonCreateTask = document.querySelector("#createToDo");
   buttonCreateTask.classList.add("hidden");
@@ -374,6 +402,10 @@ const sortAndDisplayTasks = (project) => {
       checkForCurrentWeek();
       removeCreateTask();
       break;
+    case "priority":
+      sortByPriority();
+      removeCreateTask();
+      break;
     default:
       loopThroughTasks(project);
       addBackCreateTask();
@@ -390,4 +422,5 @@ export {
   checkDatesOfTasks,
   clearToDoDisplay,
   checkForCurrentWeek,
+  sortByPriority,
 };

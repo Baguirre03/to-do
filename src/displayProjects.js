@@ -44,6 +44,7 @@ const navBarEvents = () => {
   const allTasks = document.querySelector("#all");
   const today = document.querySelector("#today");
   const week = document.querySelector("#week");
+  const priority = document.querySelector("#sort-prior");
 
   allTasks.addEventListener("click", () => {
     currentProject = "0";
@@ -61,6 +62,13 @@ const navBarEvents = () => {
 
   week.addEventListener("click", () => {
     currentProject = "week";
+    projectSort();
+    clearToDoDisplay();
+    sortAndDisplayTasks(currentProject);
+  });
+
+  priority.addEventListener("click", () => {
+    currentProject = "priority";
     projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
@@ -127,6 +135,8 @@ const addProjectTitleToDOM = () => {
     titleDisplay.textContent = "Week";
   } else if (currentProject === "today") {
     titleDisplay.textContent = "Today";
+  } else if (currentProject === "priority") {
+    titleDisplay.textContent = "Priority";
   } else {
     titleDisplay.textContent = allProjects[currentProject].getName();
   }
