@@ -133,12 +133,19 @@ const addProjectTitleToDOM = () => {
 
   if (currentProject === "week") {
     titleDisplay.textContent = "Week";
+    titleDisplay.classList.remove("can-edit-name");
   } else if (currentProject === "today") {
     titleDisplay.textContent = "Today";
+    titleDisplay.classList.remove("can-edit-name");
   } else if (currentProject === "priority") {
     titleDisplay.textContent = "Priority";
+    titleDisplay.classList.remove("can-edit-name");
   } else {
     titleDisplay.textContent = allProjects[currentProject].getName();
+    titleDisplay.classList.add("can-edit-name");
+  }
+  if (currentProject === "0") {
+    titleDisplay.classList.remove("can-edit-name");
   }
   removeNameChangeForm();
   titleDisplay.addEventListener("click", changeProjName);

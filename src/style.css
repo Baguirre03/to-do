@@ -172,6 +172,11 @@ li {
   font-size: 2rem;
 }
 
+.can-edit-name:hover {
+  cursor: pointer;
+  color: var(--royalBlue);
+}
+
 #createToDo {
   font-size: 1.3rem;
   background-color: var(--lavender);
@@ -504,6 +509,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   background-color: var(--majorBlue);
+  box-shadow: 5px 5px 5px var(--royalBlue);
   border: 3px solid black;
   border-radius: 1vh;
   padding: 2vw;
@@ -523,4 +529,16 @@ button:hover {
 
 .to-do-form select {
   height: 2.5vh;
+}
+
+.edit-task-form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--majorBlue);
+  color: var(--darkGrey);
+  padding: 2vw;
 }
