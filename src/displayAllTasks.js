@@ -13,7 +13,6 @@ import {
   clearAndDisplayProjects,
   currentProject,
   highlightAllTaskOnDOM,
-  projectNameChange,
   selectedProj,
 } from "./displayProjects";
 
@@ -251,8 +250,6 @@ const getEventListeners = () => {
       addTasksToStorage();
     });
   });
-  
-  projectNameChange();
 };
 
 const disiplayOnDOM = (indexDisplay, i) => {
@@ -301,6 +298,7 @@ const createEmptyDisplay = () => {
   parent.appendChild(deleteBtn);
   deleteBtn.textContent = "Delete Project";
   deleteBtn.classList.add("delete-proj");
+
   deleteBtn.addEventListener("click", () => {
     deleteProject(currentProject);
     highlightAllTaskOnDOM();

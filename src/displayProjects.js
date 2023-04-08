@@ -33,6 +33,11 @@ const displayProjects = () => {
   }
 };
 
+const clearAndDisplayProjects = () => {
+  clearProjects();
+  displayProjects();
+};
+
 const navBarEvents = () => {
   const allTasks = document.querySelector("#all");
   const today = document.querySelector("#today");
@@ -60,11 +65,6 @@ const navBarEvents = () => {
   });
 };
 
-const clearAndDisplayProjects = () => {
-  clearProjects();
-  displayProjects();
-};
-
 const addProjectTitleToDOM = () => {
   const titleDisplay = document.querySelector(".proj-display");
 
@@ -75,53 +75,56 @@ const addProjectTitleToDOM = () => {
   } else {
     titleDisplay.textContent = allProjects[currentProject].getName();
   }
+  // removeEventListener(titleDisplay);
+  titleDisplay.addEventListener("click", changeProjName);
 };
 
-const projectNameChange = () => {
-  const projDOM = document.querySelector(".proj-display");
-  projDOM.addEventListener(
-    "click",
-    () => {
-      if (currentProject === "0") {
-        return;
-      }
-      const currentProj = allProjects[currentProject].getName();
-      const form = document.createElement("form");
+const reAssignProjects = (tasks, newProject) => {
+  const taskArray = tasks;
+  taskArray.forEach((task) => {
+    if (task.getProject() === allProjects[currentProject].getName()) {
+      task.setProject(newProject);
+    }
+  });
+};
 
-      const input = document.createElement("input");
-      input.value = currentProj;
-      const submit = document.createElement("button");
-      submit.textContent = "submit";
+const changeProjName = (event) => {
+  if (currentProject === "0") {
+    return;
+  }
+  console.log("running2");
+  const currentProj = allProjects[currentProject].getName();
+  const form = document.createElement("form");
 
-      form.append(input, submit);
+  const input = document.createElement("input");
+  input.value = currentProj;
+  const submit = document.createElement("button");
+  submit.textContent = "submit";
 
-      projDOM.textContent = "";
-      projDOM.append(form);
+  form.append(input, submit);
 
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        // console.log(allToDo, currentProject, input.value);
-        reAssignProjects(allToDo, input.value);
-        allProjects[currentProject].setName(input.value);
-        addProjectTitleToDOM();
-        clearAndDisplayProjects();
-        addProjectsToStore();
-        sortAndDisplayTasks();
-        addTasksToStorage();
-      });
+  event.target.textContent = "";
+
+  event.target.append(form);
+
+  form.addEventListener(
+    "submit",
+    (e) => {
+      e.preventDefault();
+      reAssignProjects(allToDo, input.value);
+      allProjects[currentProject].setName(input.value);
+      console.log(allProjects[currentProject]);
+      addProjectTitleToDOM();
+      clearAndDisplayProjects();
+      addProjectsToStore();
+      addTasksToStorage();
     },
     { once: true }
   );
 };
-
-const reAssignProjects = (tasks, newProject) => {
-  const array = tasks;
-  const project = allProjects[currentProject];
-  array.forEach((task) => {
-    if (task.getProject() === project.getName()) {
-      task.setProject(newProject);
-    }
-  });
+const removeEventListener = (listener) => {
+  console.log("removing");
+  listener.removeEventListener("click", changeProjName);
 };
 
 const selectedProj = () => {
@@ -159,5 +162,4 @@ export {
   setCurrentProjToZero,
   highlightAllTaskOnDOM,
   setCurrentProj,
-  projectNameChange,
 };
