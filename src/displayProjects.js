@@ -75,7 +75,7 @@ const addProjectTitleToDOM = () => {
   } else {
     titleDisplay.textContent = allProjects[currentProject].getName();
   }
-  // removeEventListener(titleDisplay);
+  removeForm();
   titleDisplay.addEventListener("click", changeProjName);
 };
 
@@ -88,13 +88,21 @@ const reAssignProjects = (tasks, newProject) => {
   });
 };
 
+const removeForm = () => {
+  if (document.querySelector(".change-proj-name") === null) {
+  } else {
+    document.querySelector(".change-proj-name").remove();
+  }
+};
+
 const changeProjName = (event) => {
+  const parent = document.querySelector(".to-do-container");
   if (currentProject === "0") {
     return;
   }
-  console.log("running2");
   const currentProj = allProjects[currentProject].getName();
   const form = document.createElement("form");
+  form.classList.add("change-proj-name");
 
   const input = document.createElement("input");
   input.value = currentProj;
@@ -105,7 +113,7 @@ const changeProjName = (event) => {
 
   event.target.textContent = "";
 
-  event.target.append(form);
+  parent.append(form);
 
   form.addEventListener(
     "submit",
@@ -113,18 +121,14 @@ const changeProjName = (event) => {
       e.preventDefault();
       reAssignProjects(allToDo, input.value);
       allProjects[currentProject].setName(input.value);
-      console.log(allProjects[currentProject]);
       addProjectTitleToDOM();
       clearAndDisplayProjects();
       addProjectsToStore();
       addTasksToStorage();
+      form.remove();
     },
     { once: true }
   );
-};
-const removeEventListener = (listener) => {
-  console.log("removing");
-  listener.removeEventListener("click", changeProjName);
 };
 
 const selectedProj = () => {
