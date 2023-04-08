@@ -97,7 +97,7 @@ const editTaskPopUp = (task) => {
   projectInput.setAttribute("id", "project");
   projectInput.value = task.getProject();
 
-  const currentProjectName = allProjects[currentProject].getName();
+  const currentProjectName = task.getProject();
 
   allProjects.forEach((element) => {
     const option = document.createElement("option");
