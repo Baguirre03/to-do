@@ -10,6 +10,11 @@ import { allToDo } from "./toDo";
 
 let currentProject = "0";
 
+const changeCurrentProject = (projectNunber) => {
+  currentProject = projectNunber;
+  return currentProject;
+};
+
 const clearProjects = () => {
   const holder = document.querySelector(".projects-holder");
   while (holder.firstChild) {
@@ -28,7 +33,7 @@ const displayProjects = () => {
     projectHolder.appendChild(project);
 
     project.addEventListener("click", () => {
-      currentProject = project.id;
+      changeCurrentProject(project.id);
       sortAndDisplayTasks(currentProject);
     });
   }
@@ -46,28 +51,28 @@ const navBarEvents = () => {
   const priority = document.querySelector("#priority");
 
   allTasks.addEventListener("click", () => {
-    currentProject = "0";
+    changeCurrentProject("0");
     projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
   });
 
   today.addEventListener("click", () => {
-    currentProject = "today";
+    changeCurrentProject("today");
     projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
   });
 
   week.addEventListener("click", () => {
-    currentProject = "week";
+    changeCurrentProject("week");
     projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
   });
 
   priority.addEventListener("click", () => {
-    currentProject = "priority";
+    changeCurrentProject("priority");
     projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
@@ -131,19 +136,19 @@ const changeProjName = (event) => {
 const addProjectTitleToDOM = () => {
   const titleDisplay = document.querySelector(".proj-display");
 
-  if (currentProject === "week") {
-    titleDisplay.textContent = "Week";
-    titleDisplay.classList.remove("can-edit-name");
-  } else if (currentProject === "today") {
-    titleDisplay.textContent = "Today";
-    titleDisplay.classList.remove("can-edit-name");
-  } else if (currentProject === "priority") {
-    titleDisplay.textContent = "Priority";
+  if (
+    currentProject === "week" ||
+    currentProject === "today" ||
+    currentProject === "priority"
+  ) {
+    titleDisplay.textContent =
+      currentProject.charAt(0).toUpperCase() + currentProject.substring(1);
     titleDisplay.classList.remove("can-edit-name");
   } else {
     titleDisplay.textContent = allProjects[currentProject].getName();
     titleDisplay.classList.add("can-edit-name");
   }
+
   if (currentProject === "0") {
     titleDisplay.classList.remove("can-edit-name");
   }
@@ -169,10 +174,6 @@ const highlightAllTaskOnDOM = () => {
   document.querySelector("#all").click();
 };
 
-const setCurrentProj = (number) => {
-  currentProject = number;
-};
-
 export {
   clearAndDisplayProjects,
   currentProject,
@@ -180,5 +181,5 @@ export {
   selectedProj,
   addProjectTitleToDOM,
   highlightAllTaskOnDOM,
-  setCurrentProj,
+  changeCurrentProject,
 };

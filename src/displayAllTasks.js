@@ -201,6 +201,23 @@ const radioButtonDisplay = () => {
   });
 };
 
+const editPriorityButtons = (taskInAllToDo, buttonItself) => {
+  const task = taskInAllToDo;
+  if (buttonItself.dataset.priority === "one") {
+    task.setPriority("one");
+    sortAndDisplayTasks(currentProject);
+    radioButtonDisplay();
+  } else if (buttonItself.dataset.priority === "two") {
+    task.setPriority("two");
+    sortAndDisplayTasks(currentProject);
+    radioButtonDisplay();
+  } else if (buttonItself.dataset.priority === "three") {
+    task.setPriority("three");
+    sortAndDisplayTasks(currentProject);
+    radioButtonDisplay();
+  }
+};
+
 const getEventListeners = () => {
   const deleteButtons = document.querySelectorAll(".delete-btn");
   deleteButtons.forEach((btn) => {
@@ -235,21 +252,8 @@ const getEventListeners = () => {
   const priorityButtons = document.querySelectorAll(".priority-button");
   priorityButtons.forEach((btn) => {
     btn.classList.remove("active-priority");
-    btn.addEventListener("click", () => {
-      const task = allToDo[btn.id];
-      if (btn.dataset.priority === "one") {
-        task.setPriority("one");
-        sortAndDisplayTasks(currentProject);
-        radioButtonDisplay();
-      } else if (btn.dataset.priority === "two") {
-        task.setPriority("two");
-        sortAndDisplayTasks(currentProject);
-        radioButtonDisplay();
-      } else if (btn.dataset.priority === "three") {
-        task.setPriority("three");
-        sortAndDisplayTasks(currentProject);
-        radioButtonDisplay();
-      }
+    btn.addEventListener("click", (event) => {
+      editPriorityButtons(allToDo[event.currentTarget.id], btn);
       addTasksToStorage();
     });
   });

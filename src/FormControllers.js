@@ -6,9 +6,9 @@ import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
 import {
   addProjectTitleToDOM,
+  changeCurrentProject,
   clearAndDisplayProjects,
   currentProject,
-  setCurrentProj,
 } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
 import { addProjectsToStore, addTasksToStorage } from "./storage";
@@ -56,7 +56,7 @@ const createProjectForm = () => {
     addProjectsToStore();
     projectSort();
     clearAndDisplayProjects();
-    setCurrentProj(allProjects.length - 1);
+    changeCurrentProject(allProjects.length - 1);
     sortAndDisplayTasks(allProjects.length - 1);
     addProjectTitleToDOM();
 
