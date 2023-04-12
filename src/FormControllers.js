@@ -84,7 +84,7 @@ const createToDoForm = () => {
   descLabel.setAttribute("for", "description");
   descLabel.textContent = "Description: ";
 
-  const descInput = document.createElement("input");
+  const descInput = document.createElement("textarea");
   descInput.setAttribute("id", "description");
 
   const dueDate = document.createElement("label");
@@ -119,14 +119,24 @@ const createToDoForm = () => {
   timeLabel.setAttribute("for", "time");
   timeLabel.textContent = "Time Allocation: ";
 
-  const timeInput = document.createElement("input");
+  const timeInput = document.createElement("select");
+  const oneHour = document.createElement("option");
+  oneHour.textContent = "1 hour";
+  oneHour.value = "1 hour";
+  timeInput.appendChild(oneHour);
+  for (let i = 2; i <= 6; i++) {
+    const option = document.createElement("option");
+    option.value = `${i} hours`;
+    option.textContent = `${i} hours`;
+    timeInput.appendChild(option);
+  }
   timeInput.setAttribute("id", "description");
 
   const noteLabel = document.createElement("label");
   noteLabel.setAttribute("for", "notes");
   noteLabel.textContent = "Notes: ";
 
-  const noteInput = document.createElement("input");
+  const noteInput = document.createElement("textarea");
   noteInput.setAttribute("id", "notes");
 
   const doneLabel = document.createElement("label");
@@ -168,7 +178,6 @@ const createToDoForm = () => {
     dueDateInput,
     priorityLable,
     priorityHolder,
-
     timeLabel,
     timeInput,
     noteLabel,
@@ -182,15 +191,15 @@ const createToDoForm = () => {
 
   submit.addEventListener("click", (event) => {
     event.preventDefault();
-    const radio = document.querySelector(
-      'input[name="priority"]:checked'
-    ).value;
     valiDate(dueDateInput.value);
     if (!dueDateInput.value) {
       // eslint-disable-next-line no-alert
       alert("please put a valid date");
       return;
     }
+    const radio = document.querySelector(
+      'input[name="priority"]:checked'
+    ).value;
     createNewToDo(
       nameInput.value,
       descInput.value,

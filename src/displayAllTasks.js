@@ -60,7 +60,7 @@ const editTaskPopUp = (task) => {
   descLabel.setAttribute("for", "description");
   descLabel.textContent = "Description: ";
 
-  const descInput = document.createElement("input");
+  const descInput = document.createElement("textarea");
   descInput.setAttribute("id", "description");
   descInput.value = task.getDescription();
 
@@ -85,7 +85,7 @@ const editTaskPopUp = (task) => {
   noteLabel.setAttribute("for", "notes");
   noteLabel.textContent = "Notes: ";
 
-  const noteInput = document.createElement("input");
+  const noteInput = document.createElement("textarea");
   noteInput.setAttribute("id", "notes");
   noteInput.value = task.getNotes();
 
@@ -396,6 +396,7 @@ const addBackCreateTask = () => {
 const sortAndDisplayTasks = (project) => {
   projectSort();
   clearToDoDisplay();
+
   switch (project) {
     case "today":
       checkDatesOfTasks();
@@ -413,6 +414,7 @@ const sortAndDisplayTasks = (project) => {
       loopThroughTasks(project);
       addBackCreateTask();
   }
+
   getEventListeners();
   selectedProj();
   addProjectTitleToDOM();

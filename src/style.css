@@ -506,29 +506,41 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
   flex-direction: column;
   background-color: var(--majorBlue);
-  box-shadow: 5px 5px 5px var(--royalBlue);
+  box-shadow: 5px 5px 5px var(--darkBlue);
   border: 3px solid black;
   border-radius: 1vh;
   padding: 2vw;
-  width: 25%;
+  width: fit-content;
   gap: 1.1vh;
   color: whitesmoke;
 }
 
-.to-do-form input {
+textarea {
+  resize: none;
+}
+
+.to-do-form input,
+textarea {
   height: 2.5vh;
+  padding: 0.2vh;
 }
 
 .to-do-form input:focus {
-  border: 2px solid black;
+  border: 2px solid var(--muave);
   outline: none;
 }
 
 .to-do-form select {
   height: 2.5vh;
+}
+
+.to-do-form button {
+  grid-column: span 2;
 }
 
 .edit-task-form {
