@@ -25,7 +25,9 @@ const pageLoad = () => {
           </div>
         </div>
         <div class="to-do-container">
-        <h3 class="proj-display"></h3>
+        <div class="proj-display-container">
+          <h3 class="proj-display"></h3>
+        </div>
           <button id="createToDo">Create New Task +</button>
         </div>
         <div class=task-holder>

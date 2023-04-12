@@ -173,10 +173,10 @@ const editCheckStat = (task, btn) => {
 const checkStat = () => {
   const getCheckStatButtons = document.querySelectorAll(".check-stat");
   getCheckStatButtons.forEach((btn) => {
-    const editThis = allToDo[btn.id];
+    const task = allToDo[btn.id];
     const lineThrough =
       btn.parentElement.nextElementSibling.querySelector("#title");
-    if (editThis.getCheckStat()) {
+    if (task.getCheckStat()) {
       btn.classList.add("done-task");
       btn.innerHTML +=
         '<svg class = "check-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>check-bold</title><path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /></svg>';

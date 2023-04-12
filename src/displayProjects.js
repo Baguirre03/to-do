@@ -97,11 +97,12 @@ const removeNameChangeForm = () => {
 };
 
 const changeProjName = (event) => {
-  const parent = document.querySelector(".to-do-container");
+  const parent = document.querySelector(".proj-display-container");
   if (currentProject === "0") {
     return;
   }
   const currentProj = allProjects[currentProject].getName();
+  const formHolder = document.createElement("h3");
   const form = document.createElement("form");
   form.classList.add("change-proj-name");
 
@@ -114,7 +115,8 @@ const changeProjName = (event) => {
 
   event.target.textContent = "";
 
-  parent.append(form);
+  formHolder.appendChild(form);
+  parent.append(formHolder);
 
   form.addEventListener(
     "submit",
