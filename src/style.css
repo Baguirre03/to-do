@@ -329,7 +329,6 @@ li {
 }
 
 .done-entire-task {
-  background-color: var(--darkGrey);
   border: 1px solid black;
   box-shadow: none;
   transition: 0.3s;
@@ -353,6 +352,7 @@ li {
 
 .edit-image:hover {
   fill: green;
+  scale: 1.05;
   transition: 0.2s;
 }
 
@@ -369,6 +369,7 @@ li {
 
 .delete-img:hover {
   fill: #e63946;
+  scale: 1.05;
   transition: 0.2s;
 }
 
@@ -379,6 +380,7 @@ li {
 
 .info-btn:hover {
   fill: var(--royalBlue);
+  scale: 1.05;
   transition: 0.2s;
 }
 
@@ -387,9 +389,6 @@ li {
   width: 2rem;
   margin-top: 2px;
 }
-
-/* .info-image {
-} */
 
 .task-info-popup {
   position: absolute;
@@ -513,6 +512,15 @@ button:hover {
   transition: 0.4s;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .to-do-form {
   position: absolute;
   top: 50%;
@@ -530,6 +538,7 @@ button:hover {
   width: fit-content;
   gap: 1.1vh;
   color: whitesmoke;
+  animation: fadeIn 0.5s;
 }
 
 textarea {
@@ -571,6 +580,7 @@ textarea {
   border: 3px solid black;
   width: 40vw;
   border-radius: 1vw;
+  animation: fadeIn 0.5s;
 }
 
 .edit-task-form input {
