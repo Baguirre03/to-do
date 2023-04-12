@@ -328,6 +328,18 @@ li {
   transition: 0.3s;
 }
 
+.done-entire-task {
+  background-color: var(--darkGrey);
+  border: 1px solid black;
+  box-shadow: none;
+  transition: 0.3s;
+  filter: brightness(90%);
+}
+
+.done-entire-task:hover {
+  box-shadow: none;
+}
+
 .edit-task {
   background-color: white;
   border: none;

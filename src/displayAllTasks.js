@@ -148,6 +148,8 @@ const editCheckStat = (task, btn) => {
   const editThis = task;
   const lineThrough =
     btn.parentElement.nextElementSibling.querySelector("#title");
+  const entireToDO = btn.parentElement.parentElement.parentElement;
+
   if (editThis.getCheckStat()) {
     editThis.setCheckStat(false);
 
@@ -156,6 +158,7 @@ const editCheckStat = (task, btn) => {
     btn.innerHTML = "";
 
     lineThrough.classList.remove("done-title");
+    entireToDO.classList.remove("done-entire-task");
     addTasksToStorage();
   } else {
     editThis.setCheckStat(true);
@@ -166,6 +169,7 @@ const editCheckStat = (task, btn) => {
       '<svg class="check-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>check-bold</title><path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /></svg>';
 
     lineThrough.classList.add("done-title");
+    entireToDO.classList.add("done-entire-task");
     addTasksToStorage();
   }
 };
@@ -176,15 +180,18 @@ const checkStat = () => {
     const task = allToDo[btn.id];
     const lineThrough =
       btn.parentElement.nextElementSibling.querySelector("#title");
+    const entireToDO = btn.parentElement.parentElement.parentElement;
     if (task.getCheckStat()) {
       btn.classList.add("done-task");
       btn.innerHTML +=
         '<svg class = "check-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>check-bold</title><path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" /></svg>';
       lineThrough.classList.add("done-title");
+      entireToDO.classList.add("done-entire-task");
     } else {
       btn.classList.add("false-task");
       btn.textContent = "";
       lineThrough.classList.remove("done-title");
+      entireToDO.classList.remove("done-entire-task");
     }
   });
 };
