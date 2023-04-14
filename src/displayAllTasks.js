@@ -24,6 +24,8 @@ const clearToDoDisplay = () => {
 };
 
 const displayInfoPopUp = (task) => {
+  const container = document.querySelector(".main-container");
+  container.classList.add("blur-this");
   const parent = document.querySelector("body");
   const holder = document.createElement("div");
   holder.innerHTML = task.getInfo();
@@ -37,11 +39,15 @@ const displayInfoPopUp = (task) => {
   parent.appendChild(holder);
 
   removeElement.addEventListener("click", () => {
+    container.classList.remove("blur-this");
     holder.remove();
   });
 };
 
 const editTaskPopUp = (task) => {
+  const container = document.querySelector(".main-container");
+  container.classList.add("blur-this");
+
   const parent = document.querySelector("body");
   const form = document.createElement("form");
   form.classList.add("edit-task-form");
@@ -140,6 +146,7 @@ const editTaskPopUp = (task) => {
 
     sortAndDisplayTasks(currentProject);
     addTasksToStorage();
+    container.classList.remove("blur-this");
     form.remove();
   });
 };

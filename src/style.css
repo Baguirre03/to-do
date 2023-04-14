@@ -244,12 +244,23 @@ li {
   }
 }
 
+@keyframes fade {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(95%);
+  }
+  100% {
+    filter: brightness(90%);
+  }
+}
+
 .done-title {
   position: relative;
 }
 
 .done-title::after {
-  /* text-decoration: line-through; */
   content: " ";
   position: absolute;
   top: 50%;
@@ -330,7 +341,6 @@ li {
 .done-entire-task {
   border: 1px solid black;
   box-shadow: none;
-  /* transition: 1s; */
   filter: brightness(90%);
 }
 
@@ -516,15 +526,6 @@ button:hover {
   transition: 0.4s;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .to-do-form {
   position: absolute;
   top: 50%;
@@ -544,6 +545,10 @@ button:hover {
   gap: 1.1vh;
   color: black;
   animation: fadeIn 0.5s;
+}
+
+.blur-this {
+  filter: blur(1px);
 }
 
 textarea {

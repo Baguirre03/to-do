@@ -66,8 +66,10 @@ const createProjectForm = () => {
 };
 
 const createToDoForm = () => {
+  const container = document.querySelector(".main-container");
+  container.classList.add("blur-this");
   const newToDo = document.querySelector("#createToDo");
-  const parent = document.querySelector("main");
+  const parent = document.querySelector("body");
   const form = document.createElement("form");
   form.classList.add("to-do-form");
 
@@ -216,6 +218,7 @@ const createToDoForm = () => {
     addTasksToStorage();
     projectSort();
     sortAndDisplayTasks(currentProject);
+    container.classList.remove("blur-this");
     form.remove();
     newToDo.disabled = false;
   });
