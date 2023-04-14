@@ -26,7 +26,7 @@ const clearToDoDisplay = () => {
 const displayInfoPopUp = (task) => {
   const parent = document.querySelector("body");
   const holder = document.createElement("div");
-  holder.textContent = task.getInfo();
+  holder.innerHTML = task.getInfo();
   holder.classList.add("task-info-popup");
 
   const removeElement = document.createElement("button");
@@ -324,7 +324,7 @@ const createEmptyDisplay = () => {
   });
 };
 
-const nonCheckedItems = (index, display) => {
+const nonCheckedItems = (display) => {
   for (let i = 0; i < display.projectToDo.length; i += 1) {
     if (display.projectToDo[i].getCheckStat() === false) {
       disiplayOnDOM(display.projectToDo[i], i);
@@ -332,7 +332,7 @@ const nonCheckedItems = (index, display) => {
   }
 };
 
-const checkItems = (index, display) => {
+const checkItems = (display) => {
   for (let i = 0; i < display.projectToDo.length; i += 1) {
     if (display.projectToDo[i].getCheckStat() === true) {
       disiplayOnDOM(display.projectToDo[i], i);
@@ -345,8 +345,8 @@ const loopThroughTasks = (index) => {
   if (display.getProjects().length === 0) {
     createEmptyDisplay();
   }
-  nonCheckedItems(index, display);
-  checkItems(index, display);
+  nonCheckedItems(display);
+  checkItems(display);
 };
 
 const checkEmptyDivForNav = (text) => {

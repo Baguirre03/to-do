@@ -67,12 +67,12 @@ export class ToDo {
     this.notes = notes;
   }
 
-  getCheckStat() {
-    return this.checkStat;
-  }
-
   setCheckStat(checkStat) {
     this.checkStat = checkStat;
+  }
+
+  getCheckStat() {
+    return this.checkStat;
   }
 
   getProject() {
@@ -84,7 +84,7 @@ export class ToDo {
   }
 
   getInfo() {
-    return `Description: ${this.description} Notes: ${this.notes} Time Allocation: ${this.timeAllocate} Project: ${this.project}`;
+    return `Description: ${this.description} </br> Notes: ${this.notes} </br> Time Allocation: ${this.timeAllocate} </br> Project: ${this.project}`;
   }
 }
 
