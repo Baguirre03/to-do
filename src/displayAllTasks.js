@@ -160,6 +160,7 @@ const editCheckStat = (task, btn) => {
     lineThrough.classList.remove("done-title");
     entireToDO.classList.remove("done-entire-task");
     addTasksToStorage();
+    sortAndDisplayTasks(currentProject);
   } else {
     editThis.setCheckStat(true);
 
@@ -171,6 +172,7 @@ const editCheckStat = (task, btn) => {
     lineThrough.classList.add("done-title");
     entireToDO.classList.add("done-entire-task");
     addTasksToStorage();
+    sortAndDisplayTasks(currentProject);
   }
 };
 
@@ -322,14 +324,29 @@ const createEmptyDisplay = () => {
   });
 };
 
+const nonCheckedItems = (index, display) => {
+  for (let i = 0; i < display.projectToDo.length; i += 1) {
+    if (display.projectToDo[i].getCheckStat() === false) {
+      disiplayOnDOM(display.projectToDo[i], i);
+    }
+  }
+};
+
+const checkItems = (index, display) => {
+  for (let i = 0; i < display.projectToDo.length; i += 1) {
+    if (display.projectToDo[i].getCheckStat() === true) {
+      disiplayOnDOM(display.projectToDo[i], i);
+    }
+  }
+};
+
 const loopThroughTasks = (index) => {
   const display = allProjects[index];
   if (display.getProjects().length === 0) {
     createEmptyDisplay();
   }
-  for (let i = 0; i < display.projectToDo.length; i += 1) {
-    disiplayOnDOM(display.projectToDo[i], i);
-  }
+  nonCheckedItems(index, display);
+  checkItems(index, display);
 };
 
 const checkEmptyDivForNav = (text) => {

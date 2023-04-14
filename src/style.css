@@ -331,7 +331,7 @@ li {
 .done-entire-task {
   border: 1px solid black;
   box-shadow: none;
-  transition: 0.3s;
+  /* transition: 1s; */
   filter: brightness(90%);
 }
 
