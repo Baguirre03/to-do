@@ -75,10 +75,11 @@ const createToDoForm = () => {
 
   const nameLabel = document.createElement("label");
   nameLabel.setAttribute("for", "to-do-name");
-  nameLabel.textContent = "To-Do : ";
+  nameLabel.textContent = "To-Do * : ";
 
   const nameInput = document.createElement("input");
   nameInput.setAttribute("id", "to-do-name");
+  nameInput.setAttribute("placeholder", "Task");
 
   const descLabel = document.createElement("label");
   descLabel.setAttribute("for", "description");
@@ -86,10 +87,11 @@ const createToDoForm = () => {
 
   const descInput = document.createElement("textarea");
   descInput.setAttribute("id", "description");
+  descInput.setAttribute("placeholder", "Description");
 
   const dueDate = document.createElement("label");
   dueDate.setAttribute("for", "due-date");
-  dueDate.textContent = "Due-date: ";
+  dueDate.textContent = "Due-date * : ";
 
   const dueDateInput = document.createElement("input");
   dueDateInput.setAttribute("id", "due-date");
@@ -97,7 +99,7 @@ const createToDoForm = () => {
 
   const priorityLable = document.createElement("legend");
   priorityLable.setAttribute("for", "priority");
-  priorityLable.textContent = "Priority: ";
+  priorityLable.textContent = "Priority * : ";
 
   const priorityHolder = document.createElement("div");
   priorityHolder.id = "priority";
@@ -138,6 +140,7 @@ const createToDoForm = () => {
 
   const noteInput = document.createElement("textarea");
   noteInput.setAttribute("id", "notes");
+  noteInput.setAttribute("placeholder", "Notes");
 
   const doneLabel = document.createElement("label");
   doneLabel.setAttribute("for", "done");
@@ -149,7 +152,7 @@ const createToDoForm = () => {
 
   const projectLabel = document.createElement("label");
   projectLabel.setAttribute("for", "project");
-  projectLabel.textContent = "Project : ";
+  projectLabel.textContent = "Project: ";
 
   const projectInput = document.createElement("select");
   projectInput.setAttribute("id", "project");

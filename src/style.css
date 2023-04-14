@@ -532,14 +532,15 @@ button:hover {
   grid-template-columns: 1fr 2fr;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--majorBlue);
+  background-color: white;
   box-shadow: 5px 5px 5px var(--darkBlue);
   border: 3px solid black;
   border-radius: 1vh;
   padding: 2vw;
   width: fit-content;
+  height: fit-content;
   gap: 1.1vh;
-  color: whitesmoke;
+  color: black;
   animation: fadeIn 0.5s;
 }
 
@@ -548,25 +549,52 @@ textarea {
 }
 
 .to-do-form input,
+select,
 textarea {
   height: 2.5vh;
   padding: 0.2vh;
+  border: 1px solid black;
 }
 
 .to-do-form input:focus,
 select:focus,
 textarea:focus {
-  border: 2px solid var(--muave);
-  border-radius: 0.2vw;
   outline: none;
 }
 
 .to-do-form select {
-  height: 2.5vh;
+  height: 3vh;
 }
 
 .to-do-form button {
   grid-column: span 2;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  justify-content: center;
+  height: 0.5vh;
+  padding: 1vw;
+  background-color: var(--darkGrey);
+  box-shadow: 2px 2px 2px black;
+}
+
+.to-do-form button:hover {
+  background-color: var(--majorBlue);
+  color: var(--darkGrey);
+  border-radius: 1vw;
+  box-shadow: 2px 2px 2px var(--royalBlue);
+  transition: 0.5s;
+}
+
+.to-do-form #priority {
+  display: flex;
+  flex-direction: column;
+}
+
+#priority .input-and-label {
+  display: flex;
+  align-content: center;
+  gap: 0.3vw;
 }
 
 .edit-task-form {
