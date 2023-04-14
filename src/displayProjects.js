@@ -103,13 +103,14 @@ const changeProjName = (event) => {
   }
   const currentProj = allProjects[currentProject].getName();
   const formHolder = document.createElement("h3");
+  formHolder.classList.add("change-proj-name-form");
   const form = document.createElement("form");
   form.classList.add("change-proj-name");
 
   const input = document.createElement("input");
   input.value = currentProj;
   const submit = document.createElement("button");
-  submit.textContent = "submit";
+  submit.textContent = "+";
 
   form.append(input, submit);
 

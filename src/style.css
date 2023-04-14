@@ -5,7 +5,6 @@
   --basicPadding: 2vw;
 
   --majorBlue: #1d3557;
-  /* --majorBlue: #9d8189; */
   --royalBlue: #457b9d;
   --ultraVoilet: #a8dadc;
   --lavender: white;
@@ -174,7 +173,7 @@ li {
 
 .can-edit-name:hover {
   cursor: pointer;
-  color: var(--royalBlue);
+  color: var(--ultraVoilet);
 }
 
 #createToDo {
@@ -445,14 +444,16 @@ button:hover {
   align-self: center;
   padding: 1vw;
   font-size: 1.3rem;
-  background-color: var(--ultraVoilet);
+  background-color: var(--lavender);
   box-shadow: 5px 5px 5px black;
 }
 
 .delete-proj:hover {
   background-color: var(--muave);
   color: var(--lavender);
-  box-shadow: 7px 7px 7px var(--majorBlue);
+  box-shadow: 5px 5px 5px black;
+  border-radius: 1vw;
+  transition: 0.4s;
 }
 
 .hidden {
@@ -502,14 +503,15 @@ button:hover {
   font-size: 1rem;
   padding-left: 0.5vw;
   padding-right: 0.5vw;
-  background-color: var(--majorBlue);
-  color: var(--lavender);
+  background-color: var(--lavender);
+  color: var(--darkBlue);
   border: 1px solid black;
+  box-shadow: 2px 2px 2px black;
 }
 
 .project-form button:hover {
-  background-color: var(--lavender);
-  color: black;
+  background-color: var(--majorBlue);
+  color: var(--darkGrey);
   border-radius: 50%;
   transition: 0.4s;
 }
@@ -582,7 +584,7 @@ textarea:focus {
   background-color: var(--majorBlue);
   color: var(--darkGrey);
   border-radius: 1vw;
-  box-shadow: 2px 2px 2px var(--royalBlue);
+  box-shadow: 2px 2px 2px var(--darkGrey);
   transition: 0.5s;
 }
 
@@ -629,4 +631,41 @@ textarea:focus {
 .edit-task-form select {
   height: 3vh;
   font-size: 1.1rem;
+}
+
+.change-proj-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.change-proj-name input {
+  background-color: white;
+  font-size: 1.2rem;
+
+  border: none;
+  border-bottom: black dotted 2px;
+  padding: 0.5vw;
+}
+
+.change-proj-name button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding: 5px;
+  width: 5vh;
+  height: 5vh;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 4px 4px 4px var(--darkBlue);
+}
+
+.change-proj-name button:hover {
+  background-color: var(--majorBlue);
+  color: var(--darkGrey);
+  font-size: 1.2rem;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.4s;
 }
