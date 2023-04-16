@@ -1,5 +1,4 @@
 node_modules/
-dist
 .eslintrc.json
 .prettierrc.json
 .vscode/
