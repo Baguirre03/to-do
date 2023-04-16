@@ -73,6 +73,7 @@ const createProjectForm = () => {
 
 const createToDoForm = () => {
   toggleBackgroundBlur();
+
   const newToDo = document.querySelector("#createToDo");
   const parent = document.querySelector("body");
   const form = document.createElement("form");
@@ -177,7 +178,17 @@ const createToDoForm = () => {
   });
 
   const submit = document.createElement("button");
-  submit.textContent = "+";
+  submit.textContent = "Add Task";
+  submit.classList.add("submit-form");
+
+  const removeFormButton = document.createElement("button");
+  removeFormButton.textContent = "X";
+  removeFormButton.classList.add("remove-form");
+  removeFormButton.addEventListener("click", () => {
+    form.remove();
+    toggleBackgroundBlur();
+    newToDo.disabled = false;
+  });
 
   form.append(
     nameLabel,
@@ -196,7 +207,8 @@ const createToDoForm = () => {
     doneInput,
     projectLabel,
     projectInput,
-    submit
+    submit,
+    removeFormButton
   );
 
   submit.addEventListener("click", (event) => {

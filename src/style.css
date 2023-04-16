@@ -577,24 +577,40 @@ textarea:focus {
   height: 3vh;
 }
 
-.to-do-form button {
+.submit-form {
   grid-column: span 2;
   display: flex;
   align-items: center;
   font-size: 1rem;
   justify-content: center;
-  height: 0.5vh;
-  padding: 1vw;
   background-color: var(--darkGrey);
   box-shadow: 2px 2px 2px black;
 }
 
-.to-do-form button:hover {
+.submit-form:hover {
   background-color: var(--majorBlue);
   color: var(--darkGrey);
   border-radius: 1vw;
   box-shadow: 2px 2px 2px var(--darkGrey);
   transition: 0.5s;
+}
+
+.remove-form {
+  position: absolute;
+  right: 0;
+  margin: 2px 2px 0px 0px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  justify-content: center;
+  background-color: var(--darkGrey);
+  box-shadow: 1px 1px 1px black;
+}
+
+.remove-form:hover {
+  background-color: red;
+  color: white;
 }
 
 .to-do-form #priority {
