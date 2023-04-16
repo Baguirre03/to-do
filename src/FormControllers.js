@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable quotes */
 /* eslint-disable import/no-cycle */
-/* eslint-disable no-plusplus */
 import { allProjects, createNewProject } from "./project";
 import projectSort from "./projectAssign";
 import { createNewToDo } from "./toDo";
@@ -134,7 +133,7 @@ const createToDoForm = () => {
   oneHour.textContent = "1 hour";
   oneHour.value = "1 hour";
   timeInput.appendChild(oneHour);
-  for (let i = 2; i <= 6; i++) {
+  for (let i = 2; i <= 6; i += 1) {
     const option = document.createElement("option");
     option.value = `${i} hours`;
     option.textContent = `${i} hours`;
@@ -249,4 +248,9 @@ const eventListeners = () => {
   });
 };
 
-export { eventListeners, createToDoForm, createProjectForm };
+export {
+  eventListeners,
+  createToDoForm,
+  createProjectForm,
+  toggleBackgroundBlur,
+};

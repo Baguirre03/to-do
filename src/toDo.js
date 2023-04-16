@@ -127,7 +127,7 @@ const defaultTasks = () => {
     "Mark HW",
     "2023-04-05",
     "one",
-    "1.5 Hours",
+    "1 hour",
     "No Notes",
     false,
     "School"
@@ -147,7 +147,7 @@ const defaultTasks = () => {
     "Lots of content on it",
     "2023-03-20",
     "two",
-    "1 Hour",
+    "3 hours",
     "No notes",
     true,
     "School"
@@ -157,7 +157,7 @@ const defaultTasks = () => {
     "Gotta find a book first",
     "2023-07-04",
     "three",
-    "1 Hour",
+    "1 hour",
     "No notes",
     false,
     "Personal"

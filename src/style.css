@@ -609,37 +609,38 @@ textarea:focus {
 }
 
 .edit-task-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--majorBlue);
-  color: var(--darkGrey);
+  background-color: white;
+  color: black;
   padding: 2vw;
-  font-size: 1.5rem;
-  gap: 1vh;
-  box-shadow: 10px 10px 10px var(--darkBlue);
+  gap: 1.1vh;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: 5px 5px 5px var(--darkBlue);
   border: 3px solid black;
-  width: 40vw;
   border-radius: 1vw;
   animation: fadeIn 0.5s;
 }
 
-.edit-task-form input {
-  height: 3vh;
-  font-size: 1.1rem;
-}
-
-.edit-task-form input:focus {
-  outline: none;
-  outline: 2px solid var(--ultraVoilet);
+.edit-task-form input,
+select,
+textarea {
+  height: 2.5vh;
+  padding: 0.2vh;
+  border: 1px solid black;
 }
 
 .edit-task-form select {
   height: 3vh;
-  font-size: 1.1rem;
+}
+
+.edit-task-form input:focus {
+  outline: none;
 }
 
 .change-proj-name {

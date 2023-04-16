@@ -15,6 +15,7 @@ import {
   highlightAllTaskOnDOM,
   selectedProj,
 } from "./displayProjects";
+import { toggleBackgroundBlur } from "./FormControllers";
 
 const clearToDoDisplay = () => {
   const holder = document.querySelector(".task-holder");
@@ -45,8 +46,7 @@ const displayInfoPopUp = (task) => {
 };
 
 const editTaskPopUp = (task) => {
-  const container = document.querySelector(".main-container");
-  container.classList.add("blur-this");
+  toggleBackgroundBlur();
 
   const parent = document.querySelector("body");
   const form = document.createElement("form");
@@ -83,9 +83,22 @@ const editTaskPopUp = (task) => {
   timeLabel.setAttribute("for", "time");
   timeLabel.textContent = "Time Allocation: ";
 
-  const timeInput = document.createElement("input");
-  timeInput.setAttribute("id", "description");
-  timeInput.value = task.getTimeAllocate();
+  const timeInput = document.createElement("select");
+  const oneHour = document.createElement("option");
+  oneHour.textContent = "1 hour";
+  oneHour.value = "1 hour";
+  timeInput.appendChild(oneHour);
+  for (let i = 2; i <= 6; i += 1) {
+    const option = document.createElement("option");
+    option.value = `${i} hours`;
+    option.textContent = `${i} hours`;
+    if (option.value === task.getTimeAllocate()) {
+      option.setAttribute("selected", "selected");
+    }
+    timeInput.appendChild(option);
+  }
+
+  timeInput.setAttribute("id", "time");
 
   const noteLabel = document.createElement("label");
   noteLabel.setAttribute("for", "notes");
@@ -140,13 +153,13 @@ const editTaskPopUp = (task) => {
     task.setTitle(nameInput.value);
     task.setDescription(descInput.value);
     task.setDueDate(dueDateInput.value);
-    task.getTimeAllocate(timeInput.value);
+    task.setTimeAllocate(timeInput.value);
     task.setNotes(noteInput.value);
     task.setProject(projectInput.value);
 
     sortAndDisplayTasks(currentProject);
     addTasksToStorage();
-    container.classList.remove("blur-this");
+    toggleBackgroundBlur();
     form.remove();
   });
 };
