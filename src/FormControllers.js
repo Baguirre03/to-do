@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable quotes */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-plusplus */
@@ -12,6 +13,13 @@ import {
 } from "./displayProjects";
 import { sortAndDisplayTasks } from "./displayAllTasks";
 import { addProjectsToStore, addTasksToStorage } from "./storage";
+
+const toggleBackgroundBlur = () => {
+  const container = document.querySelector(".main-container");
+  container.classList.contains("blur-this")
+    ? container.classList.remove("blur-this")
+    : container.classList.add("blur-this");
+};
 
 const valiDate = (inputDate) => {
   const parts = inputDate.split(/[/\-.]/);
@@ -38,7 +46,6 @@ const createProjectForm = () => {
   const submit = document.createElement("button");
   submit.textContent = "+";
 
-  // form.appendChild(label);
   form.appendChild(input);
   form.appendChild(submit);
 
@@ -66,8 +73,7 @@ const createProjectForm = () => {
 };
 
 const createToDoForm = () => {
-  const container = document.querySelector(".main-container");
-  container.classList.add("blur-this");
+  toggleBackgroundBlur();
   const newToDo = document.querySelector("#createToDo");
   const parent = document.querySelector("body");
   const form = document.createElement("form");
@@ -218,7 +224,7 @@ const createToDoForm = () => {
     addTasksToStorage();
     projectSort();
     sortAndDisplayTasks(currentProject);
-    container.classList.remove("blur-this");
+    toggleBackgroundBlur();
     form.remove();
     newToDo.disabled = false;
   });
@@ -235,6 +241,11 @@ const eventListeners = () => {
   newToDo.addEventListener("click", () => {
     newToDo.disabled = true;
     createToDoForm();
+  });
+
+  const logo = document.querySelector("#logo-svg");
+  logo.addEventListener("click", () => {
+    document.querySelector("#all").click();
   });
 };
 

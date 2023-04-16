@@ -50,6 +50,10 @@ header svg {
   fill: var(--lavender);
 }
 
+#logo-svg:hover {
+  cursor: pointer;
+}
+
 /* Main Content */
 
 main {
