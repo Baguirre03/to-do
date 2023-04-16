@@ -756,6 +756,10 @@ textarea {
     justify-content: center;
   }
 
+  .projects {
+    gap: 1px;
+  }
+
   .projects-holder {
     display: flex;
     flex-direction: column;
@@ -808,14 +812,63 @@ textarea {
     padding: 2px;
   }
 
+  .proj-display {
+    font-size: 1.7rem;
+  }
+
+  #createToDo {
+    font-size: 1rem;
+    background-color: var(--lavender);
+    border: none;
+    padding: 1vh;
+  }
+
+  #createToDo:hover {
+    color: var(--lavender);
+    background-color: var(--majorBlue);
+    box-shadow: 2px 2px 2px black;
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 1vw;
+  }
+
   .delete-proj {
     width: fit-content;
   }
 
-  .sidebar ul {
-    float: left;
+  .change-proj-name {
+    display: flex;
+    align-items: center;
+    gap: 3px;
   }
-  div.content {
-    margin-left: 0;
+
+  .change-proj-name input {
+    background-color: white;
+    font-size: 1rem;
+    border: none;
+    border-bottom: black dotted 1px;
+    padding: 0.3vw;
+  }
+
+  .change-proj-name button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 3px;
+    width: 3vh;
+    height: 3vh;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px var(--darkBlue);
+  }
+
+  .change-proj-name button:hover {
+    background-color: var(--majorBlue);
+    color: var(--darkGrey);
+    font-size: 1rem;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.4s;
   }
 }
