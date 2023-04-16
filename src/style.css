@@ -24,10 +24,9 @@
 
 header {
   height: 7vh;
-  display: grid;
-  align-items: center;
+  display: flex;
+  justify-content: space-between;
   padding-left: var(--basicPadding);
-  /* background-color: var(--majorBlue); */
   color: var(--lavender);
   font-size: 2rem;
   border-bottom: 2px solid black;
@@ -40,18 +39,25 @@ header {
   );
 }
 
-header {
+header div {
+  height: 7vh;
+  font-size: 2rem;
   display: flex;
+  align-items: center;
   gap: 1vw;
 }
 
-header svg {
+header div svg {
   height: 60%;
   fill: var(--lavender);
 }
 
 #logo-svg:hover {
   cursor: pointer;
+}
+
+.dropdown {
+  visibility: hidden;
 }
 
 /* Main Content */
@@ -832,6 +838,12 @@ textarea {
     border-radius: 1vw;
   }
 
+  .empty-display {
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+
   .delete-proj {
     width: fit-content;
   }
@@ -870,5 +882,32 @@ textarea {
     align-items: center;
     border-radius: 50%;
     transition: 0.4s;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .dropdown {
+    visibility: visible;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  #dropdown-svg {
+    height: 5vh;
+    width: 5vh;
+  }
+
+  .sidebar {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .sidebar.active-dropdown {
+    visibility: visible;
+    transition: 1s;
+    position: relative;
   }
 }
