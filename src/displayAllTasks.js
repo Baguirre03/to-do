@@ -24,27 +24,6 @@ const clearToDoDisplay = () => {
   }
 };
 
-const displayInfoPopUp = (task) => {
-  const container = document.querySelector(".main-container");
-  container.classList.add("blur-this");
-  const parent = document.querySelector("body");
-  const holder = document.createElement("div");
-  holder.innerHTML = task.getInfo();
-  holder.classList.add("task-info-popup");
-
-  const removeElement = document.createElement("button");
-  removeElement.classList.add("remove-popup");
-  removeElement.textContent = "X";
-
-  holder.appendChild(removeElement);
-  parent.appendChild(holder);
-
-  removeElement.addEventListener("click", () => {
-    container.classList.remove("blur-this");
-    holder.remove();
-  });
-};
-
 const editTaskPopUp = (task) => {
   toggleBackgroundBlur();
 
@@ -129,7 +108,7 @@ const editTaskPopUp = (task) => {
   });
 
   const submit = document.createElement("button");
-  submit.textContent = "+";
+  submit.textContent = "Edit Task";
 
   form.append(
     nameLabel,
@@ -161,6 +140,27 @@ const editTaskPopUp = (task) => {
     addTasksToStorage();
     toggleBackgroundBlur();
     form.remove();
+  });
+};
+
+const displayInfoPopUp = (task) => {
+  toggleBackgroundBlur();
+
+  const parent = document.querySelector("body");
+  const holder = document.createElement("div");
+  holder.innerHTML = task.getInfo();
+  holder.classList.add("task-info-popup");
+
+  const removeElement = document.createElement("button");
+  removeElement.classList.add("remove-popup");
+  removeElement.textContent = "X";
+
+  holder.appendChild(removeElement);
+  parent.appendChild(holder);
+
+  removeElement.addEventListener("click", () => {
+    toggleBackgroundBlur();
+    holder.remove();
   });
 };
 
