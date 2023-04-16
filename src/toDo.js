@@ -123,6 +123,16 @@ const createNewToDo = (
 
 const defaultTasks = () => {
   createNewToDo(
+    "Edit the title of a project (hint: click it)",
+    "Looks like you found the more info!",
+    "2023-04-05",
+    "one",
+    "1 hour",
+    "And some notes can go in here!",
+    false,
+    "Personal"
+  );
+  createNewToDo(
     "Homework",
     "Mark HW",
     "2023-04-05",
