@@ -2,7 +2,8 @@
 
 ### Result
 
-[**Link to Page**](https://baguirre03.github.io/to-do/)
+## [**Link to Page**](https://baguirre03.github.io/to-do/)
+
 ![Collage preview format](./src//imgs/collage-image.png?raw=true "Preview")
 
 ### About the project
