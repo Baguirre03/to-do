@@ -123,7 +123,7 @@ const createNewToDo = (
 
 const defaultTasks = () => {
   createNewToDo(
-    "Edit the title of a project (hint: click it)",
+    "You can edit the title of a project (hint: click School on the left, then its title on the top!)",
     "Looks like you found the more info!",
     "2023-04-05",
     "one",
