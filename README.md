@@ -2,7 +2,7 @@
 
 ### Result
 
-## [**Link to Page**](https://baguirre03.github.io/to-do/)
+## [**Link to Live Preview**](https://baguirre03.github.io/to-do/)
 
 ![Collage preview format](./src//imgs/collage-image.png?raw=true "Preview")
 
