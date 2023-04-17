@@ -63,7 +63,7 @@ const createProjectForm = () => {
     projectSort();
     clearAndDisplayProjects();
     changeCurrentProject(allProjects.length - 1);
-    sortAndDisplayTasks(allProjects.length - 1);
+    sortAndDisplayTasks(currentProject);
     addProjectTitleToDOM();
 
     form.remove();

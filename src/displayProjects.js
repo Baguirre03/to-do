@@ -4,14 +4,13 @@
 /* eslint-disable import/no-mutable-exports */
 import { allProjects } from "./project";
 import { clearToDoDisplay, sortAndDisplayTasks } from "./displayAllTasks";
-import projectSort from "./projectAssign";
 import { addProjectsToStore, addTasksToStorage } from "./storage";
 import { allToDo } from "./toDo";
 
 let currentProject = "0";
 
-const changeCurrentProject = (projectNunber) => {
-  currentProject = projectNunber;
+const changeCurrentProject = (projectNumber) => {
+  currentProject = projectNumber;
   return currentProject;
 };
 
@@ -26,7 +25,7 @@ const displayProjects = () => {
   const projectHolder = document.querySelector(".projects-holder");
   for (let i = 1; i < allProjects.length; i += 1) {
     const project = document.createElement("button");
-    project.textContent = allProjects[i].name;
+    project.textContent = allProjects[i].getName();
     project.classList.add("project");
     project.id = i;
 
@@ -52,28 +51,24 @@ const navBarEvents = () => {
 
   allTasks.addEventListener("click", () => {
     changeCurrentProject("0");
-    projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
   });
 
   today.addEventListener("click", () => {
     changeCurrentProject("today");
-    projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
   });
 
   week.addEventListener("click", () => {
     changeCurrentProject("week");
-    projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
   });
 
   priority.addEventListener("click", () => {
     changeCurrentProject("priority");
-    projectSort();
     clearToDoDisplay();
     sortAndDisplayTasks(currentProject);
   });

@@ -138,6 +138,7 @@ const editTaskPopUp = (task) => {
 
     sortAndDisplayTasks(currentProject);
     addTasksToStorage();
+
     toggleBackgroundBlur();
     form.remove();
   });
@@ -179,6 +180,7 @@ const editCheckStat = (task, btn) => {
 
     lineThrough.classList.remove("done-title");
     entireToDO.classList.remove("done-entire-task");
+
     addTasksToStorage();
     sortAndDisplayTasks(currentProject);
   } else {
@@ -191,6 +193,7 @@ const editCheckStat = (task, btn) => {
 
     lineThrough.classList.add("done-title");
     entireToDO.classList.add("done-entire-task");
+
     addTasksToStorage();
     sortAndDisplayTasks(currentProject);
   }
@@ -224,6 +227,7 @@ const radioButtonDisplay = () => {
     const task = allToDo[btn.id];
     const taskPriority = task.getPriority();
     btn.classList.remove("active-priority");
+
     if (btn.dataset.priority === taskPriority) {
       btn.classList.add("active-priority");
     }
@@ -245,6 +249,7 @@ const editPriorityButtons = (taskInAllToDo, buttonItself) => {
     sortAndDisplayTasks(currentProject);
     radioButtonDisplay();
   }
+  addTasksToStorage();
 };
 
 const getEventListeners = () => {
@@ -283,7 +288,6 @@ const getEventListeners = () => {
     btn.classList.remove("active-priority");
     btn.addEventListener("click", (event) => {
       editPriorityButtons(allToDo[event.currentTarget.id], btn);
-      addTasksToStorage();
     });
   });
 };
@@ -301,12 +305,13 @@ const disiplayOnDOM = (indexDisplay, i) => {
 
   const date = format(parseISO(indexDisplay.dueDate), "MM/dd/yyyy");
 
-  eachToDoHolder.innerHTML += `  <div class="left-side"> 
-    <div class="done"><button class="check-stat" id="${indexOfTask}"></button></div>
-  <div class="left-task-items">
-    <div class='title'><p id="title">${indexDisplay.title}</p></div>
-    <div class="due"><p>Due: ${date}</p></div>
-  </div>
+  eachToDoHolder.innerHTML += `  
+  <div class="left-side"> 
+      <div class="done"><button class="check-stat" id="${indexOfTask}"></button></div>
+    <div class="left-task-items">
+      <div class='title'><p id="title">${indexDisplay.title}</p></div>
+      <div class="due"><p>Due: ${date}</p></div>
+    </div>
   </div>
   <div class="right-task-items">
     <div class="priority"><button data-priority="one" id=${indexOfTask} class="priority-button"></button><button data-priority="two" id=${indexOfTask} class="priority-button"></button><button data-priority="three" id=${indexOfTask} class="priority-button"></button></div>
@@ -340,7 +345,6 @@ const createEmptyDisplay = () => {
     highlightAllTaskOnDOM();
     addProjectsToStore();
     clearAndDisplayProjects();
-    sortAndDisplayTasks(currentProject);
   });
 };
 
@@ -381,10 +385,10 @@ const checkEmptyDivForNav = (text) => {
 
 const checkDatesOfTasks = () => {
   const getToday = new Date();
-  const formatted = format(getToday, "MM/dd/yyyy");
+  const formattedDate = format(getToday, "MM/dd/yyyy");
   for (let i = 0; i < allToDo.length; i += 1) {
     const date = format(parseISO(allToDo[i].getDueDate()), "MM/dd/yyyy");
-    if (date === formatted) {
+    if (date === formattedDate) {
       disiplayOnDOM(allToDo[i], i);
     }
   }
